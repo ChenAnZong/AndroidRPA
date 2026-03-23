@@ -168,8 +168,8 @@ PACK_KEY_WITH_VERSION=false
 
 ## 🔗 相关链接
 
-- [Yyds.Auto 项目主页](https://github.com/yourusername/RPA)
-- [问题反馈](https://github.com/yourusername/yyds-auto-vscode-extension/issues)
+- [Yyds.Auto 项目主页](https://github.com/ChenAnZong/AndroidRPA)
+- [问题反馈](https://github.com/ChenAnZong/AndroidRPA/issues)
 - [更新日志](CHANGELOG.md)
 
 ---

@@ -41,7 +41,7 @@
 ```json
 "repository": {
   "type": "git",
-  "url": "https://github.com/yourusername/yyds-auto-vscode-extension.git"
+  "url": "https://github.com/ChenAnZong/AndroidRPA.git"
 }
 ```
 

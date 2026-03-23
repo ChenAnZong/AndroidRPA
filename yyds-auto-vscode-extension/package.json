@@ -25,12 +25,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/yyds-auto-vscode-extension.git"
+    "url": "https://github.com/ChenAnZong/AndroidRPA.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/yyds-auto-vscode-extension/issues"
+    "url": "https://github.com/ChenAnZong/AndroidRPA/issues"
   },
-  "homepage": "https://github.com/yourusername/yyds-auto-vscode-extension#readme",
+  "homepage": "https://github.com/ChenAnZong/AndroidRPA#readme",
   "_icon": "resources/icon.png",
   "galleryBanner": {
     "color": "#1e1e1e",
