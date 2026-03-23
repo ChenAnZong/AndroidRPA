@@ -80,3 +80,9 @@ target/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Publish Script (Private)
+build_and_release.py
+
+# Internal / Private
+yyds-con/
