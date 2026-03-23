@@ -1,0 +1,358 @@
+[
+  {
+    "id": "send_wechat",
+    "name": "发微信",
+    "description": "给微信好友发消息",
+    "category": "社交",
+    "keywords": ["发微信", "微信发消息", "微信聊天", "给谁发微信", "微信发送"],
+    "params": [
+      {
+        "name": "contact",
+        "type": "string",
+        "description": "联系人名称",
+        "required": true,
+        "examples": ["张三", "老婆", "妈妈", "老板"]
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "description": "要发送的消息内容",
+        "required": false,
+        "examples": []
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.tencent.mm",
+        "name": "微信",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开微信",
+          "点击顶部搜索框",
+          "输入联系人名称搜索",
+          "点击搜索结果中的联系人",
+          "在聊天输入框输入消息",
+          "点击发送按钮"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "order_food",
+    "name": "点外卖",
+    "description": "帮你点外卖、订餐",
+    "category": "外卖",
+    "keywords": ["点外卖", "叫外卖", "外卖", "点餐", "订餐", "饿了", "点吃的", "送餐"],
+    "params": [
+      {
+        "name": "food",
+        "type": "string",
+        "description": "想吃什么",
+        "required": false,
+        "examples": ["汉堡", "猪脚饭", "奶茶", "炒饭", "麻辣烫"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.sankuai.meituan",
+        "name": "美团",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开美团",
+          "点击外卖入口",
+          "搜索想吃的食物",
+          "选择商家和菜品",
+          "确认订单信息",
+          "提交订单（不自动支付）"
+        ]
+      },
+      {
+        "package": "me.ele",
+        "name": "饿了么",
+        "type": "gui_automation",
+        "priority": 80,
+        "steps": [
+          "打开饿了么",
+          "搜索想吃的食物",
+          "选择商家和菜品",
+          "确认订单"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "navigate",
+    "name": "导航",
+    "description": "导航到目的地",
+    "category": "出行",
+    "keywords": ["导航", "去哪里", "怎么走", "路线", "带我去"],
+    "params": [
+      {
+        "name": "destination",
+        "type": "string",
+        "description": "目的地",
+        "required": true,
+        "examples": ["公司", "家", "机场", "火车站"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.autonavi.minimap",
+        "name": "高德地图",
+        "type": "delegation",
+        "priority": 100,
+        "deep_link": "amapuri://route/plan/?dlat=0&dlon=0&dname={destination}&dev=0&t=0",
+        "steps": []
+      },
+      {
+        "package": "com.baidu.BaiduMap",
+        "name": "百度地图",
+        "type": "delegation",
+        "priority": 80,
+        "deep_link": "baidumap://map/direction?destination={destination}&mode=driving",
+        "steps": []
+      }
+    ]
+  },
+  {
+    "id": "call_taxi",
+    "name": "打车",
+    "description": "叫车出行",
+    "category": "出行",
+    "keywords": ["打车", "叫车", "网约车", "出租车", "滴滴"],
+    "params": [
+      {
+        "name": "destination",
+        "type": "string",
+        "description": "目的地",
+        "required": true,
+        "examples": []
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.sdu.didi.psnger",
+        "name": "滴滴出行",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开滴滴出行",
+          "在目的地输入框输入地址",
+          "选择车型",
+          "点击呼叫"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "play_music",
+    "name": "播放音乐",
+    "description": "播放音乐或歌曲",
+    "category": "娱乐",
+    "keywords": ["播放音乐", "听歌", "放歌", "音乐", "听音乐", "播放歌曲"],
+    "params": [
+      {
+        "name": "song",
+        "type": "string",
+        "description": "歌曲名或歌手",
+        "required": false,
+        "examples": ["周杰伦", "晴天", "每日推荐"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.netease.cloudmusic",
+        "name": "网易云音乐",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开网易云音乐",
+          "点击搜索",
+          "输入歌曲名或歌手",
+          "点击播放"
+        ]
+      },
+      {
+        "package": "com.kugou.android",
+        "name": "酷狗音乐",
+        "type": "gui_automation",
+        "priority": 80,
+        "steps": [
+          "打开酷狗音乐",
+          "搜索歌曲",
+          "点击播放"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "watch_video",
+    "name": "看视频",
+    "description": "观看视频内容",
+    "category": "娱乐",
+    "keywords": ["看视频", "刷视频", "B站", "抖音", "看热门", "视频"],
+    "params": [
+      {
+        "name": "content",
+        "type": "string",
+        "description": "想看的内容",
+        "required": false,
+        "examples": ["热门", "搞笑", "美食", "游戏"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "tv.danmaku.bili",
+        "name": "哔哩哔哩",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开哔哩哔哩",
+          "如有指定内容则搜索，否则浏览推荐",
+          "点击视频播放"
+        ]
+      },
+      {
+        "package": "com.ss.android.ugc.aweme",
+        "name": "抖音",
+        "type": "gui_automation",
+        "priority": 80,
+        "steps": [
+          "打开抖音",
+          "自动播放推荐视频"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "set_alarm",
+    "name": "设闹钟",
+    "description": "设置闹钟或提醒",
+    "category": "工具",
+    "keywords": ["设闹钟", "闹钟", "提醒我", "定时", "叫我起床"],
+    "params": [
+      {
+        "name": "time",
+        "type": "string",
+        "description": "时间",
+        "required": true,
+        "examples": ["7点", "明早8点", "下午3点"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.android.deskclock",
+        "name": "时钟",
+        "type": "delegation",
+        "priority": 100,
+        "deep_link": "",
+        "steps": [],
+        "python_snippet": "# 通过 Intent 设置闹钟\nimport re\ntime_str = '{time}'\nhour = 7\nminute = 0\nm = re.search(r'(\\d+)[点时](\\d*)', time_str)\nif m:\n    hour = int(m.group(1))\n    minute = int(m.group(2)) if m.group(2) else 0\nif '下午' in time_str or '晚' in time_str:\n    hour += 12\nshell(f'am start -a android.intent.action.SET_ALARM --ei android.intent.extra.alarm.HOUR {hour} --ei android.intent.extra.alarm.MINUTES {minute} --ez android.intent.extra.alarm.SKIP_UI false')\nresult = f'已设置 {hour}:{minute:02d} 的闹钟'"
+      }
+    ]
+  },
+  {
+    "id": "take_photo",
+    "name": "拍照",
+    "description": "打开相机拍照",
+    "category": "工具",
+    "keywords": ["拍照", "拍张照", "打开相机", "照相"],
+    "params": [],
+    "related_apps": [
+      {
+        "package": "com.android.camera",
+        "name": "相机",
+        "type": "delegation",
+        "priority": 100,
+        "deep_link": "",
+        "steps": [],
+        "python_snippet": "shell('am start -a android.media.action.STILL_IMAGE_CAMERA')\nresult = '已打开相机'"
+      }
+    ]
+  },
+  {
+    "id": "search_web",
+    "name": "搜索",
+    "description": "在浏览器中搜索",
+    "category": "工具",
+    "keywords": ["搜索", "百度", "查一下", "搜一下", "谷歌"],
+    "params": [
+      {
+        "name": "query",
+        "type": "string",
+        "description": "搜索内容",
+        "required": true,
+        "examples": []
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.android.browser",
+        "name": "浏览器",
+        "type": "delegation",
+        "priority": 100,
+        "deep_link": "",
+        "steps": [],
+        "python_snippet": "import urllib.parse\nq = urllib.parse.quote('{query}')\nshell(f'am start -a android.intent.action.VIEW -d \"https://www.baidu.com/s?wd={q}\"')\nresult = '已打开搜索'"
+      }
+    ]
+  },
+  {
+    "id": "install_app",
+    "name": "安装应用",
+    "description": "从应用商店安装应用",
+    "category": "系统",
+    "keywords": ["安装", "下载应用", "装个", "安装应用"],
+    "params": [
+      {
+        "name": "app_name",
+        "type": "string",
+        "description": "应用名称",
+        "required": true,
+        "examples": []
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.android.vending",
+        "name": "应用商店",
+        "type": "gui_automation",
+        "priority": 100,
+        "steps": [
+          "打开应用商店",
+          "搜索应用名称",
+          "点击安装"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "system_settings",
+    "name": "系统设置",
+    "description": "修改系统设置（WiFi、蓝牙、亮度等）",
+    "category": "系统",
+    "keywords": ["设置", "WiFi", "蓝牙", "亮度", "音量", "飞行模式", "热点"],
+    "params": [
+      {
+        "name": "setting",
+        "type": "string",
+        "description": "要修改的设置项",
+        "required": true,
+        "examples": ["WiFi", "蓝牙", "亮度"]
+      }
+    ],
+    "related_apps": [
+      {
+        "package": "com.android.settings",
+        "name": "设置",
+        "type": "delegation",
+        "priority": 100,
+        "deep_link": "",
+        "steps": [],
+        "python_snippet": "# Root 权限直接修改系统设置\nsetting = '{setting}'.lower()\nif 'wifi' in setting:\n    # 切换 WiFi\n    state = root_shell('settings get global wifi_on').strip()\n    new_state = '0' if state == '1' else '1'\n    root_shell(f'svc wifi {\"enable\" if new_state == \"1\" else \"disable\"}')\n    result = f'WiFi 已{\"开启\" if new_state == \"1\" else \"关闭\"}'\nelif '蓝牙' in setting or 'bluetooth' in setting:\n    root_shell('svc bluetooth enable')\n    result = '蓝牙已开启'\nelif '亮度' in setting:\n    root_shell('settings put system screen_brightness 128')\n    result = '亮度已设置为中等'\nelif '飞行' in setting:\n    state = root_shell('settings get global airplane_mode_on').strip()\n    new_val = '0' if state == '1' else '1'\n    root_shell(f'settings put global airplane_mode_on {new_val}')\n    result = f'飞行模式已{\"开启\" if new_val == \"1\" else \"关闭\"}'\nelse:\n    shell('am start -a android.settings.SETTINGS')\n    result = '已打开系统设置'"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+# Build outputs
+build/
+dist/
+*.tar.gz
+*.tar.xz
+
+# CPython source
+cpython-src/
+
+# NDK (downloaded by build script)
+android-ndk/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/

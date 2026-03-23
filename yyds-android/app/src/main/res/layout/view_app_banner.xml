@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bannerOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 半透明遮罩背景 -->
+    <View
+        android:id="@+id/bannerDim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55000000" />
+
+    <!-- 居中浮动卡片 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bannerCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="32dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/primary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- 左侧彩色指示条（使用固定高度避免 match_parent 渲染异常） -->
+            <View
+                android:id="@+id/bannerStrip"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/primary_lay" />
+
+            <!-- 右侧内容区域 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="99"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp">
+
+                <!-- 标题行：图标 + 标题 + 关闭按钮 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/bannerIcon"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_tip"
+                        app:tint="@color/primary_lay" />
+
+                    <TextView
+                        android:id="@+id/bannerTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/banner_hint"
+                        android:textColor="@color/primary_lay"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/bannerClose"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:alpha="0.45"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="3dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        app:tint="@color/primary_lay" />
+
+                </LinearLayout>
+
+                <!-- 分割线 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:alpha="0.5"
+                    android:background="@color/primary_lay6" />
+
+                <!-- 消息正文 -->
+                <TextView
+                    android:id="@+id/bannerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/primary_lay"
+                    android:textSize="14sp" />
+
+                <!-- 操作按钮（默认隐藏） -->
+                <TextView
+                    android:id="@+id/bannerAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/banner_action_bg"
+                    android:paddingHorizontal="22dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- Transparent bounding-box overlay (draws directly on live screen) -->
+    <com.tencent.yyds.inspector.UiInspectorView
+        android:id="@+id/inspector_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Compact floating pill toolbar (top-right, minimal obstruction) -->
+    <LinearLayout
+        android:id="@+id/inspector_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/inspector_toolbar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <TextView
+            android:id="@+id/inspector_node_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#CCFFFFFF"
+            android:textSize="11sp" />
+
+        <ImageView
+            android:id="@+id/inspector_btn_tree"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_tree_view" />
+
+        <ImageView
+            android:id="@+id/inspector_btn_refresh"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_refresh_white" />
+
+        <ImageView
+            android:id="@+id/inspector_btn_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_close_white" />
+
+    </LinearLayout>
+
+    <!-- Loading indicator (centered, semi-transparent, small) -->
+    <LinearLayout
+        android:id="@+id/inspector_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/inspector_toolbar_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/inspector_loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/inspector_analyzing"
+            android:textColor="#CCFFFFFF"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!-- Bottom detail panel (compact, shows on node selection) -->
+    <LinearLayout
+        android:id="@+id/inspector_detail_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/inspector_detail_bg"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Header: class name + copy + close buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:id="@+id/detail_class_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#4CAF50"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/detail_btn_copy"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_copy_white"
+                android:contentDescription="@string/inspector_copy" />
+
+            <ImageView
+                android:id="@+id/detail_btn_close"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="4dp"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_close_white"
+                android:contentDescription="@string/inspector_cd_close" />
+
+        </LinearLayout>
+
+        <!-- Scrollable properties (compact) -->
+        <ScrollView
+            android:id="@+id/inspector_detail_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <LinearLayout
+                android:id="@+id/detail_props_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="14dp"
+                android:paddingBottom="12dp" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Node tree panel (bottom, initially hidden) -->
+    <LinearLayout
+        android:id="@+id/tree_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/inspector_detail_bg"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Tree panel header: search + controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:background="#CC222222">
+
+            <!-- Search input -->
+            <EditText
+                android:id="@+id/tree_search_input"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:hint="@string/inspector_search_hint"
+                android:textSize="12sp"
+                android:textColor="#EEEEEE"
+                android:textColorHint="#666666"
+                android:background="@drawable/inspector_toolbar_bg"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="0dp"
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:inputType="text" />
+
+            <!-- Filter count -->
+            <TextView
+                android:id="@+id/tree_filter_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#888888"
+                android:textSize="10sp" />
+
+            <!-- Expand all -->
+            <TextView
+                android:id="@+id/tree_btn_expand_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/inspector_expand"
+                android:textColor="#88FFFFFF"
+                android:textSize="10sp"
+                android:padding="4dp" />
+
+            <!-- Collapse all -->
+            <TextView
+                android:id="@+id/tree_btn_collapse_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inspector_collapse"
+                android:textColor="#88FFFFFF"
+                android:textSize="10sp"
+                android:padding="4dp" />
+
+            <!-- Close tree panel -->
+            <ImageView
+                android:id="@+id/tree_btn_close"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:padding="3dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_close_white"
+                android:contentDescription="@string/inspector_cd_close" />
+
+        </LinearLayout>
+
+        <!-- Tree RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tree_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

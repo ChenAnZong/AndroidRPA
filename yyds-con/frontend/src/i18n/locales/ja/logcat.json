@@ -1,0 +1,21 @@
+{
+  "startRecording": "記録開始",
+  "startRecordingMark": "--- 記録開始 ({{time}}) ---",
+  "stopRecordingMark": "--- 記録停止 ({{time}}) ---",
+  "clear": "クリア",
+  "export": "エクスポート",
+  "search": "検索...",
+  "filterSettings": "フィルター設定",
+  "logLevel": "ログレベル",
+  "format": "フォーマット",
+  "pidPlaceholder": "プロセスID",
+  "tagPlaceholder": "タグフィルター",
+  "filterHint": "ヒント: フィルター設定変更後、「クリア」して「記録開始」で新しいパラメータを適用してください",
+  "waitingLogs": "ログ待機中...",
+  "clickToStart": "「記録開始」をクリックしてデバイスLogcatを取得",
+  "pollingInterval": "ポーリング間隔 2s",
+  "stopped": "停止中",
+  "autoScroll": "自動スクロール",
+  "scrollPaused": "スクロール一時停止",
+  "linesUnit": "行"
+}

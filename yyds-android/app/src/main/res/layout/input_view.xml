@@ -1,0 +1,17 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_lay"
+    android:alpha=".6"
+    >
+
+    <TextView
+        android:id="@+id/tv_yy_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_view_hint"
+        android:layout_centerInParent="true"
+        android:textColor="@color/primary"
+        />
+</RelativeLayout>

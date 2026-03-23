@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet">
+
+    <!-- 拖拽指示条 -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_sheet_handle" />
+
+    <!-- 工程名称标题 -->
+    <TextView
+        android:id="@+id/tvSheetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="12dp"
+        android:textColor="#264B6F"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="#E0E0E0" />
+
+    <!-- 浏览工程文件 -->
+    <LinearLayout
+        android:id="@+id/menuBrowseFiles"
+        style="@style/SheetMenuItem">
+        <ImageView
+            style="@style/SheetMenuIcon"
+            android:src="@drawable/ic_file_open" />
+        <TextView
+            style="@style/SheetMenuText"
+            android:text="@string/menu_browse_files" />
+    </LinearLayout>
+
+    <!-- 打包APK -->
+    <LinearLayout
+        android:id="@+id/menuPackageApk"
+        style="@style/SheetMenuItem">
+        <ImageView
+            style="@style/SheetMenuIcon"
+            android:src="@drawable/ic_launch" />
+        <TextView
+            style="@style/SheetMenuText"
+            android:text="@string/menu_package_apk" />
+    </LinearLayout>
+
+    <!-- 下载更新工程 -->
+    <LinearLayout
+        android:id="@+id/menuDownload"
+        style="@style/SheetMenuItem">
+        <ImageView
+            style="@style/SheetMenuIcon"
+            android:src="@drawable/ic_download" />
+        <TextView
+            style="@style/SheetMenuText"
+            android:text="@string/menu_download_update" />
+    </LinearLayout>
+
+    <!-- 重置配置 -->
+    <LinearLayout
+        android:id="@+id/menuResetConfig"
+        style="@style/SheetMenuItem">
+        <ImageView
+            style="@style/SheetMenuIcon"
+            android:src="@drawable/ic_reset" />
+        <TextView
+            style="@style/SheetMenuText"
+            android:text="@string/menu_reset_config" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="#E0E0E0" />
+
+    <!-- 删除工程 -->
+    <LinearLayout
+        android:id="@+id/menuDeleteProject"
+        style="@style/SheetMenuItem">
+        <ImageView
+            style="@style/SheetMenuIcon"
+            android:src="@drawable/ic_delete"
+            android:tint="#C62828" />
+        <TextView
+            style="@style/SheetMenuText"
+            android:text="@string/menu_delete_project"
+            android:textColor="#C62828" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+</LinearLayout>

@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ── Landing Page ── */
+.landing-page {
+  scroll-behavior: smooth;
+}
+.landing-page ::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Theme Variables ── */
+:root {
+  /* Brand (shared) */
+  --color-brand: #2C7BE5;
+  --color-brand-light: #4A9EF5;
+  /* Surfaces — Light */
+  --color-page-bg: #F5F7FA;
+  --color-card-bg: rgba(255, 255, 255, 0.85);
+  --color-card-border: rgba(0, 0, 0, 0.08);
+  --color-sidebar-bg: rgba(255, 255, 255, 0.70);
+  /* Dividers */
+  --color-divider: rgba(0, 0, 0, 0.08);
+  --color-divider-light: rgba(0, 0, 0, 0.04);
+  /* Text */
+  --color-text-primary: #1A1D24;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-text-hint: #9CA3AF;
+  /* Semantic */
+  --color-success: #16A34A;
+  --color-success-bg: rgba(22, 163, 74, 0.10);
+  --color-danger: #DC2626;
+  --color-danger-bg: rgba(220, 38, 38, 0.10);
+  --color-warning: #D97706;
+  --color-warning-bg: rgba(217, 119, 6, 0.10);
+  /* Accent */
+  --color-accent-blue-bg: rgba(44, 123, 229, 0.08);
+  --color-accent-green-bg: rgba(22, 163, 74, 0.08);
+  --color-accent-purple-bg: rgba(124, 58, 237, 0.08);
+  --color-accent-amber-bg: rgba(217, 119, 6, 0.08);
+  /* Modal overlay */
+  --color-modal-bg: #FFFFFF;
+  --color-modal-overlay: rgba(0, 0, 0, 0.40);
+  /* Hover */
+  --color-hover: rgba(0, 0, 0, 0.04);
+  --color-hover-strong: rgba(0, 0, 0, 0.08);
+  /* Input */
+  --color-input-bg: rgba(0, 0, 0, 0.03);
+  --color-input-border: rgba(0, 0, 0, 0.12);
+  /* Terminal */
+  --color-terminal-bg: #1E293B;
+  --color-terminal-header: #1B2838;
+  --color-terminal-text: #E0E8F0;
+}
+
+.dark {
+  --color-brand: #4A9EF5;
+  --color-brand-light: #6BB5FF;
+  /* Surfaces — Dark */
+  --color-page-bg: #0F1117;
+  --color-card-bg: rgba(255, 255, 255, 0.04);
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-sidebar-bg: rgba(255, 255, 255, 0.02);
+  /* Dividers */
+  --color-divider: rgba(255, 255, 255, 0.08);
+  --color-divider-light: rgba(255, 255, 255, 0.04);
+  /* Text */
+  --color-text-primary: #E8EAED;
+  --color-text-secondary: #9AA0A6;
+  --color-text-muted: #6B7280;
+  --color-text-hint: #4B5563;
+  /* Semantic */
+  --color-success: #34D399;
+  --color-success-bg: rgba(52, 211, 153, 0.12);
+  --color-danger: #F87171;
+  --color-danger-bg: rgba(248, 113, 113, 0.12);
+  --color-warning: #FBBF24;
+  --color-warning-bg: rgba(251, 191, 36, 0.12);
+  /* Accent */
+  --color-accent-blue-bg: rgba(74, 158, 245, 0.10);
+  --color-accent-green-bg: rgba(52, 211, 153, 0.10);
+  --color-accent-purple-bg: rgba(167, 139, 250, 0.10);
+  --color-accent-amber-bg: rgba(251, 191, 36, 0.10);
+  /* Modal */
+  --color-modal-bg: #1A1D24;
+  --color-modal-overlay: rgba(0, 0, 0, 0.60);
+  /* Hover */
+  --color-hover: rgba(255, 255, 255, 0.05);
+  --color-hover-strong: rgba(255, 255, 255, 0.10);
+  /* Input */
+  --color-input-bg: rgba(255, 255, 255, 0.05);
+  --color-input-border: rgba(255, 255, 255, 0.10);
+  /* Terminal */
+  --color-terminal-bg: #192129;
+  --color-terminal-header: #1B2838;
+  --color-terminal-text: #E0E8F0;
+}
+
+/* ── Tailwind Theme Tokens (reference CSS vars) ── */
+@theme {
+  --color-brand: var(--color-brand);
+  --color-brand-light: var(--color-brand-light);
+  --color-page-bg: var(--color-page-bg);
+  --color-card-bg: var(--color-card-bg);
+  --color-card-border: var(--color-card-border);
+  --color-sidebar-bg: var(--color-sidebar-bg);
+  --color-divider: var(--color-divider);
+  --color-divider-light: var(--color-divider-light);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-hint: var(--color-text-hint);
+  --color-success: var(--color-success);
+  --color-success-bg: var(--color-success-bg);
+  --color-danger: var(--color-danger);
+  --color-danger-bg: var(--color-danger-bg);
+  --color-warning: var(--color-warning);
+  --color-warning-bg: var(--color-warning-bg);
+  --color-accent-blue-bg: var(--color-accent-blue-bg);
+  --color-accent-green-bg: var(--color-accent-green-bg);
+  --color-accent-purple-bg: var(--color-accent-purple-bg);
+  --color-accent-amber-bg: var(--color-accent-amber-bg);
+  --color-modal-bg: var(--color-modal-bg);
+  --color-modal-overlay: var(--color-modal-overlay);
+  --color-hover: var(--color-hover);
+  --color-hover-strong: var(--color-hover-strong);
+  --color-input-bg: var(--color-input-bg);
+  --color-input-border: var(--color-input-border);
+  --color-terminal-bg: var(--color-terminal-bg);
+  --color-terminal-header: var(--color-terminal-header);
+  --color-terminal-text: var(--color-terminal-text);
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@layer base {
+  * {
+    @apply border-divider;
+  }
+  body {
+    @apply bg-page-bg text-text-primary transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[3px] border border-card-border bg-card-bg p-4
+           backdrop-blur-sm transition-all duration-200;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px]
+           bg-brand px-4 py-2 text-sm font-medium text-white
+           transition-all duration-150 hover:brightness-110
+           active:scale-[0.97] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px]
+           border border-input-border bg-input-bg px-4 py-2 text-sm font-medium
+           text-text-primary transition-all duration-150
+           hover:bg-hover-strong
+           active:scale-[0.97] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px]
+           px-3 py-2 text-sm font-medium text-text-muted
+           transition-all duration-150 hover:bg-hover hover:text-text-primary;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px]
+           bg-danger px-4 py-2 text-sm font-medium text-white
+           transition-all duration-150 hover:brightness-110
+           active:scale-[0.97];
+  }
+  .input {
+    @apply w-full rounded-[3px] border border-input-border bg-input-bg
+           px-3 py-2 text-sm text-text-primary placeholder-text-hint
+           outline-none transition-all duration-150
+           focus:border-brand/50 focus:ring-1 focus:ring-brand/30;
+  }
+  .badge-online {
+    @apply inline-flex items-center gap-1 rounded-[3px] bg-success-bg px-2 py-0.5 text-xs font-medium text-success;
+  }
+  .badge-offline {
+    @apply inline-flex items-center gap-1 rounded-[3px] bg-hover px-2 py-0.5 text-xs font-medium text-text-hint;
+  }
+  .badge-p2p {
+    @apply inline-flex items-center gap-1 rounded-[3px] bg-accent-blue-bg px-2 py-0.5 text-xs font-medium text-brand;
+  }
+  .badge-relay {
+    @apply inline-flex items-center gap-1 rounded-[3px] bg-accent-amber-bg px-2 py-0.5 text-xs font-medium text-warning;
+  }
+  .animate-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.15s ease-out;
+  }
+}
+
+/* ---------- syntax highlighting tokens ---------- */
+.tok-keyword { color: #ff7b72; }
+.tok-builtin { color: #d2a8ff; }
+.tok-string { color: #a5d6ff; }
+.tok-number { color: #79c0ff; }
+.tok-comment { color: #8b949e; font-style: italic; }
+.tok-class { color: #ffa657; }
+.tok-punct { color: #8b949e; }
+

@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ==================== App ==================== -->
+    <string name="app_name">Yyds.Auto</string>
+    <string name="subtitle">Android Automation</string>
+    <string name="app_platform">Android RPA Automation Platform</string>
+
+    <!-- ==================== Navigation ==================== -->
+    <string name="nav_home">Home</string>
+    <string name="nav_script">Scripts</string>
+    <string name="nav_agent">AI Agent</string>
+    <string name="nav_remote">Remote</string>
+
+    <!-- ==================== Home Fragment ==================== -->
+    <string name="home_network">Network</string>
+    <string name="home_network_checking">Checking…</string>
+    <string name="home_engine_checking">Checking…</string>
+    <string name="home_shizuku">Shizuku (No ROOT)</string>
+    <string name="home_view">View</string>
+    <string name="home_remote_control">Remote &amp; Screen Cast</string>
+    <string name="home_touch_mode">Touch Injection Mode</string>
+    <string name="home_floating_window">Floating Window</string>
+    <string name="home_click_to_enable">Tap to enable</string>
+    <string name="home_log_console">Log Console</string>
+    <string name="home_run_log">Run Log</string>
+    <string name="home_view_log">View Log</string>
+    <string name="home_beginner_guide">Beginner Guide</string>
+    <string name="home_beginner_guide_desc">5 steps to get started</string>
+
+    <!-- ==================== Script Fragment ==================== -->
+    <string name="script_no_project">No Projects</string>
+    <string name="script_no_project_hint">Push projects via VSCode extension\nor tap + to import a project</string>
+    <string name="script_import_project">Import Project</string>
+
+    <!-- ==================== Remote Fragment ==================== -->
+    <string name="remote_server_title">Remote Management Server</string>
+    <string name="remote_server_desc">Configure server address and log in to bind device</string>
+    <string name="remote_server_config">Server Configuration</string>
+    <string name="remote_server_hint">Server address (IP)</string>
+    <string name="remote_port_hint">Port</string>
+    <string name="remote_checking">Checking…</string>
+    <string name="remote_account_login">Account Login</string>
+    <string name="remote_account_desc">Log in to bind this device and manage it from the console</string>
+    <string name="remote_username_hint">Username</string>
+    <string name="remote_password_hint">Password</string>
+    <string name="remote_login">Log In</string>
+    <string name="remote_register">Register</string>
+    <string name="remote_username_label">Username</string>
+    <string name="remote_role_label">Role</string>
+    <string name="remote_logout">Log Out</string>
+    <string name="remote_save_config">Save Config</string>
+    <string name="remote_instructions">Instructions:\n\n1. Enter the IP address and port of the remote console\n2. Log in to bind the device and obtain an auth token\n3. Tap Save — the engine will auto-connect\n4. Config file: /sdcard/Yyds.Auto/server.conf</string>
+
+    <!-- ==================== Agent Fragment ==================== -->
+    <string name="agent_title">AI Agent</string>
+    <string name="agent_desc">Tell me what you want to do and I\'ll operate the phone for you</string>
+    <string name="agent_running_status">Running · Step 3/25</string>
+    <string name="agent_need_config">AI model not configured</string>
+    <string name="agent_need_config_desc">Enter an API Key to get started. Supports Doubao, Qwen, GPT-4o</string>
+    <string name="agent_go_settings">Go to Settings</string>
+    <string name="agent_stop">Stop</string>
+    <string name="agent_input_hint">Tell AI what you want to do…</string>
+    <string name="agent_cd_settings">Settings</string>
+    <string name="agent_cd_send">Send</string>
+    <string name="agent_log_action_sample">Tap (540, 960)</string>
+    <string name="agent_log_detail_sample">Navigated to Settings</string>
+
+    <!-- ==================== Agent Settings ==================== -->
+    <string name="agent_settings_title">AI Agent Settings</string>
+    <string name="agent_settings_provider">AI Model Provider</string>
+    <string name="agent_settings_volcengine">Volcengine (Doubao)</string>
+    <string name="agent_settings_alibaba">Alibaba Cloud (Qwen)</string>
+    <string name="agent_settings_custom">Custom (OpenAI-compatible API)</string>
+    <string name="agent_settings_get_key">Get API Key from Volcengine console</string>
+    <string name="agent_settings_api_key_hint">Enter API Key</string>
+    <string name="agent_settings_base_url_hint">Base URL (e.g. https://api.example.com/v1)</string>
+    <string name="agent_settings_model_hint">Model name (e.g. gpt-4o)</string>
+    <string name="agent_settings_test">Test Connection</string>
+    <string name="agent_settings_advanced">Advanced Options</string>
+    <string name="agent_settings_max_steps">Max Execution Steps</string>
+    <string name="agent_settings_ui_tree">UI Tree Enhancement</string>
+    <string name="agent_settings_ui_tree_desc">Also send UI tree XML to improve decision accuracy</string>
+    <string name="agent_settings_reflection">Action Reflection</string>
+    <string name="agent_settings_reflection_desc">Compare screenshots after execution to verify results (disable to save tokens)</string>
+    <string name="agent_settings_save">Save Settings</string>
+    <string name="agent_settings_cd_back">Back</string>
+    <string name="agent_settings_cd_expand">Expand</string>
+
+    <!-- ==================== Beginner Guide ==================== -->
+    <string name="guide_title">Beginner Guide</string>
+    <string name="guide_intro">Follow these steps to complete the initial setup and run your first automation script in minutes.</string>
+    <string name="guide_step1_title">Activate Engine</string>
+    <string name="guide_step1_desc">First-time activation required. If the engine status shows \"Not activated\", tap it for the activation guide. Supports ROOT, Shizuku, or PC ADB.</string>
+    <string name="guide_step2_title">Prepare a Script Project</string>
+    <string name="guide_step2_desc">Switch to the \"Scripts\" tab. Create a blank project or place your Python script folder under /sdcard/Yyds.Py/ on the device.</string>
+    <string name="guide_step3_title">Run the Script</string>
+    <string name="guide_step3_desc">Tap the ▶ button next to a project in the script list to start it. Logs are displayed in real time on the log page.</string>
+    <string name="guide_step4_title">Connect from PC (Optional)</string>
+    <string name="guide_step4_desc">Install the \"Yyds.Auto\" VSCode extension and enter the device IP to connect. Supports code editing, live push, screenshot debugging, and more.</string>
+    <string name="guide_step5_title">Use the Floating Window</string>
+    <string name="guide_step5_desc">Enable the \"Floating Control Window\" on this page to quickly start/stop scripts from any screen without switching back to this app.</string>
+    <string name="guide_view_docs">View Online Docs</string>
+    <string name="guide_dismiss">Got it</string>
+
+    <!-- ==================== Engine Activation ==================== -->
+    <string name="engine_not_started">Engine Not Started</string>
+    <string name="engine_activation_desc">Worker process not running. This device lacks the required permissions. Choose one of the following methods to activate.</string>
+    <string name="engine_root_title">ROOT Activation</string>
+    <string name="engine_root_desc">Grant ROOT via Magisk / KernelSU</string>
+    <string name="engine_root_status">Not authorized</string>
+    <string name="engine_shizuku_title">Shizuku Activation</string>
+    <string name="engine_shizuku_desc">No ROOT needed — install Shizuku and start via Wireless Debugging</string>
+    <string name="engine_shizuku_status">Not running</string>
+    <string name="engine_adb_title">PC ADB Activation</string>
+    <string name="engine_adb_desc">Connect to a PC and activate via VSCode extension or ADB command</string>
+    <string name="engine_activation_hint">💡 After authorization, return to Home to auto-detect and start the engine</string>
+
+    <!-- ==================== Import Project ==================== -->
+    <string name="import_title">Import Project</string>
+    <string name="import_from_file">Import from File</string>
+    <string name="import_from_file_desc">Select a .yyp.zip project package from file manager</string>
+    <string name="import_scan_dirs">Scan Common Directories</string>
+    <string name="import_scan_dirs_desc">Quick scan of Download, Documents, etc.</string>
+
+    <!-- ==================== Project Menu ==================== -->
+    <string name="project_menu_browse">Browse Project Files</string>
+    <string name="project_menu_package">Package APK</string>
+    <string name="project_menu_update">Download &amp; Update Project</string>
+    <string name="project_menu_reset">Reset Config</string>
+    <string name="project_menu_delete">Delete Project</string>
+
+    <!-- ==================== Side Nav Header ==================== -->
+    <string name="nav_header_build_version">Build Version</string>
+    <string name="nav_header_build_time">Build Time</string>
+    <string name="nav_header_status_normal">Normal</string>
+    <string name="nav_header_license_info">License Info</string>
+    <string name="nav_header_not_registered">Not registered</string>
+    <string name="nav_header_license_code">License Code</string>
+    <string name="nav_header_expiry">Expiry</string>
+
+    <!-- ==================== Side Drawer Menu ==================== -->
+    <string name="menu_quick_actions">Quick Actions</string>
+    <string name="menu_floating_control">Floating Control Window</string>
+    <string name="menu_pip_manager">Python Packages (pip)</string>
+    <string name="menu_switch_input">Switch to YY Input (ROOT/SHELL)</string>
+    <string name="menu_toggle_coordinates">Toggle Coordinate Overlay (ROOT)</string>
+    <string name="menu_toggle_touch_feedback">Toggle Touch Feedback (ROOT)</string>
+    <string name="menu_enable_dev_mode">Enable Developer Mode (ROOT)</string>
+    <string name="menu_disable_dev_mode">Disable Developer Mode (ROOT)</string>
+    <string name="menu_clear_cache">Clear All Engine Cache</string>
+    <string name="menu_software">Software</string>
+    <string name="menu_run_log">Run Log</string>
+    <string name="menu_check_update_lanzou">Check Update (Lanzou Cloud)</string>
+    <string name="menu_check_update_123">Check Update (123 Cloud)</string>
+    <string name="menu_upload_log">Upload Log</string>
+    <string name="menu_user_agreement">User Agreement</string>
+    <string name="menu_privacy_policy">Privacy Policy</string>
+
+    <!-- ==================== File Browser ==================== -->
+    <string name="file_browser_title">Browse Project Files</string>
+    <string name="file_browser_empty">Empty directory</string>
+    <string name="file_browser_search">Search</string>
+    <string name="file_browser_new_file">New File</string>
+    <string name="file_browser_new_folder">New Folder</string>
+    <string name="file_browser_sort">Sort By</string>
+    <string name="file_browser_sort_name">Sort by Name</string>
+    <string name="file_browser_sort_size">Sort by Size</string>
+    <string name="file_browser_sort_date">Sort by Date Modified</string>
+    <string name="file_browser_sort_type">Sort by Type</string>
+    <string name="file_browser_cd_edit">Edit</string>
+    <string name="file_browser_cd_close">Close</string>
+    <string name="file_browser_cd_file_icon">File icon</string>
+    <string name="file_browser_cd_enter">Enter</string>
+    <string name="file_browser_cd_empty">Empty directory</string>
+
+    <!-- ==================== Pip Manager ==================== -->
+    <string name="pip_refresh">Refresh</string>
+
+    <!-- ==================== Project Config ==================== -->
+    <string name="project_config_title">Project Config</string>
+    <string name="project_config_save">Save Config</string>
+
+    <!-- ==================== Drawer Menu ==================== -->
+    <string name="drawer_quick_actions">Quick Actions</string>
+    <string name="drawer_floating_window">Floating Control Window</string>
+    <string name="drawer_pip_manager">Python Packages (pip)</string>
+    <string name="drawer_input_method">Switch YY Input Method (ROOT/SHELL)</string>
+    <string name="drawer_position_tool">Toggle Position Helper (ROOT)</string>
+    <string name="drawer_touch_tool">Toggle Touch Feedback (ROOT)</string>
+    <string name="drawer_debug_mode_on">Enable Developer Mode (ROOT)</string>
+    <string name="drawer_debug_mode_off">Disable Developer Mode (ROOT)</string>
+    <string name="drawer_clear_cache">Clear All Engine Cache</string>
+    <string name="drawer_software">Software</string>
+    <string name="drawer_run_log">Run Log</string>
+    <string name="drawer_update_lanzou">Check Update (Lanzou)</string>
+    <string name="drawer_update_123pan">Check Update (123pan)</string>
+    <string name="drawer_upload_log">Upload Log</string>
+    <string name="drawer_user_agreement">User Agreement</string>
+    <string name="drawer_privacy_policy">Privacy Policy</string>
+
+    <!-- ==================== Logcat ==================== -->
+
+    <!-- ==================== Floating Panel ==================== -->
+    <string name="floating_script_project">Script Projects</string>
+    <string name="floating_engine_checking">Checking engine status…</string>
+    <string name="floating_project_count">%d projects</string>
+    <string name="floating_no_project">No Projects</string>
+    <string name="floating_no_project_hint">Place script projects in /sdcard/Yyds.Py/</string>
+    <string name="floating_project_name">Project Name</string>
+    <string name="floating_project_pending">Pending</string>
+
+    <!-- ==================== Floating Log Console ==================== -->
+    <string name="floating_log_title">Log Console</string>
+    <string name="floating_log_opacity">Opacity</string>
+    <string name="floating_log_font_size">Font Size</string>
+
+    <!-- ==================== Floating Inspector ==================== -->
+    <string name="inspector_analyzing">Analyzing…</string>
+    <string name="inspector_expand">Expand</string>
+    <string name="inspector_collapse">Collapse</string>
+    <string name="inspector_search_hint">Search widgets…</string>
+    <string name="inspector_cd_copy">Copy</string>
+    <string name="inspector_cd_close">Close</string>
+    <string name="inspector_cd_expand">Expand</string>
+
+    <!-- ==================== Banner ==================== -->
+    <string name="banner_hint">Tip</string>
+
+    <!-- ==================== Notification ==================== -->
+    <string name="noti_current_project">🧶 Current project:</string>
+    <string name="noti_run_status">🐍 Run status:</string>
+
+    <!-- ==================== Input Method ==================== -->
+    <string name="input_method_hint">YY Auto Input (tap to switch back)</string>
+
+    <!-- ==================== Config Widgets ==================== -->
+    <string name="config_checkbox_default">Enable option</string>
+    <string name="config_spinner_default">Select:</string>
+    <string name="config_textview_default">Sample text\nSecond line</string>
+    <string name="config_edit_hint">Input 1</string>
+
+    <!-- ==================== Manifest Labels ==================== -->
+    <string name="manifest_logcat">Run Log</string>
+    <string name="manifest_project_config">Project Config</string>
+    <string name="manifest_script_runner">Script Runner</string>
+    <string name="manifest_package_apk">Package APK</string>
+    <string name="manifest_agent_settings">AI Agent Settings</string>
+    <string name="manifest_file_browser">File Browser</string>
+    <string name="manifest_pip_manager">Python Packages</string>
+    <string name="manifest_core_service">Core Service</string>
+    <string name="manifest_floating_control">Floating Control</string>
+    <string name="manifest_floating_console">Floating Log Console</string>
+    <string name="manifest_input_method">YY Input</string>
+
+    <!-- ==================== Common ==================== -->
+    <string name="common_confirm">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_save">Save</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_close">Close</string>
+    <string name="common_refresh">Refresh</string>
+    <string name="common_loading">Loading…</string>
+    <string name="common_success">Success</string>
+    <string name="common_failed">Failed</string>
+    <string name="common_error">Error</string>
+    <string name="common_warning">Warning</string>
+    <string name="common_retry">Retry</string>
+    <string name="common_copy">Copy</string>
+    <string name="common_paste">Paste</string>
+    <string name="common_rename">Rename</string>
+    <string name="common_share">Share</string>
+    <string name="common_start">Start</string>
+    <string name="common_stop">Stop</string>
+    <string name="common_running">Running</string>
+    <string name="common_stopped">Stopped</string>
+    <string name="common_connected">Connected</string>
+    <string name="common_disconnected">Disconnected</string>
+    <string name="common_enabled">Enabled</string>
+    <string name="common_disabled">Disabled</string>
+    <string name="common_unknown">Unknown</string>
+    <string name="common_none">None</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+    <string name="common_ok">OK</string>
+    <string name="common_back">Back</string>
+    <string name="common_next">Next</string>
+    <string name="common_done">Done</string>
+    <string name="common_edit">Edit</string>
+    <string name="common_search">Search</string>
+    <string name="common_settings">Settings</string>
+    <string name="common_version">Version</string>
+    <string name="common_install">Install</string>
+    <string name="common_uninstall">Uninstall</string>
+    <string name="common_upgrade">Upgrade</string>
+    <string name="common_download">Download</string>
+    <string name="common_upload">Upload</string>
+    <string name="common_select_all">Select All</string>
+    <string name="common_deselect_all">Deselect All</string>
+    <string name="common_not_activated">Not activated</string>
+    <string name="common_activated">Activated</string>
+    <string name="common_permission_denied">Permission denied</string>
+    <string name="common_network_error">Network error</string>
+    <string name="common_timeout">Connection timed out</string>
+    <string name="common_empty">No data</string>
+
+    <!-- ==================== Toast / Dialog Messages ==================== -->
+    <string name="msg_engine_starting">Starting engine…</string>
+    <string name="msg_engine_started">Engine started</string>
+    <string name="msg_engine_stopped">Engine stopped</string>
+    <string name="msg_engine_start_failed">Failed to start engine</string>
+    <string name="msg_project_started">Project started</string>
+    <string name="msg_project_stopped">Project stopped</string>
+    <string name="msg_project_start_failed">Failed to start project</string>
+    <string name="msg_project_deleted">Project deleted</string>
+    <string name="msg_project_delete_confirm">Delete project \"%s\"? This cannot be undone.</string>
+    <string name="msg_config_saved">Config saved</string>
+    <string name="msg_config_save_failed">Failed to save config</string>
+    <string name="msg_config_reset">Config reset</string>
+    <string name="msg_config_reset_confirm">Reset config?</string>
+    <string name="msg_copied_to_clipboard">Copied to clipboard</string>
+    <string name="msg_file_not_found">File not found</string>
+    <string name="msg_no_root">ROOT access not granted</string>
+    <string name="msg_no_permission">Missing required permission</string>
+    <string name="msg_connect_failed">Connection failed</string>
+    <string name="msg_connect_success">Connected</string>
+    <string name="msg_login_success">Logged in</string>
+    <string name="msg_login_failed">Login failed</string>
+    <string name="msg_register_success">Registered</string>
+    <string name="msg_register_failed">Registration failed</string>
+    <string name="msg_logout_success">Logged out</string>
+    <string name="msg_push_success">Push successful</string>
+    <string name="msg_push_failed">Push failed</string>
+    <string name="msg_package_building">Packaging…</string>
+    <string name="msg_package_success">Package built</string>
+    <string name="msg_package_failed">Packaging failed</string>
+    <string name="msg_install_success">Installed</string>
+    <string name="msg_install_failed">Installation failed</string>
+    <string name="msg_uninstall_success">Uninstalled</string>
+    <string name="msg_uninstall_failed">Uninstall failed</string>
+    <string name="msg_upgrade_success">Upgraded</string>
+    <string name="msg_upgrade_failed">Upgrade failed</string>
+    <string name="msg_pip_installing">Installing %s…</string>
+    <string name="msg_pip_uninstalling">Uninstalling %s…</string>
+    <string name="msg_file_created">File created</string>
+    <string name="msg_file_deleted">File deleted</string>
+    <string name="msg_file_renamed">File renamed</string>
+    <string name="msg_folder_created">Folder created</string>
+    <string name="msg_file_delete_confirm">Delete \"%s\"?</string>
+    <string name="msg_cache_cleared">Cache cleared</string>
+    <string name="msg_cache_clear_confirm">Clear all engine cache?</string>
+    <string name="msg_floating_permission">Please grant floating window permission</string>
+    <string name="msg_shizuku_not_running">Shizuku is not running</string>
+    <string name="msg_shizuku_permission_denied">Shizuku permission denied</string>
+    <string name="msg_import_success">Project imported</string>
+    <string name="msg_import_failed">Import failed</string>
+    <string name="msg_scan_complete">Scan complete, found %d projects</string>
+    <string name="msg_scan_no_result">No project packages found</string>
+    <string name="msg_api_key_empty">Please enter an API Key</string>
+    <string name="msg_test_connect_success">Connection test passed</string>
+    <string name="msg_test_connect_failed">Connection test failed</string>
+    <string name="msg_agent_task_complete">Task completed</string>
+    <string name="msg_agent_task_failed">Task failed</string>
+    <string name="msg_agent_stopped">Execution stopped</string>
+    <string name="msg_input_username">Please enter a username</string>
+    <string name="msg_input_password">Please enter a password</string>
+    <string name="msg_server_address_empty">Please enter a server address</string>
+    <string name="msg_update_downloading">Downloading update…</string>
+    <string name="msg_update_available">New version available</string>
+    <string name="msg_update_latest">Already up to date</string>
+    <string name="msg_log_uploaded">Log uploaded</string>
+    <string name="msg_log_upload_failed">Log upload failed</string>
+
+    <!-- ==================== Package Activity ==================== -->
+    <string name="package_title">Package APK</string>
+    <string name="package_app_name">App Name</string>
+    <string name="package_package_name">Package Name</string>
+    <string name="package_version_name">Version Name</string>
+    <string name="package_version_code">Version Code</string>
+    <string name="package_icon">App Icon</string>
+    <string name="package_select_icon">Select Icon</string>
+    <string name="package_encrypt_script">Encrypt Script</string>
+    <string name="package_auto_run">Auto Run</string>
+    <string name="package_keep_screen_on">Keep Screen On</string>
+    <string name="package_hide_control">Hide Control UI</string>
+    <string name="package_build">Build</string>
+    <string name="package_building">Building…</string>
+
+    <!-- ==================== Runner Activity ==================== -->
+    <string name="runner_auto_start">Auto Start</string>
+    <string name="runner_keep_alive">Keep Alive</string>
+    <string name="runner_floating_control">Floating Control</string>
+
+    <!-- ==================== Shizuku ==================== -->
+    <string name="shizuku_requesting">Requesting Shizuku permission…</string>
+    <string name="shizuku_granted">Shizuku permission granted</string>
+    <string name="shizuku_denied">Shizuku permission denied</string>
+
+
+    <!-- ==================== Agent Settings ==================== -->
+    <string name="agent_hero_desc">Tell me what you want to do, I will operate the phone for you</string>
+    <string name="agent_settings">Settings</string>
+    <string name="agent_send">Send</string>
+    <string name="action_back">Back</string>
+    <string name="agent_provider_title">AI Model Provider</string>
+    <string name="agent_provider_volcengine">Volcengine (Doubao)</string>
+    <string name="agent_provider_aliyun">Alibaba Cloud (Qwen)</string>
+    <string name="agent_provider_custom">Custom (OpenAI Compatible)</string>
+    <string name="agent_get_api_key_hint">Go to Volcengine console to get API Key</string>
+    <string name="agent_api_key_hint">Enter API Key</string>
+    <string name="agent_base_url_hint">Base URL (e.g. https://api.example.com/v1)</string>
+    <string name="agent_model_name_hint">Model name (e.g. gpt-4o)</string>
+    <string name="agent_test_connection">Test Connection</string>
+    <string name="agent_advanced_options">Advanced Options</string>
+    <string name="agent_expand">Expand</string>
+    <string name="agent_max_steps">Max Execution Steps</string>
+    <string name="agent_ui_tree_enhance">UI Tree Enhancement</string>
+    <string name="agent_ui_tree_enhance_desc">Send UI tree XML to improve decision accuracy</string>
+    <string name="agent_reflector">Action Reflection</string>
+    <string name="agent_reflector_desc">Compare screenshots after execution to verify (disable to save tokens)</string>
+    <string name="agent_save_settings">Save Settings</string>
+    <string name="remote_help_text">Instructions:\n\n1. Enter the IP address and port of the remote console\n2. Log in to bind device and get auth token\n3. Click save, engine will auto-read config and connect\n4. Config file: /sdcard/Yyds.Auto/server.conf</string>
+
+
+    <!-- ==================== Layout Strings ==================== -->
+    <string name="activation_title">Engine Not Started</string>
+    <string name="activation_desc">Worker process not running. Device lacks required permissions. Choose one of the following methods to activate.</string>
+    <string name="activation_root_title">ROOT Permission</string>
+    <string name="activation_root_desc">Grant ROOT via Magisk / KernelSU</string>
+    <string name="activation_root_status">Not Authorized</string>
+    <string name="activation_shizuku_title">Shizuku Activation</string>
+    <string name="activation_shizuku_desc">No ROOT needed. Install Shizuku and start via wireless debugging</string>
+    <string name="activation_shizuku_status">Not Running</string>
+    <string name="activation_adb_title">PC ADB Activation</string>
+    <string name="activation_adb_desc">Connect to PC, activate via VSCode plugin or ADB command</string>
+    <string name="activation_hint">💡 After authorization, return to home to auto-detect and start engine</string>
+    <string name="file_browser_edit">Edit</string>
+    <string name="file_browser_close">Close</string>
+    <string name="file_browser_enter">Enter</string>
+    <string name="file_icon_desc">File icon</string>
+    <string name="nav_slogan">Android RPA Automation Platform</string>
+    <string name="nav_build_version">Build Version</string>
+    <string name="nav_build_time">Build Time</string>
+    <string name="nav_status_ok">OK</string>
+    <string name="nav_auth_info">License Info</string>
+    <string name="nav_not_registered">Not Registered</string>
+    <string name="nav_auth_code">License Code</string>
+    <string name="nav_auth_expire">Expiry Date</string>
+    <string name="import_pick_file">Import from File</string>
+    <string name="import_pick_file_desc">Select .yyp.zip project package from file manager</string>
+    <string name="import_scan_folders">Scan Common Folders</string>
+    <string name="import_scan_folders_desc">Quick scan Download, Documents and other folders</string>
+    <string name="menu_browse_files">Browse Project Files</string>
+    <string name="menu_package_apk">Package APK</string>
+    <string name="menu_download_update">Download/Update Project</string>
+    <string name="menu_reset_config">Reset Config</string>
+    <string name="menu_delete_project">Delete Project</string>
+    <string name="inspector_copy">Copy</string>
+    <string name="script_empty_title">No Projects</string>
+    <string name="script_empty_desc">Push projects via VSCode plugin
+or tap + at bottom right to import</string>
+    <string name="script_import">Import Project</string>
+    <string name="console_title">Log Console</string>
+    <string name="console_transparency">Transparency</string>
+    <string name="console_font_size">Font Size</string>
+    <string name="floating_item_name">Project Name</string>
+    <string name="floating_item_pending">Pending</string>
+    <string name="node_tree_expand">Expand</string>
+    <string name="input_view_hint">YY Auto Input (tap to switch back)</string>
+    <string name="m_checkbox_text">Enable Config</string>
+    <string name="m_spinner_title">Select:</string>
+    <string name="m_textview_text">Reference info\nLine 2</string>
+    <string name="m_edit_hint">Input 1</string>
+    <string name="agent_log_sample_title">Click (540, 960)</string>
+    <string name="agent_log_sample_detail">Navigate to settings page</string>
+
+    <!-- ==================== Common Buttons ==================== -->
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_import">Import</string>
+
+    <!-- ==================== AgentFragment ==================== -->
+    <string name="msg_agent_input_empty">Please enter a command</string>
+    <string name="msg_agent_request_failed">Request failed, check if engine is running</string>
+    <string name="msg_agent_start_failed">Failed to start</string>
+    <string name="agent_starting">Starting…</string>
+    <string name="agent_running_step">Running · Step %1$d/%2$d</string>
+    <string name="agent_executing">Executing…</string>
+
+    <!-- ==================== ScriptFragment ==================== -->
+    <string name="msg_engine_not_started">Worker process not started. Ensure device has ROOT or SHELL permission</string>
+    <string name="msg_file_picker_failed">Cannot open file picker: %1$s</string>
+    <string name="msg_select_zip_file">Please select a .zip project package</string>
+    <string name="msg_importing_project">Importing %1$s …</string>
+    <string name="msg_cannot_read_file">Cannot read selected file</string>
+    <string name="msg_import_success_name">Import successful: %1$s</string>
+    <string name="msg_import_failed_detail">Import failed: %1$s</string>
+    <string name="msg_scanning">Scanning…</string>
+    <string name="script_scan_result_title">Scan Results</string>
+    <string name="script_scan_no_result_message">No .yyp.zip project packages found\nin Download or Documents folders.\n\nPlace packages in those folders or use \"Pick File\" to import.</string>
+    <string name="script_pick_file">Pick File</string>
+    <string name="msg_scan_failed">Scan failed: %1$s</string>
+    <string name="script_scan_found_count">Found %1$d project packages</string>
+    <string name="msg_cannot_copy_to_cache">Cannot copy file to cache</string>
+
+    <!-- ==================== RemoteFragment ==================== -->
+    <string name="remote_role_admin">Admin</string>
+    <string name="remote_role_user">User</string>
+    <string name="remote_device_bound">✓ Device bound, Token configured</string>
+    <string name="remote_device_not_bound">⚠ Logged in but device not bound</string>
+    <string name="remote_btn_login">Login</string>
+    <string name="remote_btn_register">Register</string>
+    <string name="remote_please_wait">Please wait…</string>
+    <string name="remote_bind_failed">Device binding failed: %1$s</string>
+    <string name="remote_input_credentials">Please enter username and password</string>
+    <string name="remote_password_min_length">Password must be at least 6 characters</string>
+    <string name="remote_register_success">✓ Registration successful</string>
+    <string name="remote_register_failed">Registration failed</string>
+    <string name="remote_register_failed_detail">Registration failed: %1$s</string>
+    <string name="remote_login_success">✓ Login successful</string>
+    <string name="remote_login_failed">Login failed</string>
+    <string name="remote_login_failed_detail">Login failed: %1$s</string>
+    <string name="remote_logged_out">Logged out</string>
+    <string name="remote_input_host">Please enter server address</string>
+    <string name="remote_port_range">Port range 1–65535</string>
+    <string name="remote_status_all_ok">● Engine running · Server reachable</string>
+    <string name="remote_status_server_unreachable">◐ Engine running · Server unreachable (%1$s:%2$d)</string>
+    <string name="remote_status_engine_stopped">◐ Engine stopped · Server reachable</string>
+    <string name="remote_status_all_down">○ Engine stopped · Server unreachable</string>
+    <string name="remote_saving">Saving…</string>
+    <string name="remote_btn_save_config">Save Config</string>
+    <string name="remote_saved">✓ Saved: %1$s:%2$d</string>
+    <string name="remote_saved_direct">✓ Saved (direct): %1$s:%2$d</string>
+    <string name="remote_save_failed">✗ Save failed: %1$s</string>
+
+    <!-- ==================== HomeFragment ==================== -->
+    <string name="home_py_builtin_limited">Built-in engine (limited)</string>
+    <string name="home_py_running">Running</string>
+    <string name="home_py_not_started">Not started</string>
+    <string name="home_net_fetch_failed">Fetch failed</string>
+    <string name="home_waiting_engine">Waiting for engine</string>
+    <string name="home_touch_uinput">Virtual device (strongest anti-detection)</string>
+    <string name="home_touch_kernel">Kernel driver injection (strong anti-detection)</string>
+    <string name="home_touch_java">Framework injection (best compatibility)</string>
+    <string name="home_touch_auto">Default mode (not initialized)</string>
+    <string name="home_touch_query_failed">Query failed</string>
+    <string name="home_not_activated">Not activated</string>
+    <string name="home_running_not_connected">Running, not connected</string>
+    <string name="home_connected">Connected</string>
+    <string name="home_engine_waiting">Not activated, waiting…</string>
+    <string name="home_engine_activated">Activated %1$s</string>
+    <string name="home_auto_engine">Automation engine</string>
+    <string name="home_script_engine">Script engine</string>
+    <string name="home_engine_not_running_activate">%1$s not running, please activate engine</string>
+    <string name="home_activation_desc">%1$s not running. Device lacks required permissions. Choose one of the following to activate.</string>
+    <string name="home_authorized">Authorized</string>
+    <string name="home_starting_with_root">Starting engine with ROOT…</string>
+    <string name="home_get_root_title">Get ROOT Permission</string>
+    <string name="home_get_root_message">Please use Magisk, KernelSU or APatch to obtain ROOT permission, then authorize this app.\n\nReturn to home after authorization to auto-detect and start engine.</string>
+    <string name="home_understood">OK</string>
+    <string name="home_not_authorized">Not authorized</string>
+    <string name="home_not_started">Not started</string>
+    <string name="home_not_installed">Not installed</string>
+    <string name="home_install_shizuku_title">Install Shizuku</string>
+    <string name="home_install_shizuku_desc">Shizuku is a ROOT-free authorization tool, best choice for non-ROOT devices.</string>
+    <string name="home_go_download">Download</string>
+    <string name="home_start_shizuku_title">Start Shizuku</string>
+    <string name="home_start_shizuku_message">Shizuku is installed but not running.\n\n• Android 11+: Open Shizuku → Start via Wireless Debugging\n• Below Android 11: Connect PC via ADB\n\nReturn to this app after starting.</string>
+    <string name="home_open_shizuku">Open Shizuku</string>
+    <string name="home_cannot_open_shizuku">Cannot open Shizuku</string>
+    <string name="home_shizuku_auth_title">Shizuku Authorization</string>
+    <string name="home_shizuku_auth_message">Please tap \"Allow\" in the authorization dialog.\n\nIf no dialog appears, you may have previously denied. Please manually authorize in Shizuku app.</string>
+    <string name="home_starting_with_shizuku">Starting engine via Shizuku…</string>
+    <string name="home_start_failed_msg">Start failed: %1$s</string>
+    <string name="home_adb_activate_title">ADB Engine Activation</string>
+    <string name="home_adb_activate_message">Activate via PC ADB without ROOT.\n\nOption 1: VSCode plugin one-click activation\nInstall Yyds.Auto plugin and click \"ADB Activate Engine\".\n\nOption 2: Manual ADB command\n1. Enable USB Debugging or Wireless Debugging\n2. Connect device and run activation command\n\nSee online docs for details.</string>
+    <string name="home_view_tutorial">View Tutorial</string>
+    <string name="home_engine_not_started_touch">Engine not started, cannot switch touch mode</string>
+    <string name="home_touch_label_auto">Default (try: virtual→kernel→framework)</string>
+    <string name="home_touch_label_uinput">Virtual Device</string>
+    <string name="home_touch_label_kernel">Kernel Driver Injection</string>
+    <string name="home_touch_label_java">Framework Injection</string>
+    <string name="home_switch_touch_mode_title">Switch Touch Injection Mode</string>
+    <string name="home_touch_label_auto_short">Default Mode</string>
+    <string name="home_touch_switched">Switched: %1$s</string>
+    <string name="home_touch_switch_failed">Switch failed: %1$s</string>
+    <string name="home_engine_process_info_title">Engine Process Info</string>
+    <string name="home_engine_process_info_message">Current process:\n %1$s\nStart time: %2$s\n…</string>
+    <string name="home_float_on_click_close">Enabled (tap to close)</string>
+    <string name="home_float_click_to_open_console">Tap to open floating log console</string>
+    <string name="home_float_perm_not_granted">Permission not granted, tap to configure</string>
+    <string name="home_float_not_on_need_perm">Disabled (overlay permission required)</string>
+    <string name="home_float_click_to_open">Tap to open floating control window</string>
+    <string name="home_float_window_closed">Floating window closed</string>
+    <string name="home_open_float_window_title">Open Floating Window</string>
+    <string name="home_open_float_window_message">The floating control window displays script projects on any screen for quick start/stop.\n\nRequires \"Display over other apps\" permission.</string>
+    <string name="home_go_settings">Settings</string>
+    <string name="home_cannot_open_settings">Cannot open settings</string>
+    <string name="home_float_window_opened">Floating window opened</string>
+    <string name="home_console_closed">Log console closed</string>
+    <string name="home_open_console_title">Open Log Console</string>
+    <string name="home_open_console_message">The floating log console shows real-time script logs on any screen, with drag, resize and filter support.\n\nRequires \"Display over other apps\" permission.</string>
+    <string name="home_console_opened">Log console opened</string>
+    <string name="home_search_install_shizuku">Please search and install Shizuku manually</string>
+    <string name="home_cannot_open_shizuku_manual">Cannot open Shizuku, please start manually</string>
+    <string name="home_already_has_shizuku_perm">Already has Shizuku permission</string>
+    <string name="home_starting_with_shizuku_ellipsis">Starting engine via Shizuku…</string>
+    <string name="home_engine_start_success">Engine started successfully</string>
+    <string name="home_retrying">Retrying…</string>
+
+    <!-- ==================== ShizukuUtil ==================== -->
+    <string name="shizuku_not_installed">Shizuku not installed</string>
+    <string name="shizuku_go_install">Install</string>
+    <string name="shizuku_not_running">Shizuku not running</string>
+    <string name="shizuku_go_start">Start</string>
+    <string name="shizuku_no_permission">Shizuku not authorized</string>
+    <string name="shizuku_go_authorize">Authorize</string>
+    <string name="shizuku_ready">Shizuku ready</string>
+    <string name="shizuku_starting_engine">Starting engine via Shizuku…</string>
+    <string name="shizuku_engine_started">Engine started via Shizuku</string>
+    <string name="shizuku_engine_failed">Shizuku engine start failed</string>
+    <string name="shizuku_retry">Retry</string>
+    <string name="shizuku_not_installed_or_too_old">Shizuku not installed or version too old</string>
+    <string name="shizuku_not_running_hint">Shizuku not running, please start Shizuku first</string>
+    <string name="shizuku_binder_dead">Shizuku binder disconnected</string>
+    <string name="shizuku_permission_denied">Shizuku permission denied</string>
+    <string name="shizuku_permission_granted">Shizuku permission granted</string>
+    <string name="shizuku_uid_root">ROOT (uid=0)</string>
+    <string name="shizuku_uid_adb">ADB/Shell (uid=2000)</string>
+    <string name="shizuku_uid_unknown">Unknown (uid=%d)</string>
+    <string name="shizuku_starting_engine_via">Starting engine via Shizuku…</string>
+    <string name="shizuku_engine_start_success">Engine started! Took %dms</string>
+    <string name="shizuku_engine_start_failed">Engine start failed: %s</string>
+    <string name="shizuku_waiting_port">Waiting for port %d…</string>
+    <string name="shizuku_port_ready">Port %d ready</string>
+    <string name="shizuku_port_timeout">Port %d wait timeout</string>
+    <string name="shizuku_executing_cmd">Executing: %s</string>
+    <string name="shizuku_cmd_result">Result: %s</string>
+    <string name="shizuku_cmd_error">Command error: %s</string>
+    <string name="shizuku_guide_step1">1. Download and install Shizuku (shizuku.rikka.app)</string>
+    <string name="shizuku_guide_step2">2. Android 11+ can start via Wireless Debugging on phone</string>
+    <string name="shizuku_guide_step3">3. Below Android 11, connect PC and run ADB command</string>
+    <string name="shizuku_guide_step4">4. After starting, return to this app and authorize</string>
+    <string name="shizuku_guide_step5">5. Note: Shizuku needs to be restarted after each reboot</string>
+    <string name="shizuku_desc_not_installed">Shizuku not detected. Non-ROOT devices need Shizuku to start the engine</string>
+    <string name="shizuku_desc_not_running">Shizuku installed but not running. Please open Shizuku app and start the service</string>
+    <string name="shizuku_desc_no_permission">Shizuku is running. Authorize to start the engine</string>
+    <string name="shizuku_desc_ready">Shizuku ready · %s mode · v%d</string>
+    <string name="shizuku_desc_starting">Starting engine via Shizuku, please wait…</string>
+    <string name="shizuku_desc_started">Engine started successfully via Shizuku</string>
+    <string name="shizuku_desc_failed">Shizuku engine start failed. Check Shizuku status and retry</string>
+
+    <!-- ==================== RunnerActivity ==================== -->
+    <string name="runner_title">Script Runner</string>
+    <string name="runner_project_label">Project</string>
+    <string name="runner_auto_run">Auto-run on app open</string>
+    <string name="runner_keep_screen">Keep screen on</string>
+    <string name="runner_show_log">Show run log</string>
+    <string name="runner_exit_on_stop">Exit app when script stops</string>
+    <string name="runner_start">Start Script</string>
+    <string name="runner_stop">Stop Script</string>
+    <string name="runner_log_title">Run Log</string>
+    <string name="runner_log_expand">Expand</string>
+    <string name="runner_log_collapse">Collapse</string>
+    <string name="runner_status_running">Running</string>
+    <string name="runner_status_stopped">Stopped</string>
+    <string name="runner_status_starting">Starting…</string>
+    <string name="runner_status_engine_init">Engine initializing…</string>
+    <string name="runner_status_engine_ready">Engine ready</string>
+    <string name="runner_status_engine_fail">Engine start failed</string>
+    <string name="runner_running_time">Running %d:%02d:%02d</string>
+    <string name="runner_running_time_short">Running %02d:%02d</string>
+    <string name="runner_no_pack_config">Pack config not found</string>
+    <string name="runner_engine_starting">Starting engine…</string>
+    <string name="runner_engine_ready_start_script">Engine ready, starting script…</string>
+    <string name="runner_script_started">Script started</string>
+    <string name="runner_start_failed">Start failed: %s</string>
+    <string name="runner_script_stopped">Script stopped</string>
+    <string name="runner_stop_failed">Stop failed: %s</string>
+
+    <!-- ==================== ProjectConfigActivity ==================== -->
+    <string name="projconfig_title">Project Config</string>
+    <string name="projconfig_save">Save</string>
+    <string name="projconfig_save_success">Saved successfully</string>
+    <string name="projconfig_save_failed">Save failed: %s</string>
+    <string name="projconfig_reset">Reset</string>
+    <string name="projconfig_reset_confirm_title">Reset Config</string>
+    <string name="projconfig_reset_confirm_msg">Reset all config items to default?</string>
+    <string name="projconfig_cancel">Cancel</string>
+    <string name="projconfig_confirm">OK</string>
+    <string name="projconfig_reset_success">Reset to defaults</string>
+    <string name="projconfig_no_ui_config">This project has no config UI</string>
+    <string name="projconfig_required_hint">Required</string>
+    <string name="projconfig_field_required">Please fill required field: %s</string>
+    <string name="projconfig_schedule_title">Scheduled Task</string>
+    <string name="projconfig_schedule_desc">Set script scheduled execution</string>
+    <string name="projconfig_schedule_enable">Enable scheduled task</string>
+    <string name="projconfig_schedule_interval">Interval (minutes)</string>
+    <string name="projconfig_schedule_time">Scheduled time</string>
+    <string name="projconfig_select_time">Select time</string>
+    <string name="projconfig_shortcut_title">Desktop Shortcut</string>
+    <string name="projconfig_shortcut_desc">Create desktop shortcut for one-tap launch</string>
+    <string name="projconfig_create_shortcut">Create Shortcut</string>
+    <string name="projconfig_shortcut_created">Shortcut created</string>
+    <string name="projconfig_shortcut_not_supported">System does not support shortcuts</string>
+    <string name="projconfig_shortcut_failed">Failed to create shortcut</string>
+
+    <!-- ==================== FloatingWindowService ==================== -->
+    <string name="float_no_projects">No projects</string>
+    <string name="float_refreshing">Refreshing…</string>
+    <string name="float_running">Running</string>
+    <string name="float_stopped">Stopped</string>
+    <string name="float_start">Start</string>
+    <string name="float_stop">Stop</string>
+    <string name="float_starting">Starting…</string>
+    <string name="float_stopping">Stopping…</string>
+    <string name="float_start_failed">Start failed</string>
+    <string name="float_stop_failed">Stop failed</string>
+    <string name="float_script_list">Script List</string>
+    <string name="float_close">Close</string>
+    <string name="float_inspector">Inspector</string>
+    <string name="float_inspector_loading">Loading layout…</string>
+    <string name="float_inspector_empty">No widgets found</string>
+    <string name="float_inspector_error">Layout failed: %s</string>
+    <string name="float_inspector_tree">Widget Tree</string>
+    <string name="float_inspector_detail">Widget Detail</string>
+    <string name="float_inspector_copy">Copy Info</string>
+    <string name="float_inspector_select_first">Please select a widget first</string>
+    <string name="float_inspector_copied">Widget info copied to clipboard</string>
+    <string name="float_agent">AI Assistant</string>
+    <string name="float_agent_running">AI Running %d/%d</string>
+    <string name="float_agent_action">Action: %s</string>
+    <string name="float_agent_idle">AI Assistant standby</string>
+    <string name="float_agent_stopped">AI stopped</string>
+    <string name="float_agent_stop">Stop AI</string>
+
+    <!-- ==================== FloatingLogService ==================== -->
+    <string name="log_console_title">Log Console</string>
+    <string name="log_console_clear">Clear</string>
+    <string name="log_console_copy_all">Copy All</string>
+    <string name="log_console_copied">Copied</string>
+    <string name="log_console_all_copied">All logs copied</string>
+    <string name="log_console_no_logs">No logs</string>
+    <string name="log_console_filter_hint">Filter keyword</string>
+    <string name="log_console_auto_scroll">Auto scroll</string>
+    <string name="log_console_font_size">Font size</string>
+    <string name="log_console_opacity">Opacity</string>
+    <string name="log_console_minimize">Minimize</string>
+    <string name="log_console_close">Close</string>
+    <string name="log_console_log_count">%d logs</string>
+    <string name="log_console_filtered_count">%d/%d items</string>
+    <string name="log_console_connected">Connected</string>
+    <string name="log_console_disconnected">Disconnected</string>
+    <string name="log_console_connecting">Connecting…</string>
+
+    <!-- ==================== MainActivity ==================== -->
+    <string name="main_import_project">Import Project</string>
+    <string name="main_select_zip">Select project archive (.zip)</string>
+    <string name="main_importing">Importing…</string>
+    <string name="main_import_success">Import successful</string>
+    <string name="main_import_failed">Import failed: %s</string>
+    <string name="main_no_root_title">ROOT Permission Required</string>
+    <string name="main_no_root_msg">This app requires ROOT or Shizuku permission to run automation scripts.\n\nPlease ensure the device is rooted or Shizuku is installed.</string>
+    <string name="main_no_root_shizuku">Use Shizuku</string>
+    <string name="main_no_root_exit">Exit</string>
+    <string name="main_checking_permission">Checking permissions…</string>
+    <string name="main_permission_ok">Permission check passed</string>
+    <string name="main_about">About</string>
+    <string name="main_settings">Settings</string>
+    <string name="main_feedback">Feedback</string>
+    <string name="main_check_update">Check Update</string>
+    <string name="main_current_version">Current version: %s</string>
+    <string name="main_already_latest">Already up to date</string>
+    <string name="main_update_available">New version: %s</string>
+    <string name="main_update_now">Update Now</string>
+    <string name="main_update_later">Later</string>
+    <string name="main_exit_confirm">Press again to exit</string>
+    <string name="main_pip_manager">Pip Manager</string>
+    <string name="main_file_browser">File Browser</string>
+    <string name="main_notification_perm_title">Notification Permission</string>
+    <string name="main_notification_perm_msg">Notification permission is needed to show engine status and script controls.</string>
+    <string name="main_grant_permission">Grant Permission</string>
+    <string name="main_not_now">Not Now</string>
+    <string name="main_overlay_perm_title">Overlay Permission</string>
+    <string name="main_overlay_perm_msg">\"Display over other apps\" permission is needed for the floating control window.</string>
+    <string name="main_package">APK Package</string>
+    <string name="main_engine_status_format">Engine: %s</string>
+
+    <!-- ==================== AppBanner ==================== -->
+    <string name="banner_success">Success</string>
+    <string name="banner_error">Error</string>
+    <string name="banner_warning">Warning</string>
+    <string name="banner_info">Info</string>
+    <string name="banner_dismiss">Dismiss</string>
+    <string name="banner_confirm">OK</string>
+    <string name="banner_detail">Detail</string>
+
+    <!-- ==================== App ==================== -->
+    <string name="app_uncaught_exception">Uncaught thread exception</string>
+    <string name="app_runner_mode">Runner Mode</string>
+    <string name="app_engine_starting">Engine starting…</string>
+    <string name="app_engine_started">Engine started</string>
+    <string name="app_engine_start_failed">Engine start failed</string>
+    <string name="app_auto_run_script">Auto-run script: %s</string>
+    <string name="app_script_not_found">Script project not found: %s</string>
+
+    <!-- ==================== YypListViewHolder ==================== -->
+    <string name="holder_open_config">Open Config</string>
+    <string name="holder_package_apk">Package APK</string>
+    <string name="holder_open_folder">Open Folder</string>
+    <string name="holder_export_project">Export Project</string>
+    <string name="holder_export_success">Exported: %s</string>
+    <string name="holder_export_failed">Export failed</string>
+    <string name="holder_reset_config">Reset Config</string>
+    <string name="holder_config_cleared">Config cleared for %s</string>
+    <string name="holder_delete_project">Delete Project</string>
+
+    <!-- ==================== YypListAdapter ==================== -->
+    <string name="adapter_engine_not_running">Engine not running, please start engine first</string>
+    <string name="adapter_starting_script">Starting: %s</string>
+    <string name="adapter_stopping_script">Stopping: %s</string>
+    <string name="adapter_operation_failed">Operation failed: %s</string>
+
+    <!-- ==================== AgentLogAdapter ==================== -->
+    <string name="agent_log_thinking">Thinking</string>
+    <string name="agent_log_executing">Executing</string>
+    <string name="agent_log_result">Result</string>
+    <string name="agent_log_error">Error</string>
+
+    <!-- ==================== FloatingLogService ==================== -->
+
+    <!-- ==================== FloatingLogService ==================== -->
+    <string name="float_log_cleared">Logs cleared</string>
+    <string name="float_log_auto_scroll_on">Auto-scroll: ON</string>
+    <string name="float_log_auto_scroll_off">Auto-scroll: OFF</string>
+    <string name="float_log_filter_level">Filter: ≥%s</string>
+    <string name="float_log_copied_lines">Copied %d log lines</string>
+    <string name="float_log_copied">Copied</string>
+
+    <!-- ==================== LogcatActivity ==================== -->
+    <string name="logcat_title">Run Log</string>
+    <string name="logcat_connecting">Connecting to log stream…</string>
+
+    <!-- ==================== PipManagerActivity ==================== -->
+    <string name="pip_install">Install</string>
+    <string name="pip_please_enter_package">Please enter a package name</string>
+    <string name="pip_chip_mirror">Tsinghua Mirror</string>
+    <string name="pip_no_data">No data</string>
+    <string name="pip_search_in_pypi">Search on PyPI</string>
+    <string name="pip_check_installable">Check if this package is available</string>
+    <string name="pip_operation_in_progress">An operation is in progress, please wait</string>
+    <string name="pip_loading_list">Loading package list...</string>
+    <string name="pip_cannot_connect">Cannot connect to worker process\nPlease start engine from sidebar and retry</string>
+    <string name="pip_get_list_failed">Failed to get package list\nPlease check Python environment deployment</string>
+    <string name="pip_no_installed_packages">No installed packages</string>
+    <string name="pip_chip_outdated_count">Outdated (%d)</string>
+    <string name="pip_status_summary">%d packages</string>
+    <string name="pip_status_summary_with_outdated">%d packages, %d outdated</string>
+    <string name="pip_no_match_installed">No matching installed packages found</string>
+    <string name="pip_search_pypi_for">Search PyPI for \"%s\"</string>
+    <string name="pip_check_available_install">Check availability and install</string>
+    <string name="pip_use_mirror">Use Tsinghua mirror source</string>
+    <string name="pip_cancel">Cancel</string>
+    <string name="pip_install_failed">Install failed: %s</string>
+    <string name="pip_install_result">Install Result - %s</string>
+    <string name="pip_uninstall">Uninstall</string>
+    <string name="pip_uninstalled">Uninstalled %s</string>
+    <string name="pip_uninstall_failed">Uninstall failed</string>
+    <string name="pip_uninstall_result">Uninstall Result - %s</string>
+    <string name="pip_upgrade_btn">Upgrade</string>
+    <string name="pip_upgrade_failed">Upgrade failed</string>
+    <string name="pip_upgrade_result">Upgrade Result - %s</string>
+    <string name="pip_no_upgradable">No upgradable packages</string>
+    <string name="pip_upgrade_all">Upgrade All</string>
+    <string name="pip_upgrade_partial_fail">Some upgrades may have failed</string>
+    <string name="pip_upgrade_all_result">Upgrade All Result</string>
+    <string name="pip_not_found_title">Package Not Found</string>
+    <string name="pip_not_found_message">Package \"%1$s\" not found on PyPI.\n\nPlease check the spelling.\n\nRaw output:\n%2$s</string>
+    <string name="pip_close">Close</string>
+    <string name="pip_latest_version">Latest: %s</string>
+    <string name="pip_installed_version">Installed: %s</string>
+    <string name="pip_available_versions">Available versions:\n%s</string>
+    <string name="pip_upgrade_to_version">Upgrade to %s</string>
+    <string name="pip_fetching_detail">Fetching %s details...</string>
+    <string name="pip_get_detail_failed">Failed to get details</string>
+    <string name="pip_detail_name">Name: %s\n</string>
+    <string name="pip_detail_version">Version: %s\n</string>
+    <string name="pip_detail_latest">Latest: %s\n</string>
+    <string name="pip_detail_summary">Summary: %s\n</string>
+    <string name="pip_detail_author">Author: %s\n</string>
+    <string name="pip_detail_homepage">Homepage: %s\n</string>
+    <string name="pip_detail_license">License: %s\n</string>
+    <string name="pip_detail_location">Location: %s\n</string>
+    <string name="pip_detail_requires">\nRequires: %s\n</string>
+    <string name="pip_detail_required_by">Required-by: %s\n</string>
+    <string name="pip_not_found_raw">Not found</string>
+    <string name="pip_btn_uninstall">Uninstall</string>
+
+    <!-- ==================== PipManagerActivity ==================== -->
+    <string name="pip_title">Pip Manager</string>
+    <string name="pip_search_hint">Search or enter package name…</string>
+    <string name="pip_chip_all">All</string>
+    <string name="pip_chip_outdated">Outdated (%d)</string>
+    <string name="pip_chip_upgrade_all">Upgrade All</string>
+    <string name="pip_mirror_label">Mirror</string>
+    <string name="pip_pypi_search_title">Search on PyPI</string>
+    <string name="pip_pypi_search_subtitle">Check if the package is available</string>
+    <string name="pip_loading">Loading package list…</string>
+    <string name="pip_engine_not_started">Engine not started. Ensure device has ROOT access</string>
+    <string name="pip_list_fail">Failed to get package list\nPlease check Python environment</string>
+    <string name="pip_no_packages">No packages installed</string>
+    <string name="pip_no_match">No matching installed packages</string>
+    <string name="pip_pypi_search_query">Search "%s" on PyPI</string>
+    <string name="pip_pypi_search_available">Check availability and install</string>
+    <string name="pip_install_title">Install Python Package</string>
+    <string name="pip_install_confirm">Install "%1$s"?%2$s\n\nSupported formats:\n  · requests\n  · requests==2.31.0\n  · requests>=2.28</string>
+    <string name="pip_mirror_hint">\nUsing Tsinghua mirror</string>
+    <string name="pip_btn_install">Install</string>
+    <string name="pip_btn_cancel">Cancel</string>
+    <string name="pip_installing">Installing %s …</string>
+    <string name="pip_unknown_result">Unknown result</string>
+    <string name="pip_install_success">Installed: %s</string>
+    <string name="pip_install_fail">Install failed: %s</string>
+    <string name="pip_install_result_title">Install Result - %s</string>
+    <string name="pip_operation_busy">An operation is in progress, please wait</string>
+    <string name="pip_uninstall_title">Confirm Uninstall</string>
+    <string name="pip_uninstall_confirm">Uninstall "%1$s" (%2$s)?\n\nOther packages depending on it may be affected.</string>
+    <string name="pip_btn_uninstall_action">Uninstall</string>
+    <string name="pip_uninstalling">Uninstalling %s …</string>
+    <string name="pip_uninstall_success">Uninstalled %s</string>
+    <string name="pip_uninstall_fail">Uninstall failed</string>
+    <string name="pip_uninstall_result_title">Uninstall Result - %s</string>
+    <string name="pip_upgrade_title">Confirm Upgrade</string>
+    <string name="pip_upgrade_confirm">Upgrade "%1$s"?\n%2$s\n\nUpgrading may introduce breaking changes.</string>
+    <string name="pip_upgrade_to_latest">to latest version</string>
+    <string name="pip_btn_upgrade">Upgrade</string>
+    <string name="pip_upgrading">Upgrading %1$s → %2$s …</string>
+    <string name="pip_upgrade_success">Upgraded: %s</string>
+    <string name="pip_upgrade_fail">Upgrade failed</string>
+    <string name="pip_upgrade_result_title">Upgrade Result - %s</string>
+    <string name="pip_no_outdated">No packages to upgrade</string>
+    <string name="pip_upgrade_all_title">Confirm Upgrade All</string>
+    <string name="pip_upgrade_all_confirm">Upgrade the following %1$d packages?\n\n%2$s</string>
+    <string name="pip_btn_upgrade_all">Upgrade All</string>
+    <string name="pip_upgrading_count">Upgrading %d packages…</string>
+    <string name="pip_upgrade_all_done">All packages upgraded</string>
+    <string name="pip_upgrade_all_partial_fail">Some upgrades may have failed</string>
+    <string name="pip_upgrade_all_result_title">Upgrade All Result</string>
+    <string name="pip_searching_pypi">Searching PyPI: %s …</string>
+    <string name="pip_version_unknown">Unknown</string>
+    <string name="pip_pypi_not_found">"%s" not found on PyPI</string>
+    <string name="pip_pypi_not_found_title">Package Not Found</string>
+    <string name="pip_pypi_not_found_msg">Package "%1$s" not found on PyPI.\n\nPlease check the spelling.\n\nRaw output:\n%2$s</string>
+    <string name="pip_btn_close">Close</string>
+    <string name="pip_search_result_title">PyPI Search Result</string>
+    <string name="pip_search_latest_ver">Latest version: %s\n</string>
+    <string name="pip_search_installed_ver">Installed version: %s\n</string>
+    <string name="pip_search_available_ver">\nAvailable versions:\n%s</string>
+    <string name="pip_upgrade_to_ver">Upgrade to %s</string>
+    <string name="pip_install_name">Install %s</string>
+    <string name="pip_getting_detail">Getting %s details…</string>
+    <string name="pip_detail_fail">Failed to get details</string>
+    <string name="pip_status_summary_total">%d packages</string>
+    <string name="pip_status_summary_outdated">, %d outdated</string>
+    <string name="pip_version_arrow">→ %s</string>
+
+    <!-- ==================== FileBrowserActivity ==================== -->
+    <string name="fb_cannot_read_dir">Cannot read directory</string>
+    <string name="fb_parse_error">Failed to parse file list</string>
+    <string name="fb_sort_name">Sort by name</string>
+    <string name="fb_sort_size">Sort by size</string>
+    <string name="fb_sort_date">Sort by date</string>
+    <string name="fb_sort_type">Sort by type</string>
+    <string name="fb_items_count">%d items</string>
+    <string name="fb_new_file_title">New File</string>
+    <string name="fb_new_file_hint">File name</string>
+    <string name="fb_btn_create">Create</string>
+    <string name="fb_btn_cancel">Cancel</string>
+    <string name="fb_filename_empty">File name cannot be empty</string>
+    <string name="fb_creating_file">Creating file…</string>
+    <string name="fb_file_created">File created</string>
+    <string name="fb_file_create_fail">Creation failed</string>
+    <string name="fb_new_folder_title">New Folder</string>
+    <string name="fb_new_folder_hint">Folder name</string>
+    <string name="fb_folder_name_empty">Folder name cannot be empty</string>
+    <string name="fb_creating_folder">Creating folder…</string>
+    <string name="fb_folder_created">Folder created</string>
+    <string name="fb_folder_create_fail">Creation failed</string>
+    <string name="fb_loading_file">Loading file…</string>
+    <string name="fb_file_too_large">File too large (%s), cannot preview</string>
+    <string name="fb_file_read_fail">Failed to read file</string>
+    <string name="fb_file_empty">File is empty</string>
+    <string name="fb_edit_file_title">Edit File</string>
+    <string name="fb_btn_save">Save</string>
+    <string name="fb_saving_file">Saving…</string>
+    <string name="fb_file_saved">File saved</string>
+    <string name="fb_file_save_fail">Save failed</string>
+    <string name="fb_rename_title">Rename</string>
+    <string name="fb_rename_hint">New name</string>
+    <string name="fb_btn_rename">Rename</string>
+    <string name="fb_name_empty">Name cannot be empty</string>
+    <string name="fb_renaming">Renaming…</string>
+    <string name="fb_renamed">Renamed</string>
+    <string name="fb_rename_fail">Rename failed</string>
+    <string name="fb_delete_title">Confirm Delete</string>
+    <string name="fb_delete_confirm">Delete "%s"?\n\nThis cannot be undone.</string>
+    <string name="fb_btn_delete">Delete</string>
+    <string name="fb_deleting">Deleting…</string>
+    <string name="fb_deleted">Deleted</string>
+    <string name="fb_delete_fail">Delete failed</string>
+    <string name="fb_copy_path">Copy path</string>
+    <string name="fb_path_copied">Path copied</string>
+    <string name="fb_menu_open">Open</string>
+    <string name="fb_menu_rename">Rename</string>
+    <string name="fb_menu_delete">Delete</string>
+    <string name="fb_menu_copy_path">Copy path</string>
+    <string name="fb_file_search_hint">Enter file name keyword</string>
+    <string name="fb_file_search_title">Search Files</string>
+    <string name="fb_btn_search">Search</string>
+    <string name="fb_btn_clear">Clear</string>
+    <string name="fb_code_search_hint">Search in code…</string>
+    <string name="fb_code_search_title">Code Search</string>
+    <string name="fb_code_search_result">Found %d matches</string>
+    <string name="fb_loading_image">Loading image…</string>
+    <string name="fb_image_load_fail">Failed to load image</string>
+
+    <!-- ==================== PackageActivity ==================== -->
+    <string name="pkg_title">Build APK</string>
+    <string name="pkg_project_label">Project</string>
+    <string name="pkg_app_name_label">App Name</string>
+    <string name="pkg_app_name_hint">Enter app name</string>
+    <string name="pkg_version_label">Version</string>
+    <string name="pkg_version_hint">e.g. 1.0</string>
+    <string name="pkg_package_name_label">Package Name (optional)</string>
+    <string name="pkg_package_name_hint">e.g. com.example.app</string>
+    <string name="pkg_icon_label">App Icon</string>
+    <string name="pkg_icon_select">Select Icon</string>
+    <string name="pkg_icon_from_gallery">Choose from gallery</string>
+    <string name="pkg_icon_from_app">Clone from installed app</string>
+    <string name="pkg_icon_reset">Reset to default</string>
+    <string name="pkg_behavior_label">Run Behavior</string>
+    <string name="pkg_auto_run">Auto-run on open</string>
+    <string name="pkg_auto_run_desc">Automatically run script when app opens</string>
+    <string name="pkg_keep_screen">Keep screen on</string>
+    <string name="pkg_keep_screen_desc">Prevent screen from turning off during execution</string>
+    <string name="pkg_show_log">Show floating log</string>
+    <string name="pkg_show_log_desc">Display floating log window during execution</string>
+    <string name="pkg_exit_on_stop">Exit on script stop</string>
+    <string name="pkg_exit_on_stop_desc">Close app when script finishes</string>
+    <string name="pkg_encrypt">Encrypt script</string>
+    <string name="pkg_encrypt_desc">Protect source code with AES-256-GCM encryption</string>
+    <string name="pkg_btn_build">Build</string>
+    <string name="pkg_app_name_empty">Please enter an app name</string>
+    <string name="pkg_building">Building, please wait…</string>
+    <string name="pkg_starting_engine">Starting engine…</string>
+    <string name="pkg_engine_fail">✗ Engine failed to start. Ensure ROOT access is granted</string>
+    <string name="pkg_build_success">✓ Build successful (%1$sMB, %2$ds)\n%3$s</string>
+    <string name="pkg_build_fail">✗ Build failed: %s</string>
+    <string name="pkg_build_no_response">No response. Check engine status</string>
+    <string name="pkg_build_exception">✗ Error: %s</string>
+    <string name="pkg_select_app_title">Select App</string>
+    <string name="pkg_loading_apps">Loading app list…</string>
+    <string name="pkg_load_apps_fail">Failed to load app list</string>
+    <string name="pkg_icon_cloned">Cloned icon from "%s"</string>
+    <string name="pkg_icon_clone_fail">Failed to get icon</string>
+    <string name="pkg_icon_reset_done">Icon reset to default</string>
+
+    <!-- ==================== holder download ==================== -->
+    <string name="holder_download_failed">Download failed! %s</string>
+    <string name="holder_download_success">Download complete!</string>
+    <string name="holder_download_url_invalid">Invalid operation! Download URL not configured</string>
+
+    <!-- ==================== ProjectConfigActivity ==================== -->
+    <string name="projconfig_attr_title">Edit Input Extended Attributes</string>
+    <string name="projconfig_config_no_change">No changes or save failed</string>
+    <string name="projconfig_config_saved">Configuration saved</string>
+    <string name="projconfig_config_title_fmt">Configure Project - %s</string>
+    <string name="projconfig_edit_default_hint">Enter title</string>
+    <string name="projconfig_edit_default_title">Input</string>
+    <string name="projconfig_example_title">ui.yml Configuration Example</string>
+    <string name="projconfig_field_required_short">This field is required</string>
+    <string name="projconfig_fill_required">Please fill in required fields</string>
+    <string name="projconfig_no_config_desc">To add a configuration UI, create a ui.yml file in the script project directory.\nUsers can adjust script parameters here, read via Config.read_config_value().</string>
+    <string name="projconfig_no_config_title">No configurable items for this script</string>
+    <string name="projconfig_python_title">Python Read Method</string>
+    <string name="projconfig_run_script">Run script directly</string>
+    <string name="projconfig_script_starting">Script starting…</string>
+    <string name="projconfig_yaml_error">Error reading YAML UI config file</string>
+
+    <!-- ==================== RunnerActivity ==================== -->
+    <string name="runner_auto_run_desc">Automatically run script when app opens</string>
+    <string name="runner_clear_log">Clear log</string>
+    <string name="runner_engine_fail_root">Engine failed to start. Ensure ROOT access is granted</string>
+    <string name="runner_exit_app">Exit app</string>
+    <string name="runner_exit_on_stop_desc">Automatically close app when script stops</string>
+    <string name="runner_exit_on_stop_short">Exit after script stops</string>
+    <string name="runner_extract_failed">Script file extraction failed</string>
+    <string name="runner_initializing">Initializing…</string>
+    <string name="runner_keep_screen_desc">Prevent screen from turning off during script execution</string>
+    <string name="runner_log_arrow_collapse">▼  Run Log</string>
+    <string name="runner_log_arrow_expand">▶  Run Log</string>
+    <string name="runner_preparing_script">Preparing script files…</string>
+    <string name="runner_ready">Ready — Waiting to start</string>
+    <string name="runner_running_name">Running: %s</string>
+    <string name="runner_settings_section">Run Settings</string>
+    <string name="runner_show_log_desc">Show real-time log output at the bottom</string>
+    <string name="runner_stopped_exiting">Script stopped, exiting soon</string>
+    <string name="runner_stopping">Stopping…</string>
+
+    <!-- ==================== agent ==================== -->
+    <string name="agent_hint_doubao">Go to Volcengine console to get API Key</string>
+    <string name="agent_hint_qwen">Go to Alibaba Cloud DashScope console to get API Key</string>
+    <string name="agent_hint_openai">Go to OpenAI Platform to get API Key</string>
+    <string name="agent_hint_custom">Enter OpenAI-compatible API endpoint and key</string>
+    <string name="agent_input_apikey">Please enter API Key</string>
+    <string name="agent_input_apikey_first">Please enter API Key first</string>
+    <string name="agent_saved">Settings saved</string>
+    <string name="agent_save_failed">Save failed, check if engine is running</string>
+    <string name="agent_testing">Testing…</string>
+    <string name="agent_test_success">✅ Connected · Model: %1 · Latency: %2</string>
+    <string name="agent_unknown_error">Unknown error</string>
+    <string name="agent_test_fail">❌ Connection failed: %s</string>
+    <string name="agent_test_parse_fail">❌ Failed to parse response</string>
+    <string name="agent_test_request_fail">❌ Request failed, check if engine is running</string>
+
+    <!-- ==================== floating ==================== -->
+    <string name="floating_log_closed">Log console closed</string>
+    <string name="floating_log_opened">Log console opened</string>
+    <string name="floating_start_engine_first">Please start the automation engine first</string>
+    <string name="floating_refreshing">Refreshing…</string>
+    <string name="floating_refresh_failed">Refresh failed</string>
+    <string name="floating_running_name">Running: %s</string>
+    <string name="floating_engine_ready">Engine ready</string>
+    <string name="floating_engine_not_started">Engine not started</string>
+    <string name="floating_project_count_fmt">%d projects</string>
+    <string name="floating_running">Running</string>
+    <string name="floating_stopping">Stopping: %s</string>
+    <string name="floating_starting">Starting: %s</string>
+    <string name="floating_op_failed">Operation failed: %s</string>
+    <string name="floating_stop">Stop</string>
+    <string name="floating_agent_stopped">Agent stopped</string>
+    <string name="floating_agent_step">Step %1/%2 · %3</string>
+    <string name="floating_inspector_failed">Widget analysis failed: automation engine not responding</string>
+    <string name="floating_node_count">%d widgets</string>
+    <string name="floating_refreshing_nodes">Refreshing widgets…</string>
+    <string name="floating_refresh_engine_fail">Refresh failed: engine not responding</string>
+    <string name="floating_node_copied">Widget info copied</string>
+    <string name="floating_select_node_first">Please tap to select a widget first</string>
+    <string name="floating_node_copied_clipboard">Widget info copied to clipboard</string>
+    <string name="floating_agent_running">🤖 AI Agent running</string>
+    <string name="floating_agent_step_fmt">Step %1/%2 · %3</string>
+
+    <!-- ==================== home ==================== -->
+    <string name="home_lan_address">LAN address: %s</string>
+    <string name="home_wan_address">WAN address: %s</string>
+
+    <!-- ==================== main ==================== -->
+    <string name="main_hint_title">Hint</string>
+    <string name="main_time_check_msg">Please check if the device time is correct or if the app version is outdated, which may cause issues!</string>
+    <string name="main_agree">Agree</string>
+    <string name="main_disagree">Disagree</string>
+    <string name="main_confirm">OK</string>
+    <string name="main_cancel">Cancel</string>
+    <string name="main_copy_auth_success">Auth code copied</string>
+    <string name="main_feature_developing">This feature is under development</string>
+    <string name="main_extract_password">Extract password: yyds</string>
+    <string name="main_lanzouy_hint">If Lanzou link doesn\'t open, tap again to try a different link</string>
+    <string name="main_touch_enabled">Touch display enabled</string>
+    <string name="main_dev_mode_on">Developer mode enabled</string>
+    <string name="main_dev_mode_off">Developer mode disabled</string>
+    <string name="main_ime_started">YY Input Method started</string>
+    <string name="main_cache_cleared">Cache cleared</string>
+    <string name="main_privacy_title">Read - Privacy Policy</string>
+    <string name="main_user_agreement_title">Read - User Agreement</string>
+    <string name="main_register_hint_title">Registration Hint</string>
+    <string name="main_register_hint_title_fmt">Registration Hint (takes %d seconds)</string>
+    <string name="main_floating_opened">Floating window opened</string>
+    <string name="main_floating_no_permission">Floating window permission not granted</string>
+    <string name="main_floating_closed">Floating window closed</string>
+    <string name="main_floating_dialog_title">Enable Floating Window</string>
+    <string name="main_floating_dialog_msg">The floating control window displays the script project list on any screen for quick start/stop.\n\nRequires \"Display over other apps\" permission.\n\nAfter tapping \"Go to Settings\", find this app and enable the permission.</string>
+    <string name="main_floating_go_settings">Go to Settings</string>
+    <string name="main_floating_open_failed">Cannot open settings page, please grant floating window permission manually</string>
+    <string name="main_notification_hint">Notification permission not enabled, control window cannot display</string>
+    <string name="main_notification_dismiss">Got it</string>
+    <string name="pkg_build_error">Build failed: %s</string>
+    <string name="pkg_encrypt_scripts">Encrypt scripts</string>
+    <string name="pkg_hide_ui">Hide UI</string>
+    <string name="pkg_hide_ui_desc">Hide the control panel from display</string>
+    <string name="pkg_icon_clone">Clone from another app</string>
+    <string name="pkg_icon_default">Default icon</string>
+    <string name="pkg_pkg_name_hint">e.g. com.example.app</string>
+    <string name="pkg_pkg_name_label">Package name</string>
+    <string name="pkg_section_encrypt">Script encryption</string>
+    <string name="pkg_section_icon">App icon</string>
+    <string name="pkg_section_run_behavior">Run behavior</string>
+    <string name="pkg_volume_control">Volume key control</string>
+    <string name="pkg_volume_control_desc">Volume+ to start, Volume- to stop</string>
+
+    <string name="fb_btn_close">Close</string>
+    <string name="fb_btn_ok">OK</string>
+    <string name="fb_code_line_info">%d lines</string>
+    <string name="fb_copied">Copied</string>
+    <string name="fb_count_dirs">%d folders</string>
+    <string name="fb_count_files">%d files</string>
+    <string name="fb_create_fail">Creation failed</string>
+    <string name="fb_create_success">Created successfully</string>
+    <string name="fb_delete_recursive_warning">All contents in the folder will be deleted recursively</string>
+    <string name="fb_detail_ext">Extension: %s</string>
+    <string name="fb_detail_modified">Modified: %s</string>
+    <string name="fb_detail_name">Name: %s</string>
+    <string name="fb_detail_path">Path: %s</string>
+    <string name="fb_detail_readable">Readable: %s</string>
+    <string name="fb_detail_size">Size: %s</string>
+    <string name="fb_detail_title">File details</string>
+    <string name="fb_detail_writable">Writable: %s</string>
+    <string name="fb_edit_title">Edit file</string>
+    <string name="fb_empty_dir">Empty folder</string>
+    <string name="fb_filter_query">Search results: %s</string>
+    <string name="fb_image_load_fail_detail">Image load failed: %s</string>
+    <string name="fb_menu_detail">Details</string>
+    <string name="fb_no">No</string>
+    <string name="fb_read_fail">Read failed</string>
+    <string name="fb_read_file_fail">Failed to read file</string>
+    <string name="fb_rename_success">Renamed successfully</string>
+    <string name="fb_save_fail">Save failed</string>
+    <string name="fb_save_success">Saved successfully</string>
+    <string name="fb_search_file_hint">Search by file name</string>
+    <string name="fb_search_file_title">Search files</string>
+    <string name="fb_type_file">File</string>
+    <string name="fb_type_folder">Folder</string>
+    <string name="fb_unsupported_preview">Preview not supported for this file type</string>
+    <string name="fb_yes">Yes</string>
+    <string name="holder_open_failed">Failed to open</string>
+    <string name="pip_detail_installed">Installed version: %s</string>
+    <string name="pip_detail_versions">Available versions</string>
+    <string name="pip_empty_data">No data</string>
+    <string name="pip_load_list_fail">Failed to load list</string>
+    <string name="pip_loading_detail">Loading details…</string>
+    <string name="pip_pypi_result_title">PyPI search results</string>
+    <string name="pip_upgrade_all_partial">Some upgrades failed</string>
+    <string name="pip_upgrade_all_success">All upgraded successfully</string>
+    <string name="pip_upgrading_all">Upgrading all…</string>
+    <string name="pkg_btn_cancel">Cancel</string>
+    <string name="pkg_btn_choose_icon">Choose icon</string>
+    <string name="pkg_btn_clone_icon">Clone icon</string>
+    <string name="pkg_btn_reset_icon">Reset icon</string>
+    <string name="pkg_btn_start">Start packaging</string>
+    <string name="pkg_clone_icon_title">Select app to clone icon from</string>
+    <string name="pkg_engine_not_started">Engine not started</string>
+    <string name="pkg_enter_app_name">Please enter app name</string>
+    <string name="pkg_exception">Package error: %s</string>
+    <string name="pkg_fail">Package failed</string>
+    <string name="pkg_icon_fail">Failed to get icon</string>
+    <string name="pkg_icon_select_fail">Failed to select icon</string>
+    <string name="pkg_no_apps">No apps found</string>
+    <string name="pkg_no_response">No response</string>
+    <string name="pkg_note_1">Packaged app will run independently</string>
+    <string name="pkg_note_2">Please test the script on this device first</string>
+    <string name="pkg_note_3">Packaging may take a few minutes</string>
+    <string name="pkg_note_4">Generated APK is in the Download directory</string>
+    <string name="pkg_note_5">First install requires allowing unknown sources</string>
+    <string name="pkg_note_6">Check log output if you encounter issues</string>
+    <string name="pkg_notes_title">Notes</string>
+    <string name="pkg_package_name_helper">App package name for unique identification</string>
+    <string name="pkg_packaging">Packaging…</string>
+    <string name="pkg_section_basic">Basic info</string>
+    <string name="pkg_section_behavior">Run behavior</string>
+    <string name="pkg_success">Package successful</string>
+    <string name="pkg_sw_auto_run">Auto run</string>
+    <string name="pkg_sw_auto_run_desc">Run script automatically on launch</string>
+    <string name="pkg_sw_encrypt">Encrypt scripts</string>
+    <string name="pkg_sw_encrypt_desc">Encrypt script files for protection</string>
+    <string name="pkg_sw_exit_on_stop">Exit on stop</string>
+    <string name="pkg_sw_exit_on_stop_desc">Exit app when script stops</string>
+    <string name="pkg_sw_keep_screen">Keep screen on</string>
+    <string name="pkg_sw_keep_screen_desc">Keep screen on while running</string>
+    <string name="pkg_sw_show_log">Show log</string>
+    <string name="pkg_sw_show_log_desc">Show run log at bottom of screen</string>
+    <string name="runner_auto_run_title">Auto run</string>
+    <string name="runner_elapsed_hms">%dh %dm %ds</string>
+    <string name="runner_elapsed_ms">%dm %ds</string>
+    <string name="runner_keep_screen_title">Keep screen on</string>
+    <string name="runner_show_log_title">Show log</string>
+    <string name="runner_starting_engine">Starting engine…</string>
+    <string name="runner_stopped">Stopped</string>
+
+    <!-- Boot Auto-start Module -->
+    <string name="home_magisk_module_title">Boot Auto-start</string>
+    <string name="home_magisk_checking">Checking…</string>
+    <string name="home_magisk_installed">Module installed, engine starts on boot</string>
+    <string name="home_magisk_disabled">Module disabled</string>
+    <string name="home_magisk_not_installed">Not installed, manual start required</string>
+    <string name="home_magisk_install">Install</string>
+    <string name="home_magisk_manage">Installed</string>
+    <string name="home_magisk_install_title">Install Boot Module</string>
+    <string name="home_magisk_install_message">Install the auto-start module to %s framework.\n\nThe engine will start automatically on boot without opening the app.\n\nReboot required to take effect.</string>
+    <string name="home_magisk_install_confirm">Install Now</string>
+    <string name="home_magisk_installing">Installing module…</string>
+    <string name="home_magisk_install_success">Auto-start module installed</string>
+    <string name="home_magisk_install_failed">Module installation failed</string>
+    <string name="home_magisk_install_failed_desc">Please ensure your root manager is running and try again</string>
+    <string name="home_magisk_install_done_title">Installation Complete</string>
+    <string name="home_magisk_install_done_message">Boot auto-start module installed successfully!\n\nThe engine will start automatically after next reboot.</string>
+    <string name="home_magisk_reinstall">Reinstall</string>
+    <string name="home_magisk_uninstall">Uninstall Module</string>
+    <string name="home_magisk_uninstall_title">Uninstall Module</string>
+    <string name="home_magisk_uninstall_message">Are you sure to uninstall the boot auto-start module?\n\nThe engine will no longer start on boot.</string>
+    <string name="home_magisk_uninstall_confirm">Confirm Uninstall</string>
+    <string name="home_magisk_uninstall_success">Module uninstalled</string>
+    <string name="home_magisk_uninstall_failed">Module uninstall failed</string>
+</resources>

@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  统一悬浮窗布局
+  模式切换由代码控制 visibility：
+    气泡模式  → bubble_root 可见，panel_root GONE
+    条形模式  → bar_root 可见，其余 GONE
+    面板模式  → panel_root 可见，bubble/bar GONE
+  全屏模式是 panel_root 宽高撑满，通过 WindowManager.LayoutParams 实现
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ===================================================
+         气泡模式：小圆形触发按钮
+         =================================================== -->
+    <FrameLayout
+        android:id="@+id/bubble_root"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/bubble_icon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_agent"
+            android:background="@drawable/floating_trigger_bg_left"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:importantForAccessibility="no" />
+
+        <!-- 状态小点 -->
+        <View
+            android:id="@+id/bubble_status_dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="4dp"
+            android:background="@drawable/floating_btn_start"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- ===================================================
+         条形模式：屏幕底部半透明状态条
+         =================================================== -->
+    <LinearLayout
+        android:id="@+id/bar_root"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:background="#CC0D1117"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <!-- 状态指示点 -->
+        <View
+            android:id="@+id/bar_status_dot"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:background="@drawable/floating_btn_start" />
+
+        <!-- 最新日志文字（滚动显示） -->
+        <TextView
+            android:id="@+id/bar_log_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textColor="#CCDDEE"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:singleLine="true"
+            android:ellipsize="start" />
+
+        <!-- 步骤/Token 信息 -->
+        <TextView
+            android:id="@+id/bar_step_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text=""
+            android:textColor="#88AABB"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+        <!-- 展开按钮 -->
+        <ImageView
+            android:id="@+id/bar_btn_expand"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_download"
+            android:scaleType="centerInside"
+            android:importantForAccessibility="no"
+            android:rotation="180" />
+
+        <!-- 关闭按钮 -->
+        <ImageView
+            android:id="@+id/bar_btn_close"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/ic_close_white"
+            android:scaleType="centerInside"
+            android:alpha="0.6"
+            android:importantForAccessibility="no" />
+
+    </LinearLayout>
+
+    <!-- ===================================================
+         面板模式：控制区 + 日志区统一面板
+         =================================================== -->
+    <LinearLayout
+        android:id="@+id/panel_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/floating_console_bg"
+        android:elevation="16dp"
+        android:visibility="gone">
+
+        <!-- ── 顶部标题栏 ── -->
+        <RelativeLayout
+            android:id="@+id/panel_header"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/floating_console_header_bg"
+            android:paddingHorizontal="10dp">
+
+            <!-- 拖拽图标 -->
+            <ImageView
+                android:id="@+id/panel_drag_handle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_drag_handle"
+                android:importantForAccessibility="no" />
+
+            <!-- 标题 -->
+            <TextView
+                android:id="@+id/panel_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/panel_drag_handle"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6dp"
+                android:text="Yyds.Auto"
+                android:textColor="#E0E8F0"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- 右侧按钮组 -->
+            <!-- 全屏切换 -->
+            <ImageView
+                android:id="@+id/panel_btn_fullscreen"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_toStartOf="@id/panel_btn_barmode"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_fullscreen"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- 条形模式 -->
+            <ImageView
+                android:id="@+id/panel_btn_barmode"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_toStartOf="@id/panel_btn_minimize"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_download"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- 最小化为气泡 -->
+            <ImageView
+                android:id="@+id/panel_btn_minimize"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_toStartOf="@id/panel_btn_settings"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_bubble"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- 设置 -->
+            <ImageView
+                android:id="@+id/panel_btn_settings"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_toStartOf="@id/panel_btn_close"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_settings"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- 关闭 -->
+            <ImageView
+                android:id="@+id/panel_btn_close"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/floating_close_btn_bg"
+                android:src="@drawable/ic_close_white"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+        </RelativeLayout>
+
+        <!-- ── 设置面板（可折叠） ── -->
+        <LinearLayout
+            android:id="@+id/panel_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#141C26"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="8dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:text="透明度"
+                    android:textColor="#AABBCC"
+                    android:textSize="11sp" />
+                <SeekBar
+                    android:id="@+id/settings_seekbar_alpha"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:max="80"
+                    android:progress="70"
+                    android:progressTint="#4CAF50"
+                    android:thumbTint="#4CAF50" />
+                <TextView
+                    android:id="@+id/settings_alpha_value"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:text="90%"
+                    android:textColor="#AABBCC"
+                    android:textSize="10sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+                <TextView
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:text="字体"
+                    android:textColor="#AABBCC"
+                    android:textSize="11sp" />
+                <SeekBar
+                    android:id="@+id/settings_seekbar_fontsize"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:max="14"
+                    android:progress="3"
+                    android:progressTint="#2196F3"
+                    android:thumbTint="#2196F3" />
+                <TextView
+                    android:id="@+id/settings_fontsize_value"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:text="11sp"
+                    android:textColor="#AABBCC"
+                    android:textSize="10sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             内容区：三个 Tab 页面（FrameLayout 叠放）
+             ══════════════════════════════════════════ -->
+        <FrameLayout
+            android:id="@+id/tab_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- ─── Tab 1: 脚本工程 ─── -->
+            <LinearLayout
+                android:id="@+id/page_scripts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#0D1117"
+                android:visibility="visible">
+
+                <!-- 工程页工具栏 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal"
+                    android:background="#141C26"
+                    android:paddingHorizontal="12dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/ctrl_status_dot"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/floating_btn_stop" />
+
+                    <TextView
+                        android:id="@+id/ctrl_status_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="检测引擎中…"
+                        android:textColor="#889AAB"
+                        android:textSize="11sp"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                    <ImageView
+                        android:id="@+id/ctrl_btn_refresh"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_refresh_white"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                    <ImageView
+                        android:id="@+id/ctrl_btn_inspect"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_inspect"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                </LinearLayout>
+
+                <!-- 项目列表 -->
+                <ScrollView
+                    android:id="@+id/ctrl_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fillViewport="false">
+
+                    <LinearLayout
+                        android:id="@+id/ctrl_project_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
+
+                </ScrollView>
+
+                <!-- 空状态 -->
+                <LinearLayout
+                    android:id="@+id/ctrl_empty_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="暂无脚本工程"
+                        android:textColor="#446677"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="通过 VSCode 插件推送工程到设备"
+                        android:textColor="#2D4455"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─── Tab 2: 日志 ─── -->
+            <LinearLayout
+                android:id="@+id/page_log"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#0A0F15"
+                android:visibility="gone">
+
+                <!-- 日志工具栏 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/floating_console_toolbar_bg"
+                    android:paddingHorizontal="10dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/log_btn_clear"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_delete"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                    <ImageView
+                        android:id="@+id/log_btn_autoscroll"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_download"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                    <ImageView
+                        android:id="@+id/log_btn_copy"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_copy_white"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+
+                    <TextView android:id="@+id/log_chip_v"
+                        android:layout_width="wrap_content" android:layout_height="20dp"
+                        android:paddingHorizontal="6dp" android:layout_marginStart="2dp"
+                        android:gravity="center" android:text="V"
+                        android:textColor="#888888" android:textSize="9sp" android:textStyle="bold"
+                        android:background="@drawable/floating_console_chip_bg" />
+                    <TextView android:id="@+id/log_chip_d"
+                        android:layout_width="wrap_content" android:layout_height="20dp"
+                        android:paddingHorizontal="6dp" android:layout_marginStart="2dp"
+                        android:gravity="center" android:text="D"
+                        android:textColor="#2196F3" android:textSize="9sp" android:textStyle="bold"
+                        android:background="@drawable/floating_console_chip_bg" />
+                    <TextView android:id="@+id/log_chip_i"
+                        android:layout_width="wrap_content" android:layout_height="20dp"
+                        android:paddingHorizontal="6dp" android:layout_marginStart="2dp"
+                        android:gravity="center" android:text="I"
+                        android:textColor="#4CAF50" android:textSize="9sp" android:textStyle="bold"
+                        android:background="@drawable/floating_console_chip_bg" />
+                    <TextView android:id="@+id/log_chip_w"
+                        android:layout_width="wrap_content" android:layout_height="20dp"
+                        android:paddingHorizontal="6dp" android:layout_marginStart="2dp"
+                        android:gravity="center" android:text="W"
+                        android:textColor="#FFC107" android:textSize="9sp" android:textStyle="bold"
+                        android:background="@drawable/floating_console_chip_bg" />
+                    <TextView android:id="@+id/log_chip_e"
+                        android:layout_width="wrap_content" android:layout_height="20dp"
+                        android:paddingHorizontal="6dp" android:layout_marginStart="2dp"
+                        android:gravity="center" android:text="E"
+                        android:textColor="#F44336" android:textSize="9sp" android:textStyle="bold"
+                        android:background="@drawable/floating_console_chip_bg" />
+
+                </LinearLayout>
+
+                <!-- 日志列表 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/log_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="4dp"
+                    android:scrollbars="vertical"
+                    android:fadeScrollbars="false"
+                    android:clipToPadding="false" />
+
+                <!-- 日志底部状态 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@drawable/floating_console_footer_bg"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/log_line_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="0 lines"
+                        android:textColor="#667788"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/log_filter_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#667788"
+                        android:textSize="9sp" />
+
+                    <View
+                        android:id="@+id/panel_resize_handle"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/floating_console_resize_handle" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─── Tab 3: Agent ─── -->
+            <LinearLayout
+                android:id="@+id/page_agent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#06080C"
+                android:visibility="gone">
+
+                <!-- Agent 状态卡片 -->
+                <LinearLayout
+                    android:id="@+id/agent_status_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#0D1B2A"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <!-- 第一行：状态 + 操作按钮 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- 运行动画点 -->
+                        <View
+                            android:id="@+id/agent_dot"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/floating_btn_stop" />
+
+                        <TextView
+                            android:id="@+id/agent_status_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="Agent 待命"
+                            android:textColor="#889AAB"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <!-- 接管/恢复按钮 -->
+                        <TextView
+                            android:id="@+id/agent_btn_takeover"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center"
+                            android:text="⏸ 接管"
+                            android:textColor="#FFB74D"
+                            android:textSize="11sp"
+                            android:background="@drawable/floating_action_btn_bg_orange"
+                            android:visibility="gone" />
+
+                        <!-- 停止按钮 -->
+                        <TextView
+                            android:id="@+id/agent_btn_stop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center"
+                            android:text="■ 停止"
+                            android:textColor="#EF5350"
+                            android:textSize="11sp"
+                            android:background="@drawable/floating_action_btn_bg_red"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <!-- 第二行：当前任务描述 -->
+                    <TextView
+                        android:id="@+id/agent_task_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:textColor="#5A7A8A"
+                        android:textSize="11sp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:visibility="gone" />
+
+                    <!-- 第三行：进度条 -->
+                    <LinearLayout
+                        android:id="@+id/agent_progress_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:visibility="gone">
+
+                        <ProgressBar
+                            android:id="@+id/agent_progress_bar"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="1"
+                            android:progressTint="#1A6B9A"
+                            android:progressBackgroundTint="#1E2D3D"
+                            android:max="30"
+                            android:progress="0" />
+
+                        <TextView
+                            android:id="@+id/agent_step_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="0/30"
+                            android:textColor="#3A6A8A"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 分隔线 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#0F1E2D" />
+
+                <!-- Agent 步骤日志工具栏 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:background="#0A1420"
+                    android:paddingHorizontal="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="执行步骤"
+                        android:textColor="#2A4A6A"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+
+                    <ImageView
+                        android:id="@+id/agent_log_btn_clear"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_delete"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                    <ImageView
+                        android:id="@+id/agent_log_btn_autoscroll"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="3dp"
+                        android:src="@drawable/ic_download"
+                        android:background="@drawable/floating_console_btn_bg"
+                        android:padding="4dp"
+                        android:scaleType="centerInside"
+                        android:importantForAccessibility="no" />
+
+                </LinearLayout>
+
+                <!-- Agent 步骤日志列表 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/agent_log_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="4dp"
+                    android:scrollbars="vertical"
+                    android:fadeScrollbars="false"
+                    android:clipToPadding="false" />
+
+                <!-- Agent 空状态 -->
+                <LinearLayout
+                    android:id="@+id/agent_empty_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤖"
+                        android:textSize="36sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Agent 待命中"
+                        android:textColor="#2A4A6A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="在 AI 助手页面发送指令开始自动化任务"
+                        android:textColor="#1A3040"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- ══════════════════════════════════════════
+             底部 Tab 导航栏
+             ══════════════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:background="#0D1117"
+            android:elevation="4dp">
+
+            <!-- Tab 1: 脚本工程 -->
+            <LinearLayout
+                android:id="@+id/tab_scripts"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/floating_tab_ripple">
+
+                <ImageView
+                    android:id="@+id/tab_icon_scripts"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_play_arrow_white"
+                    android:scaleType="centerInside"
+                    android:alpha="0.5"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:id="@+id/tab_text_scripts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="工程"
+                    android:textColor="#668899"
+                    android:textSize="9sp" />
+
+            </LinearLayout>
+
+            <!-- Tab 2: 日志 -->
+            <LinearLayout
+                android:id="@+id/tab_log"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/floating_tab_ripple">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/tab_icon_log"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_console"
+                        android:scaleType="centerInside"
+                        android:alpha="0.5"
+                        android:importantForAccessibility="no" />
+
+                    <!-- 日志未读红点 -->
+                    <View
+                        android:id="@+id/tab_log_badge"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_gravity="top|end"
+                        android:background="@drawable/floating_btn_stop"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tab_text_log"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="日志"
+                    android:textColor="#668899"
+                    android:textSize="9sp" />
+
+            </LinearLayout>
+
+            <!-- Tab 3: Agent -->
+            <LinearLayout
+                android:id="@+id/tab_agent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/floating_tab_ripple">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/tab_icon_agent"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_agent"
+                        android:scaleType="centerInside"
+                        android:alpha="0.5"
+                        android:importantForAccessibility="no" />
+
+                    <!-- Agent 步数角标 -->
+                    <TextView
+                        android:id="@+id/tab_agent_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginStart="10dp"
+                        android:paddingHorizontal="3dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="8sp"
+                        android:background="@drawable/floating_badge_bg"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tab_text_agent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Agent"
+                    android:textColor="#668899"
+                    android:textSize="9sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

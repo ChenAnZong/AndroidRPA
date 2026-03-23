@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ==================== App ==================== -->
+    <string name="app_name">Yyds.Auto</string>
+    <string name="subtitle">Android自動化プラットフォーム</string>
+    <string name="app_platform">Android RPA自動化プラットフォーム</string>
+
+    <!-- ==================== Navigation ==================== -->
+    <string name="nav_home">ホーム</string>
+    <string name="nav_script">スクリプト</string>
+    <string name="nav_agent">AIアシスタント</string>
+    <string name="nav_remote">リモート</string>
+
+    <!-- ==================== Home Fragment ==================== -->
+    <string name="home_network">ネットワーク</string>
+    <string name="home_network_checking">確認中…</string>
+    <string name="home_engine_checking">検出中…</string>
+    <string name="home_shizuku">Shizuku（ROOT不要）</string>
+    <string name="home_view">表示</string>
+    <string name="home_remote_control">リモート＆画面共有</string>
+    <string name="home_touch_mode">タッチ注入モード</string>
+    <string name="home_floating_window">フローティングウィンドウ</string>
+    <string name="home_click_to_enable">タップして有効化</string>
+    <string name="home_log_console">ログコンソール</string>
+    <string name="home_run_log">実行ログ</string>
+    <string name="home_view_log">ログを表示</string>
+    <string name="home_beginner_guide">初心者ガイド</string>
+    <string name="home_beginner_guide_desc">5ステップで使い方を学ぶ</string>
+
+    <!-- ==================== Script Fragment ==================== -->
+    <string name="script_no_project">プロジェクトなし</string>
+    <string name="script_no_project_hint">VSCode拡張機能でプロジェクトをプッシュ\nまたは右下の＋でインポート</string>
+    <string name="script_import_project">プロジェクトをインポート</string>
+
+    <!-- ==================== Remote Fragment ==================== -->
+    <string name="remote_server_title">リモート管理サーバー</string>
+    <string name="remote_server_desc">サーバーアドレスを設定し、ログインしてデバイスをバインド</string>
+    <string name="remote_server_config">サーバー設定</string>
+    <string name="remote_server_hint">サーバーアドレス (IP)</string>
+    <string name="remote_port_hint">ポート</string>
+    <string name="remote_checking">確認中…</string>
+    <string name="remote_account_login">アカウントログイン</string>
+    <string name="remote_account_desc">ログインするとデバイスが自動バインドされ、コンソールで管理できます</string>
+    <string name="remote_username_hint">ユーザー名</string>
+    <string name="remote_password_hint">パスワード</string>
+    <string name="remote_login">ログイン</string>
+    <string name="remote_register">登録</string>
+    <string name="remote_username_label">ユーザー名</string>
+    <string name="remote_role_label">ロール</string>
+    <string name="remote_logout">ログアウト</string>
+    <string name="remote_save_config">設定を保存</string>
+    <string name="remote_instructions">説明：\n\n1. リモートコンソールのIPアドレスとポートを入力\n2. ログインしてデバイスをバインドし認証トークンを取得\n3. 保存をタップ — エンジンが自動接続します\n4. 設定ファイル: /sdcard/Yyds.Auto/server.conf</string>
+
+    <!-- ==================== Agent Fragment ==================== -->
+    <string name="agent_title">AIアシスタント</string>
+    <string name="agent_desc">やりたいことを教えてください、スマホを操作します</string>
+    <string name="agent_running_status">実行中 · ステップ 3/25</string>
+    <string name="agent_need_config">AIモデルの設定が必要です</string>
+    <string name="agent_need_config_desc">API Keyを入力して開始。豆包、通義千問、GPT-4oに対応</string>
+    <string name="agent_go_settings">設定へ</string>
+    <string name="agent_stop">停止</string>
+    <string name="agent_input_hint">AIにやりたいことを伝える…</string>
+    <string name="agent_cd_settings">設定</string>
+    <string name="agent_cd_send">送信</string>
+    <string name="agent_log_action_sample">タップ (540, 960)</string>
+    <string name="agent_log_detail_sample">設定画面に遷移</string>
+
+    <!-- ==================== Agent Settings ==================== -->
+    <string name="agent_settings_title">AIアシスタント設定</string>
+    <string name="agent_settings_provider">AIモデルプロバイダー</string>
+    <string name="agent_settings_volcengine">火山エンジン（豆包）</string>
+    <string name="agent_settings_alibaba">アリババクラウド（通義千問）</string>
+    <string name="agent_settings_custom">カスタム（OpenAI互換API）</string>
+    <string name="agent_settings_get_key">火山エンジンコンソールでAPI Keyを取得</string>
+    <string name="agent_settings_api_key_hint">API Keyを入力</string>
+    <string name="agent_settings_base_url_hint">Base URL（例: https://api.example.com/v1）</string>
+    <string name="agent_settings_model_hint">モデル名（例: gpt-4o）</string>
+    <string name="agent_settings_test">接続テスト</string>
+    <string name="agent_settings_advanced">詳細オプション</string>
+    <string name="agent_settings_max_steps">最大実行ステップ数</string>
+    <string name="agent_settings_ui_tree">UIツリー強化</string>
+    <string name="agent_settings_ui_tree_desc">UIツリーXMLも送信し、判断精度を向上</string>
+    <string name="agent_settings_reflection">アクション振り返り</string>
+    <string name="agent_settings_reflection_desc">実行後にスクリーンショットを比較して検証（オフでトークン節約）</string>
+    <string name="agent_settings_save">設定を保存</string>
+    <string name="agent_settings_cd_back">戻る</string>
+    <string name="agent_settings_cd_expand">展開</string>
+
+    <!-- ==================== Beginner Guide ==================== -->
+    <string name="guide_title">初心者ガイド</string>
+    <string name="guide_intro">以下の手順に従って、数分で初期設定を完了し、最初の自動化スクリプトを実行できます。</string>
+    <string name="guide_step1_title">エンジンを有効化</string>
+    <string name="guide_step1_desc">初回は有効化が必要です。エンジン状態が「未有効化」の場合、タップするとガイドが表示されます。ROOT、Shizuku、PC ADBの3つの方法に対応。</string>
+    <string name="guide_step2_title">スクリプトプロジェクトを準備</string>
+    <string name="guide_step2_desc">「スクリプト」タブに切り替えます。空のプロジェクトを作成するか、Pythonスクリプトフォルダをデバイスの /sdcard/Yyds.Py/ に配置してください。</string>
+    <string name="guide_step3_title">スクリプトを実行</string>
+    <string name="guide_step3_desc">スクリプト一覧でプロジェクト横の ▶ ボタンをタップして開始。ログはリアルタイムで表示されます。</string>
+    <string name="guide_step4_title">PCから接続（任意）</string>
+    <string name="guide_step4_desc">VSCode拡張機能「Yyds.Auto」をインストールし、デバイスIPを入力して接続。コード編集、リアルタイムプッシュ、スクリーンショットデバッグなどに対応。</string>
+    <string name="guide_step5_title">フローティングウィンドウを活用</string>
+    <string name="guide_step5_desc">このページで「フローティングコントロール」を有効にすると、どの画面からでもスクリプトの開始/停止が可能です。</string>
+    <string name="guide_view_docs">オンラインドキュメントを見る</string>
+    <string name="guide_dismiss">了解</string>
+
+    <!-- ==================== Engine Activation ==================== -->
+    <string name="engine_not_started">エンジン未起動</string>
+    <string name="engine_activation_desc">ワーカープロセスが実行されていません。必要な権限がありません。以下のいずれかの方法で有効化してください。</string>
+    <string name="engine_root_title">ROOT権限で有効化</string>
+    <string name="engine_root_desc">Magisk / KernelSU でROOT権限を付与</string>
+    <string name="engine_root_status">未認可</string>
+    <string name="engine_shizuku_title">Shizukuで有効化</string>
+    <string name="engine_shizuku_desc">ROOT不要 — Shizukuをインストールしワイヤレスデバッグで起動</string>
+    <string name="engine_shizuku_status">未実行</string>
+    <string name="engine_adb_title">PC ADBで有効化</string>
+    <string name="engine_adb_desc">PCに接続し、VSCode拡張機能またはADBコマンドで有効化</string>
+    <string name="engine_activation_hint">💡 認可後、ホームに戻るとエンジンが自動検出・起動されます</string>
+
+    <!-- ==================== Import Project ==================== -->
+    <string name="import_title">プロジェクトをインポート</string>
+    <string name="import_from_file">ファイルからインポート</string>
+    <string name="import_from_file_desc">ファイルマネージャーから .yyp.zip パッケージを選択</string>
+    <string name="import_scan_dirs">よく使うディレクトリをスキャン</string>
+    <string name="import_scan_dirs_desc">Download、Documentsなどを素早くスキャン</string>
+
+    <!-- ==================== Project Menu ==================== -->
+    <string name="project_menu_browse">プロジェクトファイルを閲覧</string>
+    <string name="project_menu_package">APKをパッケージ</string>
+    <string name="project_menu_update">プロジェクトを更新</string>
+    <string name="project_menu_reset">設定をリセット</string>
+    <string name="project_menu_delete">プロジェクトを削除</string>
+
+    <!-- ==================== Side Nav Header ==================== -->
+    <string name="nav_header_build_version">ビルドバージョン</string>
+    <string name="nav_header_build_time">ビルド日時</string>
+    <string name="nav_header_status_normal">正常</string>
+    <string name="nav_header_license_info">ライセンス情報</string>
+    <string name="nav_header_not_registered">未登録</string>
+    <string name="nav_header_license_code">ライセンスコード</string>
+    <string name="nav_header_expiry">有効期限</string>
+
+    <!-- ==================== Side Drawer Menu ==================== -->
+    <string name="menu_quick_actions">クイック操作</string>
+    <string name="menu_floating_control">フローティングコントロール</string>
+    <string name="menu_pip_manager">Pythonパッケージ管理(pip)</string>
+    <string name="menu_switch_input">YY入力法に切替(ROOT/SHELL)</string>
+    <string name="menu_toggle_coordinates">座標オーバーレイ切替(ROOT)</string>
+    <string name="menu_toggle_touch_feedback">タッチフィードバック切替(ROOT)</string>
+    <string name="menu_enable_dev_mode">開発者モードを有効化(ROOT)</string>
+    <string name="menu_disable_dev_mode">開発者モードを無効化(ROOT)</string>
+    <string name="menu_clear_cache">エンジンキャッシュを全削除</string>
+    <string name="menu_software">ソフトウェア</string>
+    <string name="menu_run_log">実行ログ</string>
+    <string name="menu_check_update_lanzou">更新を確認（蓝奏クラウド）</string>
+    <string name="menu_check_update_123">更新を確認（123クラウド）</string>
+    <string name="menu_upload_log">ログをアップロード</string>
+    <string name="menu_user_agreement">利用規約</string>
+    <string name="menu_privacy_policy">プライバシーポリシー</string>
+
+    <!-- ==================== File Browser ==================== -->
+    <string name="file_browser_title">プロジェクトファイルを閲覧</string>
+    <string name="file_browser_empty">空のディレクトリ</string>
+    <string name="file_browser_search">検索</string>
+    <string name="file_browser_new_file">新規ファイル</string>
+    <string name="file_browser_new_folder">新規フォルダ</string>
+    <string name="file_browser_sort">並び替え</string>
+    <string name="file_browser_sort_name">名前順</string>
+    <string name="file_browser_sort_size">サイズ順</string>
+    <string name="file_browser_sort_date">更新日時順</string>
+    <string name="file_browser_sort_type">種類順</string>
+    <string name="file_browser_cd_edit">編集</string>
+    <string name="file_browser_cd_close">閉じる</string>
+    <string name="file_browser_cd_file_icon">ファイルアイコン</string>
+    <string name="file_browser_cd_enter">開く</string>
+    <string name="file_browser_cd_empty">空のディレクトリ</string>
+
+    <!-- ==================== Pip Manager ==================== -->
+    <string name="pip_refresh">更新</string>
+
+    <!-- ==================== Project Config ==================== -->
+    <string name="project_config_title">プロジェクト設定</string>
+    <string name="project_config_save">設定を保存</string>
+
+    <!-- ==================== Drawer Menu ==================== -->
+    <string name="drawer_quick_actions">クイック操作</string>
+    <string name="drawer_floating_window">フローティングコントロール</string>
+    <string name="drawer_pip_manager">Pythonパッケージ管理(pip)</string>
+    <string name="drawer_input_method">YY入力切替(ROOT/SHELL必要)</string>
+    <string name="drawer_position_tool">座標ヘルパー切替(ROOT必要)</string>
+    <string name="drawer_touch_tool">タッチフィードバック切替(ROOT必要)</string>
+    <string name="drawer_debug_mode_on">開発者モードON(ROOT必要)</string>
+    <string name="drawer_debug_mode_off">開発者モードOFF(ROOT必要)</string>
+    <string name="drawer_clear_cache">エンジンキャッシュを全削除</string>
+    <string name="drawer_software">ソフトウェア</string>
+    <string name="drawer_run_log">実行ログ</string>
+    <string name="drawer_update_lanzou">更新確認(藍奏雲)</string>
+    <string name="drawer_update_123pan">更新確認(123雲)</string>
+    <string name="drawer_upload_log">ログをアップロード</string>
+    <string name="drawer_user_agreement">利用規約</string>
+    <string name="drawer_privacy_policy">プライバシーポリシー</string>
+
+    <!-- ==================== Logcat ==================== -->
+
+    <!-- ==================== Floating Panel ==================== -->
+    <string name="floating_script_project">スクリプトプロジェクト</string>
+    <string name="floating_engine_checking">エンジン状態を確認中…</string>
+    <string name="floating_project_count">%d 件のプロジェクト</string>
+    <string name="floating_no_project">プロジェクトなし</string>
+    <string name="floating_no_project_hint">/sdcard/Yyds.Py/ にスクリプトを配置してください</string>
+    <string name="floating_project_name">プロジェクト名</string>
+    <string name="floating_project_pending">待機中</string>
+
+    <!-- ==================== Floating Log Console ==================== -->
+    <string name="floating_log_title">ログコンソール</string>
+    <string name="floating_log_opacity">透明度</string>
+    <string name="floating_log_font_size">フォントサイズ</string>
+
+    <!-- ==================== Floating Inspector ==================== -->
+    <string name="inspector_analyzing">分析中…</string>
+    <string name="inspector_expand">展開</string>
+    <string name="inspector_collapse">折りたたむ</string>
+    <string name="inspector_search_hint">ウィジェットを検索…</string>
+    <string name="inspector_cd_copy">コピー</string>
+    <string name="inspector_cd_close">閉じる</string>
+    <string name="inspector_cd_expand">展開</string>
+
+    <!-- ==================== Banner ==================== -->
+    <string name="banner_hint">ヒント</string>
+
+    <!-- ==================== Notification ==================== -->
+    <string name="noti_current_project">🧶 現在のプロジェクト:</string>
+    <string name="noti_run_status">🐍 実行状態:</string>
+
+    <!-- ==================== Input Method ==================== -->
+    <string name="input_method_hint">YY自動入力（タップで前の入力法に戻る）</string>
+
+    <!-- ==================== Config Widgets ==================== -->
+    <string name="config_checkbox_default">オプションを有効化</string>
+    <string name="config_spinner_default">選択:</string>
+    <string name="config_textview_default">サンプルテキスト\n2行目</string>
+    <string name="config_edit_hint">入力1</string>
+
+    <!-- ==================== Manifest Labels ==================== -->
+    <string name="manifest_logcat">実行ログ</string>
+    <string name="manifest_project_config">プロジェクト設定</string>
+    <string name="manifest_script_runner">スクリプト実行</string>
+    <string name="manifest_package_apk">APKパッケージ</string>
+    <string name="manifest_agent_settings">AIアシスタント設定</string>
+    <string name="manifest_file_browser">ファイルブラウザ</string>
+    <string name="manifest_pip_manager">Pythonパッケージ</string>
+    <string name="manifest_core_service">コアサービス</string>
+    <string name="manifest_floating_control">フローティングコントロール</string>
+    <string name="manifest_floating_console">フローティングログコンソール</string>
+    <string name="manifest_input_method">YY入力法</string>
+
+    <!-- ==================== Common ==================== -->
+    <string name="common_confirm">確定</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="common_save">保存</string>
+    <string name="common_delete">削除</string>
+    <string name="common_close">閉じる</string>
+    <string name="common_refresh">更新</string>
+    <string name="common_loading">読み込み中…</string>
+    <string name="common_success">成功</string>
+    <string name="common_failed">失敗</string>
+    <string name="common_error">エラー</string>
+    <string name="common_warning">警告</string>
+    <string name="common_retry">再試行</string>
+    <string name="common_copy">コピー</string>
+    <string name="common_paste">貼り付け</string>
+    <string name="common_rename">名前変更</string>
+    <string name="common_share">共有</string>
+    <string name="common_start">開始</string>
+    <string name="common_stop">停止</string>
+    <string name="common_running">実行中</string>
+    <string name="common_stopped">停止済み</string>
+    <string name="common_connected">接続済み</string>
+    <string name="common_disconnected">未接続</string>
+    <string name="common_enabled">有効</string>
+    <string name="common_disabled">無効</string>
+    <string name="common_unknown">不明</string>
+    <string name="common_none">なし</string>
+    <string name="common_yes">はい</string>
+    <string name="common_no">いいえ</string>
+    <string name="common_ok">OK</string>
+    <string name="common_back">戻る</string>
+    <string name="common_next">次へ</string>
+    <string name="common_done">完了</string>
+    <string name="common_edit">編集</string>
+    <string name="common_search">検索</string>
+    <string name="common_settings">設定</string>
+    <string name="common_version">バージョン</string>
+    <string name="common_install">インストール</string>
+    <string name="common_uninstall">アンインストール</string>
+    <string name="common_upgrade">アップグレード</string>
+    <string name="common_download">ダウンロード</string>
+    <string name="common_upload">アップロード</string>
+    <string name="common_select_all">すべて選択</string>
+    <string name="common_deselect_all">選択解除</string>
+    <string name="common_not_activated">未有効化</string>
+    <string name="common_activated">有効化済み</string>
+    <string name="common_permission_denied">権限不足</string>
+    <string name="common_network_error">ネットワークエラー</string>
+    <string name="common_timeout">接続タイムアウト</string>
+    <string name="common_empty">データなし</string>
+
+    <!-- ==================== Toast / Dialog Messages ==================== -->
+    <string name="msg_engine_starting">エンジンを起動中…</string>
+    <string name="msg_engine_started">エンジンが起動しました</string>
+    <string name="msg_engine_stopped">エンジンが停止しました</string>
+    <string name="msg_engine_start_failed">エンジンの起動に失敗しました</string>
+    <string name="msg_project_started">プロジェクトを開始しました</string>
+    <string name="msg_project_stopped">プロジェクトを停止しました</string>
+    <string name="msg_project_start_failed">プロジェクトの開始に失敗しました</string>
+    <string name="msg_project_deleted">プロジェクトを削除しました</string>
+    <string name="msg_project_delete_confirm">プロジェクト「%s」を削除しますか？この操作は元に戻せません。</string>
+    <string name="msg_config_saved">設定を保存しました</string>
+    <string name="msg_config_save_failed">設定の保存に失敗しました</string>
+    <string name="msg_config_reset">設定をリセットしました</string>
+    <string name="msg_config_reset_confirm">設定をリセットしますか？</string>
+    <string name="msg_copied_to_clipboard">クリップボードにコピーしました</string>
+    <string name="msg_file_not_found">ファイルが見つかりません</string>
+    <string name="msg_no_root">ROOT権限がありません</string>
+    <string name="msg_no_permission">必要な権限がありません</string>
+    <string name="msg_connect_failed">接続に失敗しました</string>
+    <string name="msg_connect_success">接続しました</string>
+    <string name="msg_login_success">ログインしました</string>
+    <string name="msg_login_failed">ログインに失敗しました</string>
+    <string name="msg_register_success">登録しました</string>
+    <string name="msg_register_failed">登録に失敗しました</string>
+    <string name="msg_logout_success">ログアウトしました</string>
+    <string name="msg_push_success">プッシュ成功</string>
+    <string name="msg_push_failed">プッシュに失敗しました</string>
+    <string name="msg_package_building">パッケージ中…</string>
+    <string name="msg_package_success">パッケージ完了</string>
+    <string name="msg_package_failed">パッケージに失敗しました</string>
+    <string name="msg_install_success">インストールしました</string>
+    <string name="msg_install_failed">インストールに失敗しました</string>
+    <string name="msg_uninstall_success">アンインストールしました</string>
+    <string name="msg_uninstall_failed">アンインストールに失敗しました</string>
+    <string name="msg_upgrade_success">アップグレードしました</string>
+    <string name="msg_upgrade_failed">アップグレードに失敗しました</string>
+    <string name="msg_pip_installing">%s をインストール中…</string>
+    <string name="msg_pip_uninstalling">%s をアンインストール中…</string>
+    <string name="msg_file_created">ファイルを作成しました</string>
+    <string name="msg_file_deleted">ファイルを削除しました</string>
+    <string name="msg_file_renamed">ファイル名を変更しました</string>
+    <string name="msg_folder_created">フォルダを作成しました</string>
+    <string name="msg_file_delete_confirm">「%s」を削除しますか？</string>
+    <string name="msg_cache_cleared">キャッシュを削除しました</string>
+    <string name="msg_cache_clear_confirm">すべてのエンジンキャッシュを削除しますか？</string>
+    <string name="msg_floating_permission">フローティングウィンドウの権限を許可してください</string>
+    <string name="msg_shizuku_not_running">Shizukuが実行されていません</string>
+    <string name="msg_shizuku_permission_denied">Shizukuの権限が拒否されました</string>
+    <string name="msg_import_success">プロジェクトをインポートしました</string>
+    <string name="msg_import_failed">インポートに失敗しました</string>
+    <string name="msg_scan_complete">スキャン完了、%d 件のプロジェクトを発見</string>
+    <string name="msg_scan_no_result">プロジェクトパッケージが見つかりません</string>
+    <string name="msg_api_key_empty">API Keyを入力してください</string>
+    <string name="msg_test_connect_success">接続テスト成功</string>
+    <string name="msg_test_connect_failed">接続テスト失敗</string>
+    <string name="msg_agent_task_complete">タスク完了</string>
+    <string name="msg_agent_task_failed">タスク失敗</string>
+    <string name="msg_agent_stopped">実行を停止しました</string>
+    <string name="msg_input_username">ユーザー名を入力してください</string>
+    <string name="msg_input_password">パスワードを入力してください</string>
+    <string name="msg_server_address_empty">サーバーアドレスを入力してください</string>
+    <string name="msg_update_downloading">更新をダウンロード中…</string>
+    <string name="msg_update_available">新しいバージョンがあります</string>
+    <string name="msg_update_latest">最新バージョンです</string>
+    <string name="msg_log_uploaded">ログをアップロードしました</string>
+    <string name="msg_log_upload_failed">ログのアップロードに失敗しました</string>
+
+    <!-- ==================== Package Activity ==================== -->
+    <string name="package_title">APKパッケージ</string>
+    <string name="package_app_name">アプリ名</string>
+    <string name="package_package_name">パッケージ名</string>
+    <string name="package_version_name">バージョン名</string>
+    <string name="package_version_code">バージョンコード</string>
+    <string name="package_icon">アプリアイコン</string>
+    <string name="package_select_icon">アイコンを選択</string>
+    <string name="package_encrypt_script">スクリプトを暗号化</string>
+    <string name="package_auto_run">自動実行</string>
+    <string name="package_keep_screen_on">画面を常時オン</string>
+    <string name="package_hide_control">コントロールUIを非表示</string>
+    <string name="package_build">ビルド開始</string>
+    <string name="package_building">ビルド中…</string>
+
+    <!-- ==================== Runner Activity ==================== -->
+    <string name="runner_auto_start">自動開始</string>
+    <string name="runner_keep_alive">常時実行</string>
+    <string name="runner_floating_control">フローティングコントロール</string>
+
+    <!-- ==================== Shizuku ==================== -->
+    <string name="shizuku_requesting">Shizuku権限を要求中…</string>
+    <string name="shizuku_granted">Shizuku権限が許可されました</string>
+    <string name="shizuku_denied">Shizuku権限が拒否されました</string>
+
+
+    <!-- ==================== Agent Settings ==================== -->
+    <string name="agent_hero_desc">やりたいことを教えてください、スマホを操作します</string>
+    <string name="agent_settings">設定</string>
+    <string name="agent_send">送信</string>
+    <string name="action_back">戻る</string>
+    <string name="agent_provider_title">AIモデルプロバイダー</string>
+    <string name="agent_provider_volcengine">火山エンジン（Doubao）</string>
+    <string name="agent_provider_aliyun">Alibaba Cloud（Qwen）</string>
+    <string name="agent_provider_custom">カスタム（OpenAI互換）</string>
+    <string name="agent_get_api_key_hint">火山エンジンコンソールでAPI Keyを取得</string>
+    <string name="agent_api_key_hint">API Keyを入力</string>
+    <string name="agent_base_url_hint">Base URL (例: https://api.example.com/v1)</string>
+    <string name="agent_model_name_hint">モデル名 (例: gpt-4o)</string>
+    <string name="agent_test_connection">接続テスト</string>
+    <string name="agent_advanced_options">詳細オプション</string>
+    <string name="agent_expand">展開</string>
+    <string name="agent_max_steps">最大実行ステップ数</string>
+    <string name="agent_ui_tree_enhance">UIツリー強化</string>
+    <string name="agent_ui_tree_enhance_desc">UIツリーXMLを同時送信し、判断精度を向上</string>
+    <string name="agent_reflector">アクション振り返り</string>
+    <string name="agent_reflector_desc">実行後にスクリーンショットで効果を検証（オフでトークン節約）</string>
+    <string name="agent_save_settings">設定を保存</string>
+    <string name="remote_help_text">説明：\n\n1. リモート管理コンソールのIPアドレスとポートを入力\n2. ログインするとデバイスが自動バインドされ認証トークンを取得\n3. 保存をクリックすると、エンジンが自動的に設定を読み込み接続\n4. 設定ファイル: /sdcard/Yyds.Auto/server.conf</string>
+
+
+    <!-- ==================== Layout Strings ==================== -->
+    <string name="activation_title">エンジン未起動</string>
+    <string name="activation_desc">ワーカープロセスが実行されていません。必要な権限がありません。以下のいずれかの方法でエンジンを起動してください。</string>
+    <string name="activation_root_title">ROOT権限で起動</string>
+    <string name="activation_root_desc">Magisk / KernelSU等でROOT権限を付与</string>
+    <string name="activation_root_status">未認可</string>
+    <string name="activation_shizuku_title">Shizuku起動</string>
+    <string name="activation_shizuku_desc">ROOT不要。Shizukuをインストールしワイヤレスデバッグで起動</string>
+    <string name="activation_shizuku_status">未実行</string>
+    <string name="activation_adb_title">PC ADB起動</string>
+    <string name="activation_adb_desc">PCに接続し、VSCodeプラグインまたはADBコマンドで起動</string>
+    <string name="activation_hint">💡 認可後ホームに戻ると自動検出して起動します</string>
+    <string name="file_browser_edit">編集</string>
+    <string name="file_browser_close">閉じる</string>
+    <string name="file_browser_enter">開く</string>
+    <string name="file_icon_desc">ファイルアイコン</string>
+    <string name="nav_slogan">Android RPAプラットフォーム</string>
+    <string name="nav_build_version">ビルドバージョン</string>
+    <string name="nav_build_time">ビルド日時</string>
+    <string name="nav_status_ok">正常</string>
+    <string name="nav_auth_info">ライセンス情報</string>
+    <string name="nav_not_registered">未登録</string>
+    <string name="nav_auth_code">ライセンスコード</string>
+    <string name="nav_auth_expire">有効期限</string>
+    <string name="import_pick_file">ファイルからインポート</string>
+    <string name="import_pick_file_desc">ファイルマネージャーから .yyp.zip を選択</string>
+    <string name="import_scan_folders">よく使うフォルダをスキャン</string>
+    <string name="import_scan_folders_desc">Download、Documents等のフォルダを素早くスキャン</string>
+    <string name="menu_browse_files">プロジェクトファイル</string>
+    <string name="menu_package_apk">APKパッケージ</string>
+    <string name="menu_download_update">プロジェクトをダウンロード/更新</string>
+    <string name="menu_reset_config">設定をリセット</string>
+    <string name="menu_delete_project">プロジェクトを削除</string>
+    <string name="inspector_copy">コピー</string>
+    <string name="script_empty_title">プロジェクトなし</string>
+    <string name="script_empty_desc">VSCodeプラグインでプロジェクトをプッシュ
+または右下の+でインポート</string>
+    <string name="script_import">プロジェクトをインポート</string>
+    <string name="console_title">ログコンソール</string>
+    <string name="console_transparency">透明度</string>
+    <string name="console_font_size">フォントサイズ</string>
+    <string name="floating_item_name">プロジェクト名</string>
+    <string name="floating_item_pending">待機中</string>
+    <string name="node_tree_expand">展開</string>
+    <string name="input_view_hint">YY自動入力（タップで前の入力に戻る）</string>
+    <string name="m_checkbox_text">設定を有効化</string>
+    <string name="m_spinner_title">選択:</string>
+    <string name="m_textview_text">参考情報\n2行目</string>
+    <string name="m_edit_hint">入力1</string>
+    <string name="agent_log_sample_title">クリック (540, 960)</string>
+    <string name="agent_log_sample_detail">設定画面に遷移</string>
+
+    <!-- ==================== Common Buttons ==================== -->
+    <string name="btn_cancel">キャンセル</string>
+    <string name="btn_close">閉じる</string>
+    <string name="btn_import">インポート</string>
+
+    <!-- ==================== AgentFragment ==================== -->
+    <string name="msg_agent_input_empty">コマンドを入力してください</string>
+    <string name="msg_agent_request_failed">リクエスト失敗、エンジンが実行中か確認してください</string>
+    <string name="msg_agent_start_failed">起動失敗</string>
+    <string name="agent_starting">起動中…</string>
+    <string name="agent_running_step">実行中 · ステップ %1$d/%2$d</string>
+    <string name="agent_executing">実行中…</string>
+
+    <!-- ==================== ScriptFragment ==================== -->
+    <string name="msg_engine_not_started">ワーカープロセス未起動。ROOTまたはSHELL権限を確認してください</string>
+    <string name="msg_file_picker_failed">ファイル選択を開けません: %1$s</string>
+    <string name="msg_select_zip_file">.zip形式のプロジェクトパッケージを選択してください</string>
+    <string name="msg_importing_project">%1$s をインポート中…</string>
+    <string name="msg_cannot_read_file">選択したファイルを読み取れません</string>
+    <string name="msg_import_success_name">インポート成功: %1$s</string>
+    <string name="msg_import_failed_detail">インポート失敗: %1$s</string>
+    <string name="msg_scanning">スキャン中…</string>
+    <string name="script_scan_result_title">スキャン結果</string>
+    <string name="script_scan_no_result_message">Download、Documentsフォルダに\n.yyp.zipプロジェクトパッケージが見つかりません\n\n上記フォルダに配置するか「ファイル選択」でインポートしてください</string>
+    <string name="script_pick_file">ファイル選択</string>
+    <string name="msg_scan_failed">スキャン失敗: %1$s</string>
+    <string name="script_scan_found_count">%1$d個のプロジェクトパッケージが見つかりました</string>
+    <string name="msg_cannot_copy_to_cache">キャッシュにコピーできません</string>
+
+    <!-- ==================== RemoteFragment ==================== -->
+    <string name="remote_role_admin">管理者</string>
+    <string name="remote_role_user">一般ユーザー</string>
+    <string name="remote_device_bound">✓ デバイスバインド済み、Token設定済み</string>
+    <string name="remote_device_not_bound">⚠ ログイン済みですがデバイス未バインド</string>
+    <string name="remote_btn_login">ログイン</string>
+    <string name="remote_btn_register">登録</string>
+    <string name="remote_please_wait">お待ちください…</string>
+    <string name="remote_bind_failed">デバイスバインド失敗: %1$s</string>
+    <string name="remote_input_credentials">ユーザー名とパスワードを入力してください</string>
+    <string name="remote_password_min_length">パスワードは6文字以上必要です</string>
+    <string name="remote_register_success">✓ 登録成功</string>
+    <string name="remote_register_failed">登録失敗</string>
+    <string name="remote_register_failed_detail">登録失敗: %1$s</string>
+    <string name="remote_login_success">✓ ログイン成功</string>
+    <string name="remote_login_failed">ログイン失敗</string>
+    <string name="remote_login_failed_detail">ログイン失敗: %1$s</string>
+    <string name="remote_logged_out">ログアウトしました</string>
+    <string name="remote_input_host">サーバーアドレスを入力してください</string>
+    <string name="remote_port_range">ポート範囲 1–65535</string>
+    <string name="remote_status_all_ok">● エンジン実行中 · サーバー到達可能</string>
+    <string name="remote_status_server_unreachable">◐ エンジン実行中 · サーバー到達不可 (%1$s:%2$d)</string>
+    <string name="remote_status_engine_stopped">◐ エンジン停止 · サーバー到達可能</string>
+    <string name="remote_status_all_down">○ エンジン停止 · サーバー到達不可</string>
+    <string name="remote_saving">保存中…</string>
+    <string name="remote_btn_save_config">設定を保存</string>
+    <string name="remote_saved">✓ 保存済み: %1$s:%2$d</string>
+    <string name="remote_saved_direct">✓ 保存済み(直接書込): %1$s:%2$d</string>
+    <string name="remote_save_failed">✗ 保存失敗: %1$s</string>
+
+    <!-- ==================== HomeFragment ==================== -->
+    <string name="home_py_builtin_limited">内蔵エンジン(制限あり)</string>
+    <string name="home_py_running">正常動作中</string>
+    <string name="home_py_not_started">未起動</string>
+    <string name="home_net_fetch_failed">取得失敗</string>
+    <string name="home_waiting_engine">エンジン起動待ち</string>
+    <string name="home_touch_uinput">仮想デバイス (検出回避最強)</string>
+    <string name="home_touch_kernel">カーネルドライバ注入 (検出回避強)</string>
+    <string name="home_touch_java">フレームワーク注入 (互換性最高)</string>
+    <string name="home_touch_auto">デフォルトモード (未初期化)</string>
+    <string name="home_touch_query_failed">クエリ失敗</string>
+    <string name="home_not_activated">未アクティベート</string>
+    <string name="home_running_not_connected">実行中、未接続</string>
+    <string name="home_connected">接続済み</string>
+    <string name="home_engine_waiting">未アクティベート、起動待ち…</string>
+    <string name="home_engine_activated">アクティベート済み %1$s</string>
+    <string name="home_auto_engine">自動化エンジン</string>
+    <string name="home_script_engine">スクリプトエンジン</string>
+    <string name="home_engine_not_running_activate">%1$sが未実行、エンジンをアクティベートしてください</string>
+    <string name="home_activation_desc">%1$sが未実行です。必要な権限がありません。以下のいずれかでアクティベートしてください。</string>
+    <string name="home_authorized">認可済み</string>
+    <string name="home_starting_with_root">ROOT権限でエンジンを起動中…</string>
+    <string name="home_get_root_title">ROOT権限の取得</string>
+    <string name="home_get_root_message">Magisk、KernelSUまたはAPatch等でROOT権限を取得し、本アプリを認可してください。\n\n認可後ホームに戻ると自動検出して起動します。</string>
+    <string name="home_understood">了解</string>
+    <string name="home_not_authorized">未認可</string>
+    <string name="home_not_started">未起動</string>
+    <string name="home_not_installed">未インストール</string>
+    <string name="home_install_shizuku_title">Shizukuをインストール</string>
+    <string name="home_install_shizuku_desc">ShizukuはROOT不要の認可ツールです。非ROOTデバイスに最適。</string>
+    <string name="home_go_download">ダウンロード</string>
+    <string name="home_start_shizuku_title">Shizukuを起動</string>
+    <string name="home_start_shizuku_message">Shizukuはインストール済みですが未実行です。\n\n• Android 11+：Shizukuを開き「ワイヤレスデバッグ」で起動\n• Android 11未満：PCからADBで起動\n\n起動後本アプリに戻ると自動検出します。</string>
+    <string name="home_open_shizuku">Shizukuを開く</string>
+    <string name="home_cannot_open_shizuku">Shizukuを開けません</string>
+    <string name="home_shizuku_auth_title">Shizuku認可</string>
+    <string name="home_shizuku_auth_message">認可ダイアログで「許可」をタップしてください。\n\nダイアログが表示されない場合、以前「拒否」を選択した可能性があります。Shizukuアプリで手動認可してください。</string>
+    <string name="home_starting_with_shizuku">Shizukuでエンジンを起動中…</string>
+    <string name="home_start_failed_msg">起動失敗: %1$s</string>
+    <string name="home_adb_activate_title">ADBエンジンアクティベート</string>
+    <string name="home_adb_activate_message">PCのADBでROOT不要でアクティベート。\n\n方法1：VSCodeプラグインでワンクリック\nYyds.Autoプラグインの「ADBアクティベート」をクリック。\n\n方法2：手動ADBコマンド\n1. USBデバッグまたはワイヤレスデバッグを有効化\n2. デバイスを接続してコマンドを実行\n\n詳細はオンラインドキュメントを参照。</string>
+    <string name="home_view_tutorial">チュートリアル</string>
+    <string name="home_engine_not_started_touch">エンジン未起動、タッチモードを切替できません</string>
+    <string name="home_touch_label_auto">デフォルト (優先:仮想→カーネル→フレームワーク)</string>
+    <string name="home_touch_label_uinput">仮想デバイス</string>
+    <string name="home_touch_label_kernel">カーネルドライバ注入</string>
+    <string name="home_touch_label_java">フレームワーク注入</string>
+    <string name="home_switch_touch_mode_title">タッチ注入モード切替</string>
+    <string name="home_touch_label_auto_short">デフォルトモード</string>
+    <string name="home_touch_switched">切替済み: %1$s</string>
+    <string name="home_touch_switch_failed">切替失敗: %1$s</string>
+    <string name="home_engine_process_info_title">エンジンプロセス情報</string>
+    <string name="home_engine_process_info_message">現在のプロセス:\n %1$s\n起動時間: %2$s\n…</string>
+    <string name="home_float_on_click_close">有効 (タップで閉じる)</string>
+    <string name="home_float_click_to_open_console">タップでフローティングログコンソールを開く</string>
+    <string name="home_float_perm_not_granted">権限未付与、タップで設定</string>
+    <string name="home_float_not_on_need_perm">無効 (オーバーレイ権限が必要)</string>
+    <string name="home_float_click_to_open">タップでフローティングウィンドウを開く</string>
+    <string name="home_float_window_closed">フローティングウィンドウを閉じました</string>
+    <string name="home_open_float_window_title">フローティングウィンドウを開く</string>
+    <string name="home_open_float_window_message">フローティングウィンドウは任意の画面でスクリプト一覧を表示し、素早く起動/停止できます。\n\n「他のアプリの上に表示」権限が必要です。</string>
+    <string name="home_go_settings">設定へ</string>
+    <string name="home_cannot_open_settings">設定を開けません</string>
+    <string name="home_float_window_opened">フローティングウィンドウを開きました</string>
+    <string name="home_console_closed">ログコンソールを閉じました</string>
+    <string name="home_open_console_title">ログコンソールを開く</string>
+    <string name="home_open_console_message">フローティングログコンソールは任意の画面でリアルタイムログを表示し、ドラッグ・リサイズ・フィルタに対応。\n\n「他のアプリの上に表示」権限が必要です。</string>
+    <string name="home_console_opened">ログコンソールを開きました</string>
+    <string name="home_search_install_shizuku">Shizukuを手動で検索してインストールしてください</string>
+    <string name="home_cannot_open_shizuku_manual">Shizukuを開けません、手動で起動してください</string>
+    <string name="home_already_has_shizuku_perm">Shizuku権限取得済み</string>
+    <string name="home_starting_with_shizuku_ellipsis">Shizukuでエンジンを起動中…</string>
+    <string name="home_engine_start_success">エンジン起動成功</string>
+    <string name="home_retrying">再試行中…</string>
+
+    <!-- ==================== ShizukuUtil ==================== -->
+    <string name="shizuku_not_installed">Shizukuがインストールされていません</string>
+    <string name="shizuku_go_install">インストール</string>
+    <string name="shizuku_not_running">Shizukuが実行されていません</string>
+    <string name="shizuku_go_start">起動</string>
+    <string name="shizuku_no_permission">Shizuku未認可</string>
+    <string name="shizuku_go_authorize">認可</string>
+    <string name="shizuku_ready">Shizuku準備完了</string>
+    <string name="shizuku_starting_engine">Shizukuでエンジンを起動中…</string>
+    <string name="shizuku_engine_started">Shizukuでエンジン起動済み</string>
+    <string name="shizuku_engine_failed">Shizukuエンジン起動失敗</string>
+    <string name="shizuku_retry">再試行</string>
+    <string name="shizuku_not_installed_or_too_old">Shizuku 未インストールまたはバージョンが古い</string>
+    <string name="shizuku_not_running_hint">Shizuku 未実行、先にShizukuを起動してください</string>
+    <string name="shizuku_binder_dead">Shizuku binder 切断</string>
+    <string name="shizuku_permission_denied">Shizuku 権限拒否</string>
+    <string name="shizuku_permission_granted">Shizuku 権限取得済み</string>
+    <string name="shizuku_uid_root">ROOT (uid=0)</string>
+    <string name="shizuku_uid_adb">ADB/Shell (uid=2000)</string>
+    <string name="shizuku_uid_unknown">不明 (uid=%d)</string>
+    <string name="shizuku_starting_engine_via">Shizukuでエンジンを起動中…</string>
+    <string name="shizuku_engine_start_success">エンジン起動成功！%dms</string>
+    <string name="shizuku_engine_start_failed">エンジン起動失敗: %s</string>
+    <string name="shizuku_waiting_port">ポート %d 待機中…</string>
+    <string name="shizuku_port_ready">ポート %d 準備完了</string>
+    <string name="shizuku_port_timeout">ポート %d タイムアウト</string>
+    <string name="shizuku_executing_cmd">コマンド実行: %s</string>
+    <string name="shizuku_cmd_result">結果: %s</string>
+    <string name="shizuku_cmd_error">コマンドエラー: %s</string>
+    <string name="shizuku_guide_step1">1. Shizukuをダウンロード・インストール（shizuku.rikka.app）</string>
+    <string name="shizuku_guide_step2">2. Android 11+は「ワイヤレスデバッグ」で直接起動可能</string>
+    <string name="shizuku_guide_step3">3. Android 11未満はPC接続でADBコマンド実行が必要</string>
+    <string name="shizuku_guide_step4">4. 起動後、本アプリに戻って認可してください</string>
+    <string name="shizuku_guide_step5">5. 注意：再起動のたびにShizukuの再起動が必要です</string>
+    <string name="shizuku_desc_not_installed">Shizukuが検出されません。非ROOTデバイスはエンジン起動にShizukuが必要です</string>
+    <string name="shizuku_desc_not_running">Shizukuはインストール済みですが未実行です。Shizukuアプリを開いてサービスを起動してください</string>
+    <string name="shizuku_desc_no_permission">Shizuku実行中。認可するとエンジンを起動できます</string>
+    <string name="shizuku_desc_ready">Shizuku準備完了 · %s モード · v%d</string>
+    <string name="shizuku_desc_starting">Shizukuでエンジンを起動中、お待ちください…</string>
+    <string name="shizuku_desc_started">Shizukuでエンジン起動成功</string>
+    <string name="shizuku_desc_failed">Shizukuエンジン起動失敗。Shizukuの状態を確認して再試行してください</string>
+
+    <!-- ==================== RunnerActivity ==================== -->
+    <string name="runner_title">スクリプトランナー</string>
+    <string name="runner_project_label">プロジェクト</string>
+    <string name="runner_auto_run">アプリ起動時に自動実行</string>
+    <string name="runner_keep_screen">画面を常時点灯</string>
+    <string name="runner_show_log">実行ログを表示</string>
+    <string name="runner_exit_on_stop">スクリプト停止後にアプリ終了</string>
+    <string name="runner_start">スクリプト開始</string>
+    <string name="runner_stop">スクリプト停止</string>
+    <string name="runner_log_title">実行ログ</string>
+    <string name="runner_log_expand">展開</string>
+    <string name="runner_log_collapse">折りたたむ</string>
+    <string name="runner_status_running">実行中</string>
+    <string name="runner_status_stopped">停止済み</string>
+    <string name="runner_status_starting">起動中…</string>
+    <string name="runner_status_engine_init">エンジン初期化中…</string>
+    <string name="runner_status_engine_ready">エンジン準備完了</string>
+    <string name="runner_status_engine_fail">エンジン起動失敗</string>
+    <string name="runner_running_time">実行時間 %d:%02d:%02d</string>
+    <string name="runner_running_time_short">実行時間 %02d:%02d</string>
+    <string name="runner_no_pack_config">パッケージ設定が見つかりません</string>
+    <string name="runner_engine_starting">エンジン起動中…</string>
+    <string name="runner_engine_ready_start_script">エンジン準備完了、スクリプト起動中…</string>
+    <string name="runner_script_started">スクリプト開始</string>
+    <string name="runner_start_failed">起動失敗: %s</string>
+    <string name="runner_script_stopped">スクリプト停止</string>
+    <string name="runner_stop_failed">停止失敗: %s</string>
+
+    <!-- ==================== ProjectConfigActivity ==================== -->
+    <string name="projconfig_title">プロジェクト設定</string>
+    <string name="projconfig_save">保存</string>
+    <string name="projconfig_save_success">保存成功</string>
+    <string name="projconfig_save_failed">保存失敗: %s</string>
+    <string name="projconfig_reset">リセット</string>
+    <string name="projconfig_reset_confirm_title">設定リセット</string>
+    <string name="projconfig_reset_confirm_msg">すべての設定をデフォルトにリセットしますか？</string>
+    <string name="projconfig_cancel">キャンセル</string>
+    <string name="projconfig_confirm">OK</string>
+    <string name="projconfig_reset_success">デフォルトにリセット済み</string>
+    <string name="projconfig_no_ui_config">このプロジェクトには設定UIがありません</string>
+    <string name="projconfig_required_hint">必須</string>
+    <string name="projconfig_field_required">必須項目を入力してください: %s</string>
+    <string name="projconfig_schedule_title">スケジュールタスク</string>
+    <string name="projconfig_schedule_desc">スクリプトの定期実行を設定</string>
+    <string name="projconfig_schedule_enable">スケジュールタスクを有効化</string>
+    <string name="projconfig_schedule_interval">実行間隔（分）</string>
+    <string name="projconfig_schedule_time">実行時刻</string>
+    <string name="projconfig_select_time">時刻を選択</string>
+    <string name="projconfig_shortcut_title">デスクトップショートカット</string>
+    <string name="projconfig_shortcut_desc">ワンタップ起動用ショートカットを作成</string>
+    <string name="projconfig_create_shortcut">ショートカット作成</string>
+    <string name="projconfig_shortcut_created">ショートカット作成済み</string>
+    <string name="projconfig_shortcut_not_supported">システムがショートカットに対応していません</string>
+    <string name="projconfig_shortcut_failed">ショートカット作成失敗</string>
+
+    <!-- ==================== FloatingWindowService ==================== -->
+    <string name="float_no_projects">プロジェクトなし</string>
+    <string name="float_refreshing">更新中…</string>
+    <string name="float_running">実行中</string>
+    <string name="float_stopped">停止済み</string>
+    <string name="float_start">開始</string>
+    <string name="float_stop">停止</string>
+    <string name="float_starting">起動中…</string>
+    <string name="float_stopping">停止中…</string>
+    <string name="float_start_failed">起動失敗</string>
+    <string name="float_stop_failed">停止失敗</string>
+    <string name="float_script_list">スクリプト一覧</string>
+    <string name="float_close">閉じる</string>
+    <string name="float_inspector">レイアウト検査</string>
+    <string name="float_inspector_loading">レイアウト取得中…</string>
+    <string name="float_inspector_empty">ウィジェットが見つかりません</string>
+    <string name="float_inspector_error">レイアウト取得失敗: %s</string>
+    <string name="float_inspector_tree">ウィジェットツリー</string>
+    <string name="float_inspector_detail">ウィジェット詳細</string>
+    <string name="float_inspector_copy">情報をコピー</string>
+    <string name="float_inspector_select_first">先にウィジェットを選択してください</string>
+    <string name="float_inspector_copied">ウィジェット情報をクリップボードにコピー</string>
+    <string name="float_agent">AIアシスタント</string>
+    <string name="float_agent_running">AI実行中 %d/%d</string>
+    <string name="float_agent_action">アクション: %s</string>
+    <string name="float_agent_idle">AIアシスタント待機中</string>
+    <string name="float_agent_stopped">AI停止</string>
+    <string name="float_agent_stop">AI停止</string>
+
+    <!-- ==================== FloatingLogService ==================== -->
+    <string name="log_console_title">ログコンソール</string>
+    <string name="log_console_clear">クリア</string>
+    <string name="log_console_copy_all">全てコピー</string>
+    <string name="log_console_copied">コピー済み</string>
+    <string name="log_console_all_copied">全ログコピー済み</string>
+    <string name="log_console_no_logs">ログなし</string>
+    <string name="log_console_filter_hint">フィルターキーワード</string>
+    <string name="log_console_auto_scroll">自動スクロール</string>
+    <string name="log_console_font_size">フォントサイズ</string>
+    <string name="log_console_opacity">透明度</string>
+    <string name="log_console_minimize">最小化</string>
+    <string name="log_console_close">閉じる</string>
+    <string name="log_console_log_count">%d 件のログ</string>
+    <string name="log_console_filtered_count">%d/%d 件</string>
+    <string name="log_console_connected">接続済み</string>
+    <string name="log_console_disconnected">未接続</string>
+    <string name="log_console_connecting">接続中…</string>
+
+    <!-- ==================== MainActivity ==================== -->
+    <string name="main_import_project">プロジェクトインポート</string>
+    <string name="main_select_zip">プロジェクトアーカイブを選択 (.zip)</string>
+    <string name="main_importing">インポート中…</string>
+    <string name="main_import_success">インポート成功</string>
+    <string name="main_import_failed">インポート失敗: %s</string>
+    <string name="main_no_root_title">ROOT権限が必要</string>
+    <string name="main_no_root_msg">自動化スクリプトの実行にはROOTまたはShizuku権限が必要です。\n\nデバイスがROOT済みまたはShizukuがインストール済みであることを確認してください。</string>
+    <string name="main_no_root_shizuku">Shizukuを使用</string>
+    <string name="main_no_root_exit">終了</string>
+    <string name="main_checking_permission">権限確認中…</string>
+    <string name="main_permission_ok">権限確認OK</string>
+    <string name="main_about">アプリについて</string>
+    <string name="main_settings">設定</string>
+    <string name="main_feedback">フィードバック</string>
+    <string name="main_check_update">更新確認</string>
+    <string name="main_current_version">現在のバージョン: %s</string>
+    <string name="main_already_latest">最新バージョンです</string>
+    <string name="main_update_available">新バージョン: %s</string>
+    <string name="main_update_now">今すぐ更新</string>
+    <string name="main_update_later">後で</string>
+    <string name="main_exit_confirm">もう一度押すと終了</string>
+    <string name="main_pip_manager">Pipマネージャー</string>
+    <string name="main_file_browser">ファイルブラウザ</string>
+    <string name="main_notification_perm_title">通知権限</string>
+    <string name="main_notification_perm_msg">エンジン状態とスクリプト制御の表示に通知権限が必要です。</string>
+    <string name="main_grant_permission">権限を付与</string>
+    <string name="main_not_now">後で</string>
+    <string name="main_overlay_perm_title">オーバーレイ権限</string>
+    <string name="main_overlay_perm_msg">フローティングコントロールウィンドウに「他のアプリの上に表示」権限が必要です。</string>
+    <string name="main_package">APKパッケージ</string>
+    <string name="main_engine_status_format">エンジン: %s</string>
+
+    <!-- ==================== AppBanner ==================== -->
+    <string name="banner_success">成功</string>
+    <string name="banner_error">エラー</string>
+    <string name="banner_warning">警告</string>
+    <string name="banner_info">お知らせ</string>
+    <string name="banner_dismiss">閉じる</string>
+    <string name="banner_confirm">OK</string>
+    <string name="banner_detail">詳細</string>
+
+    <!-- ==================== App ==================== -->
+    <string name="app_uncaught_exception">未処理のスレッド例外</string>
+    <string name="app_runner_mode">Runnerモード</string>
+    <string name="app_engine_starting">エンジン起動中…</string>
+    <string name="app_engine_started">エンジン起動済み</string>
+    <string name="app_engine_start_failed">エンジン起動失敗</string>
+    <string name="app_auto_run_script">スクリプト自動実行: %s</string>
+    <string name="app_script_not_found">スクリプトが見つかりません: %s</string>
+
+    <!-- ==================== YypListViewHolder ==================== -->
+    <string name="holder_open_config">設定を開く</string>
+    <string name="holder_package_apk">APKパッケージ</string>
+    <string name="holder_open_folder">フォルダを開く</string>
+    <string name="holder_export_project">プロジェクトをエクスポート</string>
+    <string name="holder_export_success">エクスポート成功: %s</string>
+    <string name="holder_export_failed">エクスポート失敗</string>
+    <string name="holder_reset_config">設定をリセット</string>
+    <string name="holder_config_cleared">%s の設定をクリア済み</string>
+    <string name="holder_delete_project">プロジェクトを削除</string>
+
+    <!-- ==================== YypListAdapter ==================== -->
+    <string name="adapter_engine_not_running">エンジン未実行、先にエンジンを起動してください</string>
+    <string name="adapter_starting_script">起動中: %s</string>
+    <string name="adapter_stopping_script">停止中: %s</string>
+    <string name="adapter_operation_failed">操作失敗: %s</string>
+
+    <!-- ==================== AgentLogAdapter ==================== -->
+    <string name="agent_log_thinking">思考中</string>
+    <string name="agent_log_executing">操作実行中</string>
+    <string name="agent_log_result">実行結果</string>
+    <string name="agent_log_error">エラー</string>
+
+    <!-- ==================== FloatingLogService ==================== -->
+
+    <!-- ==================== FloatingLogService ==================== -->
+    <string name="float_log_cleared">ログをクリアしました</string>
+    <string name="float_log_auto_scroll_on">自動スクロール: ON</string>
+    <string name="float_log_auto_scroll_off">自動スクロール: OFF</string>
+    <string name="float_log_filter_level">フィルター: ≥%s</string>
+    <string name="float_log_copied_lines">%d 行のログをコピーしました</string>
+    <string name="float_log_copied">コピーしました</string>
+
+    <!-- ==================== LogcatActivity ==================== -->
+    <string name="logcat_title">実行ログ</string>
+    <string name="logcat_connecting">ログストリームに接続中…</string>
+
+    <!-- ==================== PipManagerActivity ==================== -->
+    <string name="pip_install">インストール</string>
+    <string name="pip_please_enter_package">パッケージ名を入力してください</string>
+    <string name="pip_chip_mirror">清華ミラー</string>
+    <string name="pip_no_data">データなし</string>
+    <string name="pip_search_in_pypi">PyPIで検索</string>
+    <string name="pip_check_installable">このパッケージが利用可能か確認</string>
+    <string name="pip_operation_in_progress">操作実行中、お待ちください</string>
+    <string name="pip_loading_list">パッケージリスト読み込み中...</string>
+    <string name="pip_cannot_connect">ワーカープロセスに接続できません\nサイドバーからエンジンを起動してください</string>
+    <string name="pip_get_list_failed">パッケージリスト取得失敗\nPython環境を確認してください</string>
+    <string name="pip_no_installed_packages">インストール済みパッケージなし</string>
+    <string name="pip_chip_outdated_count">更新可能 (%d)</string>
+    <string name="pip_status_summary">%d パッケージ</string>
+    <string name="pip_status_summary_with_outdated">%d パッケージ、%d 更新可能</string>
+    <string name="pip_no_match_installed">一致するパッケージが見つかりません</string>
+    <string name="pip_search_pypi_for">PyPIで「%s」を検索</string>
+    <string name="pip_check_available_install">利用可能か確認してインストール</string>
+    <string name="pip_use_mirror">清華ミラーソースを使用</string>
+    <string name="pip_cancel">キャンセル</string>
+    <string name="pip_install_failed">インストール失敗: %s</string>
+    <string name="pip_install_result">インストール結果 - %s</string>
+    <string name="pip_uninstall">アンインストール</string>
+    <string name="pip_uninstalled">%s をアンインストールしました</string>
+    <string name="pip_uninstall_failed">アンインストール失敗</string>
+    <string name="pip_uninstall_result">アンインストール結果 - %s</string>
+    <string name="pip_upgrade_btn">アップグレード</string>
+    <string name="pip_upgrade_failed">アップグレード失敗</string>
+    <string name="pip_upgrade_result">アップグレード結果 - %s</string>
+    <string name="pip_no_upgradable">更新可能なパッケージなし</string>
+    <string name="pip_upgrade_all">一括アップグレード</string>
+    <string name="pip_upgrade_partial_fail">一部のアップグレードが失敗した可能性があります</string>
+    <string name="pip_upgrade_all_result">一括アップグレード結果</string>
+    <string name="pip_not_found_title">パッケージが見つかりません</string>
+    <string name="pip_not_found_message">PyPIで「%1$s」が見つかりません。\n\nスペルを確認してください。\n\n元の出力:\n%2$s</string>
+    <string name="pip_close">閉じる</string>
+    <string name="pip_latest_version">最新版: %s</string>
+    <string name="pip_installed_version">インストール済み: %s</string>
+    <string name="pip_available_versions">利用可能なバージョン:\n%s</string>
+    <string name="pip_upgrade_to_version">%s にアップグレード</string>
+    <string name="pip_fetching_detail">%s の詳細を取得中...</string>
+    <string name="pip_get_detail_failed">詳細の取得に失敗</string>
+    <string name="pip_detail_name">パッケージ名: %s\n</string>
+    <string name="pip_detail_version">バージョン: %s\n</string>
+    <string name="pip_detail_latest">最新版: %s\n</string>
+    <string name="pip_detail_summary">概要: %s\n</string>
+    <string name="pip_detail_author">作者: %s\n</string>
+    <string name="pip_detail_homepage">ホームページ: %s\n</string>
+    <string name="pip_detail_license">ライセンス: %s\n</string>
+    <string name="pip_detail_location">パス: %s\n</string>
+    <string name="pip_detail_requires">\n依存: %s\n</string>
+    <string name="pip_detail_required_by">被依存: %s\n</string>
+    <string name="pip_not_found_raw">見つかりません</string>
+    <string name="pip_btn_uninstall">アンインストール</string>
+
+    <!-- ==================== PipManagerActivity ==================== -->
+    <string name="pip_title">Pip パッケージ管理</string>
+    <string name="pip_search_hint">検索またはパッケージ名を入力…</string>
+    <string name="pip_chip_all">すべて</string>
+    <string name="pip_chip_outdated">更新可能 (%d)</string>
+    <string name="pip_chip_upgrade_all">すべて更新</string>
+    <string name="pip_mirror_label">ミラー</string>
+    <string name="pip_pypi_search_title">PyPIで検索</string>
+    <string name="pip_pypi_search_subtitle">パッケージが利用可能か確認</string>
+    <string name="pip_loading">パッケージリストを読み込み中…</string>
+    <string name="pip_engine_not_started">エンジン未起動。ROOT権限を確認してください</string>
+    <string name="pip_list_fail">パッケージリストの取得に失敗\nPython環境を確認してください</string>
+    <string name="pip_no_packages">インストール済みパッケージなし</string>
+    <string name="pip_no_match">一致するパッケージが見つかりません</string>
+    <string name="pip_pypi_search_query">PyPIで「%s」を検索</string>
+    <string name="pip_pypi_search_available">利用可能か確認してインストール</string>
+    <string name="pip_install_title">Pythonパッケージをインストール</string>
+    <string name="pip_install_confirm">「%1$s」をインストールしますか？%2$s\n\n対応形式:\n  · requests\n  · requests==2.31.0\n  · requests>=2.28</string>
+    <string name="pip_mirror_hint">\n清華ミラーを使用</string>
+    <string name="pip_btn_install">インストール</string>
+    <string name="pip_btn_cancel">キャンセル</string>
+    <string name="pip_installing">%s をインストール中…</string>
+    <string name="pip_unknown_result">不明な結果</string>
+    <string name="pip_install_success">インストール成功: %s</string>
+    <string name="pip_install_fail">インストール失敗: %s</string>
+    <string name="pip_install_result_title">インストール結果 - %s</string>
+    <string name="pip_operation_busy">操作実行中です。お待ちください</string>
+    <string name="pip_uninstall_title">アンインストール確認</string>
+    <string name="pip_uninstall_confirm">「%1$s」(%2$s) をアンインストールしますか？\n\nこのパッケージに依存する他のモジュールに影響する可能性があります。</string>
+    <string name="pip_btn_uninstall_action">アンインストール</string>
+    <string name="pip_uninstalling">%s をアンインストール中…</string>
+    <string name="pip_uninstall_success">%s をアンインストールしました</string>
+    <string name="pip_uninstall_fail">アンインストール失敗</string>
+    <string name="pip_uninstall_result_title">アンインストール結果 - %s</string>
+    <string name="pip_upgrade_title">アップグレード確認</string>
+    <string name="pip_upgrade_confirm">「%1$s」をアップグレードしますか？\n%2$s\n\n互換性のない変更が含まれる可能性があります。</string>
+    <string name="pip_upgrade_to_latest">最新バージョンへ</string>
+    <string name="pip_btn_upgrade">アップグレード</string>
+    <string name="pip_upgrading">%1$s → %2$s をアップグレード中…</string>
+    <string name="pip_upgrade_success">アップグレード成功: %s</string>
+    <string name="pip_upgrade_fail">アップグレード失敗</string>
+    <string name="pip_upgrade_result_title">アップグレード結果 - %s</string>
+    <string name="pip_no_outdated">更新可能なパッケージはありません</string>
+    <string name="pip_upgrade_all_title">一括アップグレード確認</string>
+    <string name="pip_upgrade_all_confirm">以下の %1$d 個のパッケージをアップグレードしますか？\n\n%2$s</string>
+    <string name="pip_btn_upgrade_all">すべてアップグレード</string>
+    <string name="pip_upgrading_count">%d 個のパッケージをアップグレード中…</string>
+    <string name="pip_upgrade_all_done">すべてのアップグレードが完了</string>
+    <string name="pip_upgrade_all_partial_fail">一部のアップグレードが失敗した可能性があります</string>
+    <string name="pip_upgrade_all_result_title">一括アップグレード結果</string>
+    <string name="pip_searching_pypi">PyPI検索中: %s …</string>
+    <string name="pip_version_unknown">不明</string>
+    <string name="pip_pypi_not_found">PyPIで「%s」が見つかりません</string>
+    <string name="pip_pypi_not_found_title">パッケージが見つかりません</string>
+    <string name="pip_pypi_not_found_msg">PyPIで「%1$s」が見つかりません。\n\nスペルを確認してください。\n\n出力:\n%2$s</string>
+    <string name="pip_btn_close">閉じる</string>
+    <string name="pip_search_result_title">PyPI検索結果</string>
+    <string name="pip_search_latest_ver">最新バージョン: %s\n</string>
+    <string name="pip_search_installed_ver">インストール済み: %s\n</string>
+    <string name="pip_search_available_ver">\n利用可能なバージョン:\n%s</string>
+    <string name="pip_upgrade_to_ver">%s にアップグレード</string>
+    <string name="pip_install_name">%s をインストール</string>
+    <string name="pip_getting_detail">%s の詳細を取得中…</string>
+    <string name="pip_detail_fail">詳細の取得に失敗</string>
+    <string name="pip_status_summary_total">%d 個のパッケージ</string>
+    <string name="pip_status_summary_outdated">、%d 個が更新可能</string>
+    <string name="pip_version_arrow">→ %s</string>
+
+    <!-- ==================== FileBrowserActivity ==================== -->
+    <string name="fb_cannot_read_dir">ディレクトリを読み取れません</string>
+    <string name="fb_parse_error">ファイルリストの解析に失敗</string>
+    <string name="fb_sort_name">名前順</string>
+    <string name="fb_sort_size">サイズ順</string>
+    <string name="fb_sort_date">更新日順</string>
+    <string name="fb_sort_type">種類順</string>
+    <string name="fb_items_count">%d 項目</string>
+    <string name="fb_new_file_title">新規ファイル</string>
+    <string name="fb_new_file_hint">ファイル名</string>
+    <string name="fb_btn_create">作成</string>
+    <string name="fb_btn_cancel">キャンセル</string>
+    <string name="fb_filename_empty">ファイル名を入力してください</string>
+    <string name="fb_creating_file">ファイルを作成中…</string>
+    <string name="fb_file_created">ファイルを作成しました</string>
+    <string name="fb_file_create_fail">作成に失敗</string>
+    <string name="fb_new_folder_title">新規フォルダ</string>
+    <string name="fb_new_folder_hint">フォルダ名</string>
+    <string name="fb_folder_name_empty">フォルダ名を入力してください</string>
+    <string name="fb_creating_folder">フォルダを作成中…</string>
+    <string name="fb_folder_created">フォルダを作成しました</string>
+    <string name="fb_folder_create_fail">作成に失敗</string>
+    <string name="fb_loading_file">ファイルを読み込み中…</string>
+    <string name="fb_file_too_large">ファイルが大きすぎます（%s）、プレビューできません</string>
+    <string name="fb_file_read_fail">ファイルの読み取りに失敗</string>
+    <string name="fb_file_empty">ファイルは空です</string>
+    <string name="fb_edit_file_title">ファイルを編集</string>
+    <string name="fb_btn_save">保存</string>
+    <string name="fb_saving_file">保存中…</string>
+    <string name="fb_file_saved">ファイルを保存しました</string>
+    <string name="fb_file_save_fail">保存に失敗</string>
+    <string name="fb_rename_title">名前を変更</string>
+    <string name="fb_rename_hint">新しい名前</string>
+    <string name="fb_btn_rename">変更</string>
+    <string name="fb_name_empty">名前を入力してください</string>
+    <string name="fb_renaming">名前を変更中…</string>
+    <string name="fb_renamed">名前を変更しました</string>
+    <string name="fb_rename_fail">名前の変更に失敗</string>
+    <string name="fb_delete_title">削除の確認</string>
+    <string name="fb_delete_confirm">「%s」を削除しますか？\n\nこの操作は元に戻せません。</string>
+    <string name="fb_btn_delete">削除</string>
+    <string name="fb_deleting">削除中…</string>
+    <string name="fb_deleted">削除しました</string>
+    <string name="fb_delete_fail">削除に失敗</string>
+    <string name="fb_copy_path">パスをコピー</string>
+    <string name="fb_path_copied">パスをコピーしました</string>
+    <string name="fb_menu_open">開く</string>
+    <string name="fb_menu_rename">名前を変更</string>
+    <string name="fb_menu_delete">削除</string>
+    <string name="fb_menu_copy_path">パスをコピー</string>
+    <string name="fb_file_search_hint">ファイル名キーワードを入力</string>
+    <string name="fb_file_search_title">ファイル検索</string>
+    <string name="fb_btn_search">検索</string>
+    <string name="fb_btn_clear">クリア</string>
+    <string name="fb_code_search_hint">コード内を検索…</string>
+    <string name="fb_code_search_title">コード検索</string>
+    <string name="fb_code_search_result">%d 件見つかりました</string>
+    <string name="fb_loading_image">画像を読み込み中…</string>
+    <string name="fb_image_load_fail">画像の読み込みに失敗</string>
+
+    <!-- ==================== PackageActivity ==================== -->
+    <string name="pkg_title">APKパッケージ</string>
+    <string name="pkg_app_name_label">アプリ名</string>
+    <string name="pkg_app_name_hint">パッケージ後のアプリ名</string>
+    <string name="pkg_version_label">バージョン</string>
+    <string name="pkg_version_hint">例: 1.0.0</string>
+    <string name="pkg_pkg_name_label">パッケージ名</string>
+    <string name="pkg_pkg_name_hint">例: com.example.app</string>
+    <string name="pkg_section_run_behavior">実行動作</string>
+    <string name="pkg_auto_run">自動実行</string>
+    <string name="pkg_auto_run_desc">起動後にスクリプトを自動実行</string>
+    <string name="pkg_keep_screen">画面常時ON</string>
+    <string name="pkg_keep_screen_desc">実行中は画面をONに保つ</string>
+    <string name="pkg_hide_ui">UIを非表示</string>
+    <string name="pkg_hide_ui_desc">コントロールパネルを非表示にする</string>
+    <string name="pkg_volume_control">音量キー制御</string>
+    <string name="pkg_volume_control_desc">音量+で開始、音量-で停止</string>
+    <string name="pkg_section_icon">アプリアイコン</string>
+    <string name="pkg_icon_default">デフォルトアイコン</string>
+    <string name="pkg_icon_clone">他のアプリからクローン</string>
+    <string name="pkg_icon_reset">デフォルトに戻す</string>
+    <string name="pkg_section_encrypt">スクリプト暗号化</string>
+    <string name="pkg_encrypt_scripts">スクリプトを暗号化</string>
+    <string name="pkg_encrypt_desc">AES-256-GCMでスクリプトを暗号化し逆コンパイルを防止</string>
+    <string name="pkg_btn_build">パッケージ開始</string>
+    <string name="pkg_building">パッケージ中…</string>
+    <string name="pkg_build_success">パッケージ成功！\n出力: %s</string>
+    <string name="pkg_build_fail">パッケージ失敗: %s</string>
+    <string name="pkg_build_error">エラー: %s</string>
+    <string name="pkg_loading_apps">アプリリストを読み込み中…</string>
+    <string name="pkg_load_apps_fail">アプリリストの読み込みに失敗</string>
+    <string name="pkg_icon_cloned">「%s」のアイコンをクローンしました</string>
+    <string name="pkg_icon_clone_fail">アイコンの取得に失敗</string>
+    <string name="pkg_icon_reset_done">デフォルトアイコンに戻しました</string>
+    <string name="pkg_app_name_empty">アプリ名を入力してください</string>
+    <string name="pkg_behavior_label">実行動作</string>
+    <string name="pkg_build_exception">✗ 例外: %s</string>
+    <string name="pkg_build_no_response">応答なし、エンジンの状態を確認してください</string>
+    <string name="pkg_encrypt">スクリプトを暗号化</string>
+    <string name="pkg_engine_fail">✗ エンジンの起動に失敗しました。ROOT権限を確認してください</string>
+    <string name="pkg_exit_on_stop">スクリプト停止後に終了</string>
+    <string name="pkg_exit_on_stop_desc">スクリプト実行完了後にアプリを自動終了</string>
+    <string name="pkg_icon_from_app">インストール済みアプリからクローン</string>
+    <string name="pkg_icon_from_gallery">ギャラリーから選択</string>
+    <string name="pkg_icon_label">アプリアイコン</string>
+    <string name="pkg_icon_select">アイコンを選択</string>
+    <string name="pkg_package_name_hint">例: com.example.app</string>
+    <string name="pkg_package_name_label">パッケージ名（任意）</string>
+    <string name="pkg_project_label">プロジェクト</string>
+    <string name="pkg_select_app_title">アプリを選択</string>
+    <string name="pkg_show_log">フローティングログを表示</string>
+    <string name="pkg_show_log_desc">実行時にフローティングログウィンドウを表示</string>
+    <string name="pkg_starting_engine">エンジンを起動中…</string>
+
+    <!-- ==================== holder download ==================== -->
+    <string name="holder_download_failed">ダウンロード失敗！ %s</string>
+    <string name="holder_download_success">ダウンロード完了！</string>
+    <string name="holder_download_url_invalid">無効な操作！ダウンロードURLが設定されていません</string>
+
+    <!-- ==================== ProjectConfigActivity ==================== -->
+    <string name="projconfig_config_saved">設定を保存しました</string>
+    <string name="projconfig_config_no_change">変更なし、または保存に失敗しました</string>
+    <string name="projconfig_config_title_fmt">プロジェクト設定 - %s</string>
+    <string name="projconfig_field_required_short">この項目は必須です</string>
+    <string name="projconfig_fill_required">必須項目を入力してください</string>
+    <string name="projconfig_run_script">スクリプトを直接実行</string>
+    <string name="projconfig_script_starting">スクリプト起動中…</string>
+    <string name="projconfig_yaml_error">YAML UI設定ファイルの読み込みエラー</string>
+    <string name="projconfig_edit_default_hint">タイトルを入力</string>
+    <string name="projconfig_edit_default_title">入力</string>
+    <string name="projconfig_no_config_title">📝 このスクリプトには設定項目がありません</string>
+    <string name="projconfig_no_config_desc">設定UIを追加するには、スクリプトプロジェクトディレクトリにui.ymlファイルを作成してください。\nユーザーはここでスクリプトパラメータを調整でき、Config.read_config_value()で読み取れます。</string>
+    <string name="projconfig_example_title">💡 ui.yml 設定例</string>
+    <string name="projconfig_python_title">🐍 Python 読み取り方法</string>
+    <string name="projconfig_attr_title">📋 edit 入力欄の拡張属性</string>
+
+    <!-- ==================== RunnerActivity ==================== -->
+    <string name="runner_initializing">初期化中…</string>
+    <string name="runner_settings_section">実行設定</string>
+    <string name="runner_auto_run_desc">アプリ起動時にスクリプトを自動実行</string>
+    <string name="runner_keep_screen_desc">スクリプト実行中は画面をONに保つ</string>
+    <string name="runner_show_log_desc">画面下部にリアルタイムログを表示</string>
+    <string name="runner_exit_on_stop_desc">スクリプト停止時にアプリを自動終了</string>
+    <string name="runner_exit_on_stop_short">スクリプト停止後に終了</string>
+    <string name="runner_log_arrow_expand">▶  実行ログ</string>
+    <string name="runner_log_arrow_collapse">▼  実行ログ</string>
+    <string name="runner_clear_log">ログをクリア</string>
+    <string name="runner_exit_app">アプリを終了</string>
+    <string name="runner_engine_fail_root">エンジンの起動に失敗しました。ROOT権限を確認してください</string>
+    <string name="runner_preparing_script">スクリプトファイルを準備中…</string>
+    <string name="runner_extract_failed">スクリプトファイルの展開に失敗しました</string>
+    <string name="runner_ready">準備完了 — 開始待ち</string>
+    <string name="runner_running_name">実行中: %s</string>
+    <string name="runner_stopping">停止中…</string>
+    <string name="runner_stopped_exiting">スクリプトが停止しました。まもなく終了します</string>
+
+    <!-- ==================== agent ==================== -->
+    <string name="agent_hint_doubao">火山エンジンコンソールでAPI Keyを取得</string>
+    <string name="agent_hint_qwen">アリババクラウドDashScopeコンソールでAPI Keyを取得</string>
+    <string name="agent_hint_openai">OpenAI PlatformでAPI Keyを取得</string>
+    <string name="agent_hint_custom">OpenAI互換APIのアドレスとキーを入力</string>
+    <string name="agent_input_apikey">API Keyを入力してください</string>
+    <string name="agent_input_apikey_first">先にAPI Keyを入力してください</string>
+    <string name="agent_saved">設定を保存しました</string>
+    <string name="agent_save_failed">保存に失敗しました。エンジンが動作中か確認してください</string>
+    <string name="agent_testing">テスト中…</string>
+    <string name="agent_test_success">✅ 接続成功 · モデル: %1 · レイテンシ: %2</string>
+    <string name="agent_unknown_error">不明なエラー</string>
+    <string name="agent_test_fail">❌ 接続失敗: %s</string>
+    <string name="agent_test_parse_fail">❌ レスポンスの解析に失敗</string>
+    <string name="agent_test_request_fail">❌ リクエスト失敗、エンジンが動作中か確認してください</string>
+
+    <string name="floating_agent_running">🤖 AI Agent 実行中</string>
+    <string name="floating_agent_step">ステップ %1/%2 · %3</string>
+    <string name="floating_agent_step_fmt">ステップ %1/%2 · %3</string>
+    <string name="floating_agent_stopped">Agentが停止しました</string>
+    <string name="floating_engine_not_started">エンジン未起動</string>
+    <string name="floating_engine_ready">エンジン準備完了</string>
+    <string name="floating_inspector_failed">ウィジェット分析失敗: 自動化エンジンが応答しません</string>
+    <string name="floating_log_closed">ログコンソールを閉じました</string>
+    <string name="floating_log_opened">ログコンソールを開きました</string>
+    <string name="floating_node_copied">ウィジェット情報をコピーしました</string>
+    <string name="floating_node_copied_clipboard">ウィジェット情報をクリップボードにコピーしました</string>
+    <string name="floating_node_count">%d 個のウィジェット</string>
+    <string name="floating_op_failed">操作失敗: %s</string>
+    <string name="floating_project_count_fmt">%d 個のプロジェクト</string>
+    <string name="floating_refresh_engine_fail">更新失敗: エンジンが応答しません</string>
+    <string name="floating_refresh_failed">更新失敗</string>
+    <string name="floating_refreshing">更新中…</string>
+    <string name="floating_refreshing_nodes">ウィジェットを更新中…</string>
+    <string name="floating_running">実行中</string>
+    <string name="floating_running_name">実行中: %s</string>
+    <string name="floating_select_node_first">先にウィジェットをタップして選択してください</string>
+    <string name="floating_start_engine_first">先に自動化エンジンを起動してください</string>
+    <string name="floating_starting">起動中: %s</string>
+    <string name="floating_stop">停止</string>
+    <string name="floating_stopping">停止中: %s</string>
+    <string name="home_lan_address">LAN アドレス: %s</string>
+    <string name="home_wan_address">WAN アドレス: %s</string>
+    <string name="main_agree">同意する</string>
+    <string name="main_cache_cleared">キャッシュをクリアしました</string>
+    <string name="main_cancel">キャンセル</string>
+    <string name="main_confirm">OK</string>
+    <string name="main_copy_auth_success">認証コードをコピーしました</string>
+    <string name="main_dev_mode_off">開発者モードを無効にしました</string>
+    <string name="main_dev_mode_on">開発者モードを有効にしました</string>
+    <string name="main_disagree">同意しない</string>
+    <string name="main_extract_password">解凍パスワーニ: yyds</string>
+    <string name="main_feature_developing">この機能は開発中です</string>
+    <string name="main_floating_closed">フローティングウィンドウを閉じました</string>
+    <string name="main_floating_dialog_msg">フローティングコントロールウィンドウは、任意の画面でスクリプトプロジェクト一覧を表示し、素早く起動・停止できます。
+
+「他のアプリの上に表示」権限を付与する必要があります。
+
+「設定へ」をタップし、このアプリを見つけて権限を有効にしてください。</string>
+    <string name="main_floating_dialog_title">フローティングウィンドウを開く</string>
+    <string name="main_floating_go_settings">設定へ</string>
+    <string name="main_floating_no_permission">フローティングウィンドウ権限が付与されていません</string>
+    <string name="main_floating_open_failed">設定ページを開けません。手動でフローティングウィンドウ権限を付与してください</string>
+    <string name="main_floating_opened">フローティングウィンドウを開きました</string>
+    <string name="main_hint_title">ヒント</string>
+    <string name="main_ime_started">YY入力法を起動しました</string>
+    <string name="main_lanzouy_hint">藍臏リンクが開けない場合、もう一度タップすると別のリンクにジャンプします</string>
+    <string name="main_notification_dismiss">了解</string>
+    <string name="main_notification_hint">通知権限が有効でないため、コントロールウィンドウを表示できません</string>
+    <string name="main_privacy_title">プライバシーポリシーを読む</string>
+    <string name="main_register_hint_title">登録のヒント</string>
+    <string name="main_register_hint_title_fmt">登録のヒント（登録に%d秒かかります）</string>
+    <string name="main_time_check_msg">端末の時刻設定が正しいか、またはアプリのバージョンが古くないか確認してください。動作異常の原因になる可能性があります！</string>
+    <string name="main_touch_enabled">タッチ操作の表示を設定しました</string>
+    <string name="main_user_agreement_title">利用規約を読む</string>
+
+    <string name="fb_btn_close">閉じる</string>
+    <string name="fb_btn_ok">OK</string>
+    <string name="fb_code_line_info">%d 行</string>
+    <string name="fb_copied">コピーしました</string>
+    <string name="fb_count_dirs">%d フォルダ</string>
+    <string name="fb_count_files">%d ファイル</string>
+    <string name="fb_create_fail">作成に失敗</string>
+    <string name="fb_create_success">作成しました</string>
+    <string name="fb_delete_recursive_warning">フォルダ内のすべてのコンテンツが再帰的に削除されます</string>
+    <string name="fb_detail_ext">拡張子: %s</string>
+    <string name="fb_detail_modified">更新日時: %s</string>
+    <string name="fb_detail_name">名前: %s</string>
+    <string name="fb_detail_path">パス: %s</string>
+    <string name="fb_detail_readable">読み取り可能: %s</string>
+    <string name="fb_detail_size">サイズ: %s</string>
+    <string name="fb_detail_title">ファイル詳細</string>
+    <string name="fb_detail_writable">書き込み可能: %s</string>
+    <string name="fb_edit_title">ファイルを編集</string>
+    <string name="fb_empty_dir">空のフォルダ</string>
+    <string name="fb_filter_query">検索結果: %s</string>
+    <string name="fb_image_load_fail_detail">画像の読み込みに失敗: %s</string>
+    <string name="fb_menu_detail">詳細</string>
+    <string name="fb_no">いいえ</string>
+    <string name="fb_read_fail">読み取り失敗</string>
+    <string name="fb_read_file_fail">ファイルの読み取りに失敗</string>
+    <string name="fb_rename_success">名前を変更しました</string>
+    <string name="fb_save_fail">保存に失敗</string>
+    <string name="fb_save_success">保存しました</string>
+    <string name="fb_search_file_hint">ファイル名で検索</string>
+    <string name="fb_search_file_title">ファイル検索</string>
+    <string name="fb_type_file">ファイル</string>
+    <string name="fb_type_folder">フォルダ</string>
+    <string name="fb_unsupported_preview">このファイル形式のプレビューは非対応です</string>
+    <string name="fb_yes">はい</string>
+    <string name="holder_open_failed">開けませんでした</string>
+    <string name="pip_detail_installed">インストール済みバージョン: %s</string>
+    <string name="pip_detail_versions">利用可能なバージョン</string>
+    <string name="pip_empty_data">データなし</string>
+    <string name="pip_load_list_fail">リストの読み込みに失敗</string>
+    <string name="pip_loading_detail">詳細を読み込み中…</string>
+    <string name="pip_pypi_result_title">PyPI 検索結果</string>
+    <string name="pip_upgrade_all_partial">一部のアップグレードに失敗</string>
+    <string name="pip_upgrade_all_success">すべてアップグレード成功</string>
+    <string name="pip_upgrading_all">すべてアップグレード中…</string>
+    <string name="pkg_btn_cancel">キャンセル</string>
+    <string name="pkg_btn_choose_icon">アイコンを選択</string>
+    <string name="pkg_btn_clone_icon">アイコンをクローン</string>
+    <string name="pkg_btn_reset_icon">アイコンをリセット</string>
+    <string name="pkg_btn_start">パッケージ開始</string>
+    <string name="pkg_clone_icon_title">アイコンをクローンするアプリを選択</string>
+    <string name="pkg_engine_not_started">エンジンが起動していません</string>
+    <string name="pkg_enter_app_name">アプリ名を入力してください</string>
+    <string name="pkg_exception">パッケージエラー: %s</string>
+    <string name="pkg_fail">パッケージ失敗</string>
+    <string name="pkg_icon_fail">アイコンの取得に失敗</string>
+    <string name="pkg_icon_select_fail">アイコンの選択に失敗</string>
+    <string name="pkg_no_apps">アプリが見つかりません</string>
+    <string name="pkg_no_response">応答なし</string>
+    <string name="pkg_note_1">パッケージ化されたアプリは独立して動作します</string>
+    <string name="pkg_note_2">事前にこのデバイスでスクリプトをテストしてください</string>
+    <string name="pkg_note_3">パッケージ化には数分かかります</string>
+    <string name="pkg_note_4">生成された APK は Download ディレクトリにあります</string>
+    <string name="pkg_note_5">初回インストール時は提供元不明のアプリを許可してください</string>
+    <string name="pkg_note_6">問題が発生した場合はログ出力を確認してください</string>
+    <string name="pkg_notes_title">注意事項</string>
+    <string name="pkg_package_name_helper">アプリのパッケージ名（一意の識別子）</string>
+    <string name="pkg_packaging">パッケージ中…</string>
+    <string name="pkg_section_basic">基本情報</string>
+    <string name="pkg_section_behavior">実行動作</string>
+    <string name="pkg_success">パッケージ成功</string>
+    <string name="pkg_sw_auto_run">自動実行</string>
+    <string name="pkg_sw_auto_run_desc">起動後にスクリプトを自動実行</string>
+    <string name="pkg_sw_encrypt">スクリプトを暗号化</string>
+    <string name="pkg_sw_encrypt_desc">スクリプトファイルを暗号化して保護</string>
+    <string name="pkg_sw_exit_on_stop">停止時に終了</string>
+    <string name="pkg_sw_exit_on_stop_desc">スクリプト停止後にアプリを終了</string>
+    <string name="pkg_sw_keep_screen">画面を常時点灯</string>
+    <string name="pkg_sw_keep_screen_desc">実行中は画面を常時点灯</string>
+    <string name="pkg_sw_show_log">ログを表示</string>
+    <string name="pkg_sw_show_log_desc">画面下部に実行ログを表示</string>
+    <string name="runner_auto_run_title">自動実行</string>
+    <string name="runner_elapsed_hms">%d時間%d分%d秒</string>
+    <string name="runner_elapsed_ms">%d分%d秒</string>
+    <string name="runner_keep_screen_title">画面を常時点灯</string>
+    <string name="runner_show_log_title">ログを表示</string>
+    <string name="runner_starting_engine">エンジンを起動中…</string>
+    <string name="runner_stopped">停止</string>
+
+    <!-- 自動起動モジュール -->
+    <string name="home_magisk_module_title">自動起動</string>
+    <string name="home_magisk_checking">確認中…</string>
+    <string name="home_magisk_installed">モジュールインストール済み、再起動後に自動起動</string>
+    <string name="home_magisk_disabled">モジュール無効</string>
+    <string name="home_magisk_not_installed">未インストール、手動起動が必要</string>
+    <string name="home_magisk_install">インストール</string>
+    <string name="home_magisk_manage">インストール済み</string>
+    <string name="home_magisk_install_title">自動起動モジュールをインストール</string>
+    <string name="home_magisk_install_message">自動起動モジュールを %s にインストールします。\n\nインストール後、デバイスの起動時にエンジンが自動的に開始されます。\n\n再起動後に有効になります。</string>
+    <string name="home_magisk_install_confirm">今すぐインストール</string>
+    <string name="home_magisk_installing">モジュールをインストール中…</string>
+    <string name="home_magisk_install_success">自動起動モジュールのインストール成功</string>
+    <string name="home_magisk_install_failed">モジュールのインストール失敗</string>
+    <string name="home_magisk_install_failed_desc">ROOT管理アプリが正常に動作していることを確認してから再試行してください</string>
+    <string name="home_magisk_install_done_title">インストール完了</string>
+    <string name="home_magisk_install_done_message">自動起動モジュールのインストール成功！\n\n次回の再起動後に有効になります。</string>
+    <string name="home_magisk_reinstall">再インストール</string>
+    <string name="home_magisk_uninstall">モジュールをアンインストール</string>
+    <string name="home_magisk_uninstall_title">モジュールをアンインストール</string>
+    <string name="home_magisk_uninstall_message">自動起動モジュールをアンインストールしますか？\n\nアンインストール後、起動時にエンジンは自動起動しなくなります。</string>
+    <string name="home_magisk_uninstall_confirm">アンインストール確認</string>
+    <string name="home_magisk_uninstall_success">モジュールをアンインストールしました</string>
+    <string name="home_magisk_uninstall_failed">モジュールのアンインストール失敗</string>
+</resources>

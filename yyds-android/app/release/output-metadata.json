@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.yyds.auto",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 84,
+      "versionName": "5.31",
+      "outputFile": "Yyds.Auto_84_5.31_release.apk"
+    }
+  ],
+  "elementType": "File"
+}

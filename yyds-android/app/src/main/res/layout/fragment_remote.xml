@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_lay"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/remote_server_title"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/remote_server_desc"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            app:dividerColor="@color/gray_light"
+            android:layout_marginBottom="16dp"
+            android:layout_height="1px"/>
+
+        <!-- ═══ Server Config Section ═══ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_lay"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/remote_server_config"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Server Host -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_net"
+            app:hintTextColor="@color/primary_lay"
+            app:boxStrokeColor="@color/primary_lay"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            android:foregroundTint="@color/gray"
+            android:backgroundTint="@color/primary"
+            app:boxBackgroundMode="outline"
+            app:expandedHintEnabled="false"
+            android:hint="@string/remote_server_hint"
+            android:textColorHint="@color/gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editServerHost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_lay"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="text"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Server Port -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:hintTextColor="@color/primary_lay"
+            app:boxStrokeColor="@color/primary_lay"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            android:foregroundTint="@color/gray"
+            android:backgroundTint="@color/primary"
+            app:boxBackgroundMode="outline"
+            app:expandedHintEnabled="false"
+            android:hint="@string/remote_port_hint"
+            android:textColorHint="@color/gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editServerPort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_lay"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Connection Status -->
+        <TextView
+            android:id="@+id/tvConnectionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/home_engine_checking"
+            android:layout_marginTop="12dp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            app:dividerColor="@color/gray_light"
+            android:layout_marginVertical="20dp"
+            android:layout_height="1px"/>
+
+        <!-- ═══ Auth Section ═══ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_lay"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/remote_account_login"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/remote_account_desc"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Login form (visible when not logged in) -->
+        <LinearLayout
+            android:id="@+id/layoutLoginForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextColor="@color/primary_lay"
+                app:boxStrokeColor="@color/primary_lay"
+                app:boxStrokeWidth="2dp"
+                android:foregroundTint="@color/gray"
+                android:backgroundTint="@color/primary"
+                app:boxBackgroundMode="outline"
+                app:expandedHintEnabled="false"
+                android:hint="@string/remote_username_hint"
+                android:textColorHint="@color/gray">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_lay"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="text"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:hintTextColor="@color/primary_lay"
+                app:boxStrokeColor="@color/primary_lay"
+                app:boxStrokeWidth="2dp"
+                android:foregroundTint="@color/gray"
+                android:backgroundTint="@color/primary"
+                app:boxBackgroundMode="outline"
+                app:expandedHintEnabled="false"
+                app:endIconMode="password_toggle"
+                android:hint="@string/remote_password_hint"
+                android:textColorHint="@color/gray">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_lay"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="@string/remote_login"
+                    android:backgroundTint="@color/primary_lay"
+                    android:layout_marginEnd="6dp"
+                    style="@style/MyMaterialButton" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="@string/remote_register"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/primary_lay"
+                    android:layout_marginStart="6dp"
+                    app:strokeColor="@color/primary_lay"
+                    app:strokeWidth="2dp"
+                    style="@style/MyMaterialButton" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Logged in info (visible when logged in) -->
+        <LinearLayout
+            android:id="@+id/layoutLoggedIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_person"
+                    android:tint="@color/primary_lay"
+                    android:background="@color/primary_lay4"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:id="@+id/tvLoggedUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_lay"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/remote_username_label" />
+
+                    <TextView
+                        android:id="@+id/tvLoggedRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/remote_role_label" />
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/remote_logout"
+                    android:textColor="@color/gray"
+                    android:backgroundTint="@color/primary"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="1dp"
+                    android:textSize="12sp"
+                    style="@style/MyMaterialButton" />
+
+            </LinearLayout>
+
+            <!-- Device binding status -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                app:dividerColor="@color/gray_light"
+                android:layout_marginVertical="12dp"
+                android:layout_height="1px"/>
+
+            <TextView
+                android:id="@+id/tvDeviceBindStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ok"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/remote_device_bound" />
+
+        </LinearLayout>
+
+        <!-- Save all config button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveConfig"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/remote_save_config"
+            android:backgroundTint="@color/primary_lay"
+            style="@style/MyMaterialButton" />
+
+        <!-- Help text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="12sp"
+            android:text="@string/remote_help_text"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="start|top" />
+
+    </LinearLayout>
+
+</ScrollView>

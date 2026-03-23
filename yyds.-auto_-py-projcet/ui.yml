@@ -1,0 +1,68 @@
+# ============================================================
+# Yyds.Auto 用户界面配置文件
+# ============================================================
+# 此文件定义脚本在 App 端的配置界面, 由 Yyds.Auto 动态绘制加载
+#
+# 支持 6 种 UI 类型:
+#   text-xxx    文本显示         (属性: value, color, size)
+#   div-xxx     分割线           (无属性)
+#   space-xxx   占位空行         (属性: height)
+#   check-xxx   开关按钮         (属性: title, value)         -> 配置值: bool
+#   select-xxx  下拉选择         (属性: title, value, color)  -> 配置值: str
+#   edit-xxx    输入框           (属性: title, value)         -> 配置值: str
+#
+# edit 扩展属性:
+#   input: text/password/number/multiline  输入模式 (默认 text)
+#   hint: "提示文字"                        输入框占位提示
+#   required: true                          保存时校验非空
+#
+# 命名规则: "类型-名称", 名称在工程内必须唯一
+# 读取方式: Config.read_config_value("edit-user") 或 Config.read_ui_value("edit-user")
+# ============================================================
+
+# 公告文本
+text-notice:
+  value: "欢迎使用自动化脚本"
+  color: "#008305"
+  size: 16
+
+div-1:
+
+# 开关配置 — 代码中使用 Config.read_config_value("check-enable") 读取
+check-enable:
+  title: "启用功能"
+  value: true
+
+space-1:
+  height: 20
+
+# 下拉选择 — 代码中使用 Config.read_config_value("select-mode") 读取
+select-mode:
+  title: "运行模式"
+  value: ["模式一", "模式二", "模式三"]
+
+space-2:
+  height: 20
+
+# 输入框 — 代码中使用 Config.read_config_value("edit-user") 读取
+edit-user:
+  title: "账号"
+  value: ""
+  hint: "请输入手机号或邮箱"
+  required: true
+
+space-3:
+  height: 10
+
+edit-password:
+  title: "密码"
+  value: ""
+  input: password
+
+space-4:
+  height: 10
+
+edit-delay:
+  title: "循环间隔(秒)"
+  value: "3"
+  input: number

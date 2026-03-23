@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/floating_panel_bg"
+    android:elevation="12dp">
+
+    <!-- Header: drag handle + title + refresh + close -->
+    <RelativeLayout
+        android:id="@+id/floating_panel_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/floating_panel_header_bg"
+        android:paddingHorizontal="12dp">
+
+        <ImageView
+            android:id="@+id/floating_drag_handle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_drag_handle" />
+
+        <TextView
+            android:id="@+id/floating_panel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/floating_drag_handle"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:text="@string/floating_script_project"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/floating_btn_console"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_toStartOf="@id/floating_btn_inspect"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/floating_refresh_btn_bg"
+            android:src="@drawable/ic_console"
+            android:padding="4dp"
+            android:scaleType="centerInside" />
+
+        <ImageView
+            android:id="@+id/floating_btn_inspect"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_toStartOf="@id/floating_btn_refresh"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/floating_refresh_btn_bg"
+            android:src="@drawable/ic_inspect"
+            android:padding="4dp"
+            android:scaleType="centerInside" />
+
+        <ImageView
+            android:id="@+id/floating_btn_refresh"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_toStartOf="@id/floating_btn_close"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/floating_refresh_btn_bg"
+            android:src="@drawable/ic_refresh_white"
+            android:padding="5dp"
+            android:scaleType="centerInside" />
+
+        <ImageView
+            android:id="@+id/floating_btn_close"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/floating_close_btn_bg"
+            android:src="@drawable/ic_close_white"
+            android:padding="5dp"
+            android:scaleType="centerInside" />
+
+    </RelativeLayout>
+
+    <!-- Engine status bar -->
+    <LinearLayout
+        android:id="@+id/floating_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="8dp"
+        android:gravity="center_vertical"
+        android:background="#F0F2F5">
+
+        <View
+            android:id="@+id/floating_status_dot"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/floating_btn_start" />
+
+        <TextView
+            android:id="@+id/floating_status_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/floating_engine_checking"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/floating_project_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/floating_project_count"
+            android:textColor="#999999"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E0E4E8" />
+
+    <!-- Project list (scrollable) -->
+    <ScrollView
+        android:id="@+id/floating_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:id="@+id/floating_project_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp" />
+
+    </ScrollView>
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/floating_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/floating_no_project"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/floating_no_project_hint"
+            android:textColor="#CCCCCC"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

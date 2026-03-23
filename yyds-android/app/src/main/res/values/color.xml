@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <color name="primary">#FBF7F1</color>
+        <color name="ok">#008305</color>
+        <color name="warn">#ADA9A6</color>
+        <color name="primary_lay">#264B6F</color>
+        <color name="primary_lay_thin">#407BC5</color>
+        <color name="primary_lay2">#F1FAEC</color>
+        <color name="primary_lay3">#D6EDD6</color>
+        <color name="primary_lay4">#D6E5ED</color>
+        <color name="primary_lay5">#FBF5F8</color>
+        <color name="primary_lay6">#D5D7DA</color>
+        <color name="white">#FFFFFF</color>
+        <color name="black">#000000</color>
+        <color name="gray">#ACACAC</color>
+        <color name="gray_light">#EAE9E9</color>
+        <color name="secondly">#C5B043</color>
+
+
+        <color name="colorPrimary">@color/primary_lay</color>
+        <color name="colorPrimary2">#F5CB00</color>
+</resources>
+

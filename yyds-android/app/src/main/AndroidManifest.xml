@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CLIPBOARD_IN_BACKGROUND"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_CLIPBOARD" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- MANAGE_EXTERNAL_STORAGE 已移除：项目扫描已转移到工作进程(pyengine.Main)中执行 -->
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:extractNativeLibs="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:isGame="true"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:resizeableActivity="true"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateHidden">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LogcatActivity"
+            android:exported="true"
+            android:label="@string/manifest_logcat"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name=".ProjectConfigActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_project_config"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <activity
+            android:name=".RunnerActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_script_runner"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <activity
+            android:name=".PackageActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_package_apk"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <activity
+            android:name=".AgentSettingsActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_agent_settings"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <activity
+            android:name=".FileBrowserActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_file_browser"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <activity
+            android:name=".PipManagerActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/manifest_pip_manager"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="false" />
+
+        <provider
+            android:name="common.BootProvider"
+            android:authorities="yyds.boot"
+            android:exported="true"
+            android:process=":boot" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.yyds.auto.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
+        <service
+            android:name="common.BootService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback"
+            android:label="@string/manifest_core_service"
+            android:process=":boot">
+        </service>
+
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="com.yyds.auto.shizuku"
+            android:multiprocess="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL"
+           />
+
+        <receiver
+            android:name="common.BootReceiver"
+            android:enabled="true"
+            android:process=":boot"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".FloatingWindowService"
+            android:exported="false"
+            android:label="@string/manifest_floating_control" />
+
+        <service
+            android:name=".FloatingLogService"
+            android:exported="false"
+            android:label="@string/manifest_floating_console" />
+
+        <service
+            android:name=".UnifiedFloatingService"
+            android:exported="false"
+            android:label="@string/manifest_floating_unified" />
+
+        <service
+            android:name=".AgentOverlayService"
+            android:exported="false" />
+
+        <service
+            android:name="common.YyInputService"
+            android:exported="true"
+            android:label="@string/manifest_input_method"
+
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:process=":input">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+
+            <meta-data
+
+                android:name="android.view.im"
+                android:resource="@xml/methods" />
+        </service>
+
+        <meta-data
+            android:name="org.autojs.plugin.sdk.registry"
+            android:value="uiautomator.AutoJsPluginRegister" />
+        <meta-data
+            android:name="org.cloud.plugin.sdk.registry"
+            android:value="uiautomator.AutoJsPluginRegister" />
+    </application>
+
+</manifest>

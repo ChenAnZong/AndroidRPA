@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="MyDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:textColorSecondary">@color/primary_lay</item>
+        <item name="android:colorControlNormal">@color/primary_lay</item>
+        <item name="android:textColor">@color/primary_lay</item>
+        <item name="colorButtonNormal">@color/black</item>
+        <item name="color">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="colorAccent">@color/primary_lay</item>
+        <item name="android:text">@color/primary_lay</item>
+
+        <!-- 隐藏状态栏 -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!-- 沉浸式 -->
+        <item name="android:windowTranslucentStatus" >false</item>
+        <!-- 解决刘海屏无法全屏的问题 -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <style name="MyToolbarColoredBackArrow">
+        <item name="android:textColorSecondary">@color/primary_lay</item>
+        <item name="android:colorControlNormal">@color/primary_lay</item>
+    </style>
+
+    <style name="MyPopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/primary</item>
+        <item name="android:textColor">@color/primary_lay</item>
+        <item name="android:textSize">15sp</item>
+        <item name="backgroundColor">@color/primary</item>
+        <item name="android:listPreferredItemHeightSmall">40sp</item>
+        <item name="iconSize">15sp</item>
+        <item name="android:iconSpaceReserved">true</item>
+    </style>
+
+    <style name="SheetMenuItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="SheetMenuIcon">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:tint">@color/primary_lay</item>
+    </style>
+
+    <style name="SheetMenuText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primary_lay</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

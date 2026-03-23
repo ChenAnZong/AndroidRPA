@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #1e1e1e; color: #d4d4d4; font-size: 13px; }
+#code-container {
+    display: flex;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+#line-numbers {
+    text-align: right;
+    padding: 12px 8px 12px 12px;
+    color: #858585;
+    background: #1e1e1e;
+    border-right: 1px solid #333;
+    user-select: none;
+    -webkit-user-select: none;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 40px;
+    white-space: pre;
+}
+#code-content {
+    padding: 12px;
+    flex: 1;
+    overflow-x: auto;
+    white-space: pre;
+}
+pre { margin: 0; }
+code { font-family: inherit; font-size: inherit; line-height: inherit; }
+
+/* ====== Atom One Dark Theme (inline) ====== */
+.hljs { color: #abb2bf; background: #1e1e1e; }
+.hljs-comment, .hljs-quote { color: #5c6370; font-style: italic; }
+.hljs-doctag, .hljs-keyword, .hljs-formula { color: #c678dd; }
+.hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst { color: #e06c75; }
+.hljs-literal { color: #56b6c2; }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta .hljs-string { color: #98c379; }
+.hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class,
+.hljs-selector-attr, .hljs-selector-pseudo, .hljs-number { color: #d19a66; }
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title { color: #61aeee; }
+.hljs-built_in, .hljs-title.class_, .hljs-class .hljs-title { color: #e6c07b; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: bold; }
+.hljs-link { text-decoration: underline; }
+.hljs-params { color: #abb2bf; }
+
+/* Python specific */
+.hljs-title.function_ { color: #61aeee; }
+.hljs-built_in { color: #e6c07b; }
+
+/* Search highlight */
+.search-match { background: #515c6a; border-radius: 2px; }
+.search-match-active { background: #613214; outline: 1px solid #f0a030; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #1e1e1e; }
+::-webkit-scrollbar-thumb { background: #424242; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+</style>
+</head>
+<body>
+<div id="code-container">
+    <div id="line-numbers"></div>
+    <div id="code-content"><pre><code id="code-block"></code></pre></div>
+</div>
+
+<script>
+// ====== Token-based syntax highlighter ======
+// Tokenizes first (strings, comments as protected), then highlights keywords in plain code regions.
+
+function escapeHtml(t) {
+    return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function span(cls, text) { return '<span class="'+cls+'">'+escapeHtml(text)+'</span>'; }
+
+// Tokenizer: splits code into tokens [{type, text}]
+// type: 'string'|'comment'|'code'
+function tokenize(code, lang) {
+    var tokens = [], i = 0, n = code.length;
+    function peek(s) { return code.substr(i, s.length) === s; }
+    function readUntil(end, esc) {
+        var start = i; i += end.length === 3 ? 3 : 1;
+        while (i < n) {
+            if (esc && code[i] === '\\') { i += 2; continue; }
+            if (code.substr(i, end.length) === end) { i += end.length; return code.substring(start, i); }
+            i++;
+        }
+        return code.substring(start, i);
+    }
+    function readLine() { var s = i; while (i < n && code[i] !== '\n') i++; return code.substring(s, i); }
+    function flush(s, type) { if (s) tokens.push({type:type, text:s}); }
+    var codeBuf = '';
+    while (i < n) {
+        // Python / YAML / Shell / Properties comments
+        if ((lang==='python'||lang==='yaml'||lang==='bash'||lang==='properties') && code[i]==='#') {
+            flush(codeBuf,'code'); codeBuf='';
+            flush(readLine(),'comment'); continue;
+        }
+        // JS / Java / Kotlin comments
+        if ((lang==='javascript') && peek('//')) {
+            flush(codeBuf,'code'); codeBuf='';
+            flush(readLine(),'comment'); continue;
+        }
+        if ((lang==='javascript'||lang==='xml') && peek('/*')) {
+            flush(codeBuf,'code'); codeBuf='';
+            var s=i; i+=2; while(i<n && !peek('*/')) i++; if(i<n) i+=2;
+            flush(code.substring(s,i),'comment'); continue;
+        }
+        // XML comments
+        if (lang==='xml' && peek('<!--')) {
+            flush(codeBuf,'code'); codeBuf='';
+            var s=i; i+=4; while(i<n && !peek('-->')) i++; if(i<n) i+=3;
+            flush(code.substring(s,i),'comment'); continue;
+        }
+        // Python triple-quoted strings
+        if (lang==='python' && (peek('"""')||peek("'''"))) {
+            flush(codeBuf,'code'); codeBuf='';
+            flush(readUntil(code.substr(i,3), true),'string'); continue;
+        }
+        // f-strings
+        if (lang==='python' && (peek('f"')||peek("f'"))) {
+            flush(codeBuf,'code'); codeBuf='';
+            var q=code[i+1]; i++; flush('f'+readUntil(q,true),'string'); continue;
+        }
+        // Strings
+        if (code[i]==='"' || code[i]==="'") {
+            if (lang==='json' || lang==='yaml' || lang==='python' || lang==='javascript' || lang==='bash' || lang==='xml' || lang==='properties') {
+                flush(codeBuf,'code'); codeBuf='';
+                flush(readUntil(code[i], code[i]!=="'" || lang!=='bash'),'string'); continue;
+            }
+        }
+        // JS template literals
+        if (lang==='javascript' && code[i]==='`') {
+            flush(codeBuf,'code'); codeBuf='';
+            flush(readUntil('`',true),'string'); continue;
+        }
+        codeBuf += code[i]; i++;
+    }
+    flush(codeBuf,'code');
+    return tokens;
+}
+
+// Highlight code tokens (not strings/comments)
+function highlightCode(text, lang) {
+    var e = escapeHtml(text);
+    if (lang==='python') {
+        // def/class with name (must be before keyword replace)
+        e = e.replace(/\b(def)\s+(\w+)/g, '<span class="hljs-keyword">$1</span> <span class="hljs-title function_">$2</span>');
+        e = e.replace(/\b(class)\s+(\w+)/g, '<span class="hljs-keyword">$1</span> <span class="hljs-title class_">$2</span>');
+        e = e.replace(/\b(and|as|assert|async|await|break|continue|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|raise|return|try|while|with|yield)\b/g, '<span class="hljs-keyword">$&</span>');
+        e = e.replace(/\b(True|False|None)\b/g, '<span class="hljs-literal">$&</span>');
+        e = e.replace(/\b(print|len|range|int|str|float|list|dict|set|tuple|type|isinstance|getattr|setattr|hasattr|super|open|enumerate|zip|map|filter|sorted|reversed|any|all|min|max|sum|abs|round|input|format|id|hex|oct|bin|chr|ord|repr|eval|exec|compile|globals|locals|vars|dir|help|staticmethod|classmethod|property|Exception|ValueError|TypeError|KeyError|IndexError|RuntimeError|StopIteration|FileNotFoundError|ImportError|AttributeError|NotImplementedError|OSError|IOError)\b/g, '<span class="hljs-built_in">$&</span>');
+        e = e.replace(/(@[\w.]+)/g, '<span class="hljs-meta">$1</span>');
+        e = e.replace(/\b(self|cls)\b/g, '<span class="hljs-variable">$&</span>');
+        e = e.replace(/\b(\d+\.?\d*(?:e[+-]?\d+)?|0[xX][0-9a-fA-F]+|0[oO][0-7]+|0[bB][01]+)\b/g, '<span class="hljs-number">$&</span>');
+    } else if (lang==='javascript') {
+        e = e.replace(/\b(function)\s+(\w+)/g, '<span class="hljs-keyword">$1</span> <span class="hljs-title function_">$2</span>');
+        e = e.replace(/\b(class)\s+(\w+)/g, '<span class="hljs-keyword">$1</span> <span class="hljs-title class_">$2</span>');
+        e = e.replace(/\b(var|let|const|return|if|else|for|while|do|switch|case|break|continue|new|this|extends|import|export|default|from|try|catch|finally|throw|typeof|instanceof|in|of|async|await|yield|void|delete|interface|type|enum|implements|abstract|static|private|protected|public|override|fun|val|object|companion|when|package|data|sealed|suspend|lateinit|lazy)\b/g, '<span class="hljs-keyword">$&</span>');
+        e = e.replace(/\b(null|undefined|true|false|NaN|Infinity)\b/g, '<span class="hljs-literal">$&</span>');
+        e = e.replace(/\b(console|Math|JSON|Object|Array|String|Number|Boolean|Date|RegExp|Error|Map|Set|Promise|Symbol|Proxy|Reflect|parseInt|parseFloat|isNaN|isFinite|encodeURI|decodeURI|setTimeout|setInterval|clearTimeout|clearInterval|fetch|require|module|exports|System|Log|println|Thread)\b/g, '<span class="hljs-built_in">$&</span>');
+        e = e.replace(/\b(\d+\.?\d*(?:e[+-]?\d+)?|0[xX][0-9a-fA-F]+)\b/g, '<span class="hljs-number">$&</span>');
+    } else if (lang==='json') {
+        // JSON keys
+        e = e.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;)\s*:/g, '<span class="hljs-attr">$1</span>:');
+        // JSON string values (after colon)
+        e = e.replace(/:\s*(&quot;(?:[^&]|&(?!quot;))*?&quot;)/g, ': <span class="hljs-string">$1</span>');
+        e = e.replace(/\b(true|false|null)\b/g, '<span class="hljs-literal">$&</span>');
+        e = e.replace(/\b(-?\d+\.?\d*(?:e[+-]?\d+)?)\b/g, '<span class="hljs-number">$&</span>');
+    } else if (lang==='yaml') {
+        e = e.replace(/^(\s*[\w][\w.-]*)\s*:/gm, '<span class="hljs-attr">$1</span>:');
+        e = e.replace(/\b(true|false|yes|no|null|~)\b/gi, '<span class="hljs-literal">$&</span>');
+        e = e.replace(/\b(-?\d+\.?\d*)\b/g, '<span class="hljs-number">$&</span>');
+    } else if (lang==='xml') {
+        e = e.replace(/(&lt;\/?)([\w:.-]+)/g, '$1<span class="hljs-name">$2</span>');
+        e = e.replace(/\s([\w:.-]+)(=)/g, ' <span class="hljs-attr">$1</span>$2');
+    } else if (lang==='bash') {
+        e = e.replace(/\b(if|then|else|elif|fi|for|while|do|done|case|esac|function|return|in|select|until|echo|exit|export|source|set|unset|local|readonly|shift|trap|eval|exec)\b/g, '<span class="hljs-keyword">$&</span>');
+        e = e.replace(/\b(cd|pwd|ls|rm|cp|mv|mkdir|chmod|chown|cat|grep|sed|awk|find|xargs|kill|ps|sudo|su|apt|pip|python|python3|bash|sh|curl|wget|tar|gzip|ssh|scp|git|docker|npm|node)\b/g, '<span class="hljs-built_in">$&</span>');
+        e = e.replace(/(\$\{?\w+\}?)/g, '<span class="hljs-variable">$1</span>');
+        e = e.replace(/\b(\d+)\b/g, '<span class="hljs-number">$&</span>');
+    } else if (lang==='properties') {
+        e = e.replace(/^(\s*[\w][\w.-]*)\s*([=:])/gm, '<span class="hljs-attr">$1</span>$2');
+    }
+    return e;
+}
+
+// Main highlight function
+function highlight(code, lang) {
+    if (!lang) return escapeHtml(code);
+    var tokens = tokenize(code, lang);
+    var out = '';
+    for (var i = 0; i < tokens.length; i++) {
+        var t = tokens[i];
+        if (t.type === 'comment') out += span('hljs-comment', t.text);
+        else if (t.type === 'string') out += span('hljs-string', t.text);
+        else out += highlightCode(t.text, lang);
+    }
+    return out;
+}
+
+function detectLanguage(filename) {
+    var name = filename.toLowerCase();
+    // Handle extensionless filenames
+    var nameMap = {
+        'makefile':'bash', 'dockerfile':'bash', 'jenkinsfile':'bash',
+        '.gitignore':'bash', '.dockerignore':'bash', '.editorconfig':'properties',
+        '.env':'properties', 'requirements.txt':'properties',
+    };
+    if (nameMap[name]) return nameMap[name];
+    var ext = name.split('.').pop();
+    if (ext === name) return null; // no extension
+    var map = {
+        'py':'python', 'pyw':'python',
+        'json':'json',
+        'yml':'yaml', 'yaml':'yaml',
+        'xml':'xml', 'html':'xml', 'htm':'xml', 'svg':'xml', 'xhtml':'xml',
+        'properties':'properties', 'config':'properties', 'conf':'properties',
+        'ini':'properties', 'cfg':'properties', 'env':'properties', 'toml':'properties',
+        'sh':'bash', 'bash':'bash', 'zsh':'bash', 'fish':'bash',
+        'js':'javascript', 'ts':'javascript', 'jsx':'javascript', 'tsx':'javascript',
+        'kt':'javascript', 'kts':'javascript', 'java':'javascript',
+        'gradle':'bash', 'groovy':'bash',
+        'css':'javascript', 'scss':'javascript', 'less':'javascript',
+        'sql':'bash',
+        'md':'yaml', 'csv':'properties', 'log':'properties', 'txt':'properties',
+        'c':'javascript', 'cpp':'javascript', 'h':'javascript', 'hpp':'javascript',
+        'rs':'javascript', 'go':'javascript', 'swift':'javascript', 'dart':'javascript',
+    };
+    return map[ext] || null;
+}
+
+function setCode(code, filename) {
+    var lang = detectLanguage(filename || '');
+    document.getElementById('code-block').innerHTML = highlight(code, lang);
+    var lines = code.split('\n');
+    var nums = '';
+    for (var i = 1; i <= lines.length; i++) nums += i + '\n';
+    document.getElementById('line-numbers').textContent = nums;
+}
+
+// Search in code
+var _searchMatches = [], _searchIdx = -1;
+function searchCode(query) {
+    var block = document.getElementById('code-block');
+    // Remove old highlights
+    block.innerHTML = block.innerHTML.replace(/<mark class="search-match[^"]*">/g,'').replace(/<\/mark>/g,'');
+    _searchMatches = []; _searchIdx = -1;
+    if (!query) return '0';
+    var html = block.innerHTML;
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var re = new RegExp('(?![^<]*>)(' + escaped + ')', 'gi');
+    var count = 0;
+    html = html.replace(re, function(m) { count++; return '<mark class="search-match" id="sm-'+(count-1)+'">'+m+'</mark>'; });
+    block.innerHTML = html;
+    _searchMatches = document.querySelectorAll('.search-match');
+    if (_searchMatches.length > 0) { _searchIdx = 0; scrollToMatch(0); }
+    return '' + _searchMatches.length;
+}
+function scrollToMatch(idx) {
+    for (var i=0;i<_searchMatches.length;i++) _searchMatches[i].className='search-match';
+    if (idx >= 0 && idx < _searchMatches.length) {
+        _searchMatches[idx].className = 'search-match search-match-active';
+        _searchMatches[idx].scrollIntoView({block:'center',behavior:'smooth'});
+    }
+}
+function searchNext() {
+    if (_searchMatches.length===0) return '-1';
+    _searchIdx = (_searchIdx+1) % _searchMatches.length;
+    scrollToMatch(_searchIdx); return ''+(_searchIdx+1);
+}
+function searchPrev() {
+    if (_searchMatches.length===0) return '-1';
+    _searchIdx = (_searchIdx-1+_searchMatches.length) % _searchMatches.length;
+    scrollToMatch(_searchIdx); return ''+(_searchIdx+1);
+}
+
+// Called from Android
+function loadCode(code, filename) { setCode(code, filename); }
+</script>
+</body>
+</html>

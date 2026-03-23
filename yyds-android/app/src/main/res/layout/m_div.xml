@@ -1,0 +1,8 @@
+<com.google.android.material.divider.MaterialDivider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:dividerColor="@color/primary_lay"
+    android:layout_height="1dp">
+</com.google.android.material.divider.MaterialDivider>

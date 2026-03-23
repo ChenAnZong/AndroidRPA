@@ -1,0 +1,8 @@
+/app/.cxx/
+/app/build/
+/build/
+/gradle/
+.idea
+.gradle
+# Gradle 自动生成的 Python 标准库 zip（从 CPython-android 编译产物打包）
+/app/src/main/assets/python3-stdlib.zip

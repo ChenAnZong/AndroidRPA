@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/alarms"
+        android:enabled="true"
+        android:icon="@drawable/ic_status"
+        android:title="@string/nav_home"/>
+
+    <item
+        android:id="@+id/timer"
+        android:enabled="true"
+        android:icon="@drawable/ic_engine"
+        android:title="@string/nav_script"/>
+
+    <item
+        android:id="@+id/nav_agent"
+        android:enabled="true"
+        android:icon="@drawable/ic_agent"
+        android:title="@string/nav_agent"/>
+
+    <item
+        android:id="@+id/schedule"
+        android:enabled="true"
+        android:icon="@drawable/ic_net"
+        android:title="@string/nav_remote"/>
+</menu>

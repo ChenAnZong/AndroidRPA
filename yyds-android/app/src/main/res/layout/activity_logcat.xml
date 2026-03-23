@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".LogcatActivity"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:navigationIcon="@drawable/ic_back"
+        app:subtitleTextColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/MyToolbarColoredBackArrow">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginStart="-5dp"
+            app:title="@string/logcat_title"
+            android:scrollbarSize="10dp"
+            app:titleTextColor="@color/black" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:padding="10dp"
+        android:id="@+id/svCard"
+        android:layout_marginVertical="5dp"
+        android:alpha=".99"
+        android:layout_marginHorizontal="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="#F8F9FA"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.08"
+            android:background="@drawable/ic_console">
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/sv"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:id="@+id/tv_console"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="none"
+                android:screenReaderFocusable="true"
+                android:fontFamily="monospace"
+                android:text=""
+                android:layout_weight="1"
+                android:inputType="textMultiLine"
+                android:maxLines="5000"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textColor="@color/primary_lay"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

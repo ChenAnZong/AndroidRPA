@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/console_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/floating_console_bg"
+        android:elevation="16dp">
+
+        <!-- Header: drag handle + title + buttons -->
+        <RelativeLayout
+            android:id="@+id/console_header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/floating_console_header_bg"
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:id="@+id/console_drag_handle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_drag_handle"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/console_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/console_drag_handle"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6dp"
+                android:text="@string/console_title"
+                android:textColor="#E0E8F0"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Minimize button -->
+            <ImageView
+                android:id="@+id/console_btn_minimize"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_toStartOf="@id/console_btn_settings"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_download"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- Settings button (transparency/font) -->
+            <ImageView
+                android:id="@+id/console_btn_settings"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_toStartOf="@id/console_btn_close"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_settings"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- Close button -->
+            <ImageView
+                android:id="@+id/console_btn_close"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/floating_close_btn_bg"
+                android:src="@drawable/ic_close_white"
+                android:padding="5dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+        </RelativeLayout>
+
+        <!-- Toolbar: clear, auto-scroll, search, copy, filter chips -->
+        <LinearLayout
+            android:id="@+id/console_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:background="@drawable/floating_console_toolbar_bg"
+            android:paddingHorizontal="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Clear -->
+            <ImageView
+                android:id="@+id/console_btn_clear"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_delete"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- Auto-scroll toggle -->
+            <ImageView
+                android:id="@+id/console_btn_autoscroll"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_download"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- Copy all -->
+            <ImageView
+                android:id="@+id/console_btn_copy"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/floating_console_btn_bg"
+                android:src="@drawable/ic_copy_white"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Log level filter chips -->
+            <TextView
+                android:id="@+id/console_chip_v"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:text="V"
+                android:textColor="#888888"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/floating_console_chip_bg" />
+
+            <TextView
+                android:id="@+id/console_chip_d"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:text="D"
+                android:textColor="#2196F3"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/floating_console_chip_bg" />
+
+            <TextView
+                android:id="@+id/console_chip_i"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:text="I"
+                android:textColor="#4CAF50"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/floating_console_chip_bg" />
+
+            <TextView
+                android:id="@+id/console_chip_w"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:text="W"
+                android:textColor="#FFC107"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/floating_console_chip_bg" />
+
+            <TextView
+                android:id="@+id/console_chip_e"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:text="E"
+                android:textColor="#F44336"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/floating_console_chip_bg" />
+
+        </LinearLayout>
+
+        <!-- Settings panel (hidden by default) -->
+        <LinearLayout
+            android:id="@+id/console_settings_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#141C26"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:visibility="gone">
+
+            <!-- Transparency slider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/console_transparency"
+                    android:textColor="#AABBCC"
+                    android:textSize="11sp" />
+
+                <SeekBar
+                    android:id="@+id/console_seekbar_alpha"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp"
+                    android:max="100"
+                    android:progress="90"
+                    android:progressTint="#4CAF50"
+                    android:thumbTint="#4CAF50" />
+
+                <TextView
+                    android:id="@+id/console_alpha_value"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="90%"
+                    android:textColor="#AABBCC"
+                    android:textSize="10sp"
+                    android:gravity="end" />
+
+            </LinearLayout>
+
+            <!-- Font size slider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/console_font_size"
+                    android:textColor="#AABBCC"
+                    android:textSize="11sp" />
+
+                <SeekBar
+                    android:id="@+id/console_seekbar_fontsize"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp"
+                    android:max="14"
+                    android:progress="3"
+                    android:progressTint="#2196F3"
+                    android:thumbTint="#2196F3" />
+
+                <TextView
+                    android:id="@+id/console_fontsize_value"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="11sp"
+                    android:textColor="#AABBCC"
+                    android:textSize="10sp"
+                    android:gravity="end" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Log RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/console_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:clipToPadding="false" />
+
+        <!-- Footer: line count + resize handle -->
+        <RelativeLayout
+            android:id="@+id/console_footer"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:background="@drawable/floating_console_footer_bg"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/console_line_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="0 lines"
+                android:textColor="#667788"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/console_filter_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text=""
+                android:textColor="#667788"
+                android:textSize="10sp" />
+
+            <!-- Resize handle -->
+            <View
+                android:id="@+id/console_resize_handle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/floating_console_resize_handle" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

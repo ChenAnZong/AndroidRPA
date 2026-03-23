@@ -1,0 +1,6 @@
+id=yyds_autostart
+name=Yyds.Auto 开机自启
+version=v1.0
+versionCode=1
+author=Yyds.Auto
+description=开机自动启动 Yyds.Auto 引擎（yyds.keep 守护进程），无需手动打开 App 即可运行脚本。

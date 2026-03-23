@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "yyds-auto"
+dynamic = ["version"]
+description = "Android RPA automation library — control your phone from Python"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [{ name = "Yyds Team" }]
+keywords = ["android", "automation", "rpa", "uiautomator", "adb"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "requests>=2.28",
+    "Pillow>=9.0",
+    "adbutils>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy"]
+
+[project.urls]
+Homepage = "https://github.com/nicekwell/yyds-auto"
+Documentation = "https://github.com/nicekwell/yyds-auto"
+Repository = "https://github.com/nicekwell/yyds-auto"
+
+[project.scripts]
+yyds-auto = "yyds_auto.__main__:main"
+
+[tool.hatch.version]
+path = "yyds_auto/version.py"
+
+[tool.ruff]
+target-version = "py38"
+line-length = 120

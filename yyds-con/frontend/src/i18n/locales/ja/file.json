@@ -1,0 +1,12 @@
+{
+  "title": "ファイル管理",
+  "newFolder": "新規フォルダ",
+  "upload": "アップロード",
+  "folderName": "フォルダ名",
+  "emptyFolder": "空のフォルダ",
+  "colName": "名前",
+  "colSize": "サイズ",
+  "colModified": "更新日時",
+  "download": "ダウンロード",
+  "confirmDelete": "\"{{name}}\" を削除しますか？"
+}

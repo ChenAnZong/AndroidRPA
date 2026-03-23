@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 外发光边框 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#18FFFFFF" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- 主背景体（内缩 0.5dp 形成发光边框效果） -->
+    <item
+        android:left="0.5dp"
+        android:top="0.5dp"
+        android:right="0.5dp"
+        android:bottom="0.5dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#F01A1A2E"
+                android:endColor="#F0141422"
+                android:angle="270" />
+            <corners android:radius="16dp" />
+            <stroke android:width="0.5dp" android:color="#15FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

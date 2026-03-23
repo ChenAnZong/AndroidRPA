@@ -1,0 +1,339 @@
+{
+  "name": "yyds-auto-dev-plugin",
+  "displayName": "Yyds.Auto Android Dev Plugin",
+  "description": "Yyds.Auto 安卓RPA自动化脚本开发插件 — 支持截图交互、控件树解析、脚本推送运行、实时日志查看",
+  "version": "1.0.0",
+  "publisher": "ChenAnzong",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Testing"
+  ],
+  "keywords": [
+    "android",
+    "rpa",
+    "automation",
+    "python",
+    "mobile",
+    "testing",
+    "yyds",
+    "自动化",
+    "安卓"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/yyds-auto-vscode-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/yyds-auto-vscode-extension/issues"
+  },
+  "homepage": "https://github.com/yourusername/yyds-auto-vscode-extension#readme",
+  "_icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "workspaceContains:project.config",
+    "onView:yyds.deviceView",
+    "onView:yyds.actionsView",
+    "onView:yyds.logView",
+    "onCommand:yyds.connectDevice",
+    "onCommand:yyds.pushAndRun",
+    "onCommand:yyds.run",
+    "onCommand:yyds.stop",
+    "onCommand:yyds.push",
+    "onCommand:yyds.zip",
+    "onCommand:yyds.reconnect",
+    "onCommand:yyds.disconnect",
+    "onCommand:yyds.runSelectedCode",
+    "onCommand:yyds.runCurrentFile",
+    "onCommand:yyds.showLog",
+    "onCommand:yyds.showDevTool",
+    "onCommand:yyds.initProject",
+    "onCommand:yyds.showUiDesigner",
+    "onCommand:yyds.buildApk",
+    "onCommand:yyds.activateEngine",
+    "onCommand:yyds.pairDevice",
+    "onLanguage:python"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "yyds.pushAndRun",
+        "title": "推送并运行",
+        "icon": "$(run-all)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.run",
+        "title": "运行工程",
+        "icon": "$(debug-start)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.stop",
+        "title": "停止工程",
+        "icon": "$(debug-stop)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.push",
+        "title": "推送工程",
+        "icon": "$(cloud-upload)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.zip",
+        "title": "打包工程",
+        "icon": "$(package)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.reconnect",
+        "title": "设备重连",
+        "icon": "$(refresh)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.disconnect",
+        "title": "断开连接",
+        "icon": "$(debug-disconnect)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.runSelectedCode",
+        "title": "运行选中代码 / 当前行",
+        "icon": "$(play)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.runCurrentFile",
+        "title": "运行当前文件",
+        "icon": "$(play-circle)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.setOcrVersion",
+        "title": "切换 OCR 模型版本",
+        "icon": "$(symbol-enum)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.showLog",
+        "title": "日志输出",
+        "icon": "$(output)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.showDevTool",
+        "title": "开发助手",
+        "icon": "$(tools)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.connectDevice",
+        "title": "连接设备",
+        "icon": "$(plug)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.initProject",
+        "title": "新建脚本工程...",
+        "icon": "$(file-directory-create)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.buildApk",
+        "title": "打包独立APK",
+        "icon": "$(archive)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.showUiDesigner",
+        "title": "UI 配置设计器",
+        "icon": "$(symbol-interface)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.activateEngine",
+        "title": "ADB激活引擎",
+        "icon": "$(zap)",
+        "category": "Yyds.Auto"
+      },
+      {
+        "command": "yyds.pairDevice",
+        "title": "无线配对设备 (Android 11+)",
+        "icon": "$(radio-tower)",
+        "category": "Yyds.Auto"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "yyds.connectDevice",
+          "when": "view == yyds.deviceView",
+          "group": "navigation"
+        },
+        {
+          "command": "yyds.activateEngine",
+          "when": "view == yyds.deviceView",
+          "group": "navigation"
+        },
+        {
+          "command": "yyds.disconnect",
+          "when": "view == yyds.deviceView",
+          "group": "navigation"
+        },
+        {
+          "command": "yyds.pushAndRun",
+          "when": "view == yyds.actionsView",
+          "group": "navigation"
+        },
+        {
+          "command": "yyds.stop",
+          "when": "view == yyds.actionsView",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/run": [
+        {
+          "command": "yyds.pushAndRun",
+          "group": "navigation@1",
+          "when": "resourceExtname == .py"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "yyds.showUiDesigner",
+          "group": "yyds@1",
+          "when": "resourceFilename == ui.yml"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "yyds.pushAndRun",
+          "group": "yyds@1",
+          "when": "editorLangId == python"
+        },
+        {
+          "command": "yyds.runSelectedCode",
+          "group": "yyds@2",
+          "when": "editorLangId == python"
+        },
+        {
+          "command": "yyds.runCurrentFile",
+          "group": "yyds@3",
+          "when": "editorLangId == python"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "yyds.pushAndRun",
+        "key": "ctrl+alt+1",
+        "when": "editorLangId == python"
+      },
+      {
+        "command": "yyds.stop",
+        "key": "ctrl+alt+2",
+        "when": "editorLangId == python"
+      },
+      {
+        "command": "yyds.runSelectedCode",
+        "key": "ctrl+enter",
+        "when": "editorTextFocus && editorLangId == python"
+      },
+      {
+        "command": "yyds.runCurrentFile",
+        "key": "ctrl+shift+enter",
+        "when": "editorTextFocus && editorLangId == python"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "yyds-sidebar",
+          "title": "Yyds.Auto",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "yyds-sidebar": [
+        {
+          "id": "yyds.deviceView",
+          "name": "设备连接",
+          "type": "tree"
+        },
+        {
+          "id": "yyds.actionsView",
+          "name": "操作",
+          "type": "tree"
+        },
+        {
+          "type": "webview",
+          "id": "yyds.logView",
+          "name": "日志输出"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "yyds.deviceView",
+        "contents": "尚未连接设备。\n[连接设备](command:yyds.connectDevice)\n[ADB激活引擎](command:yyds.activateEngine)（非ROOT设备）\n[无线配对](command:yyds.pairDevice)（Android 11+）\n或者在底部状态栏点击输入设备IP。"
+      }
+    ],
+    "configuration": {
+      "title": "Yyds.Auto",
+      "properties": {
+        "yyds.deviceIp": {
+          "type": "string",
+          "default": "",
+          "description": "调试设备IP地址（留空则从 project.config 读取）"
+        },
+        "yyds.port": {
+          "type": "number",
+          "default": 61140,
+          "description": "设备端口号"
+        },
+        "yyds.autoConnect": {
+          "type": "boolean",
+          "default": true,
+          "description": "打开项目时自动连接设备"
+        },
+        "yyds.adbPath": {
+          "type": "string",
+          "default": "",
+          "description": "ADB 可执行文件路径（留空则自动探测，找不到时可自动下载）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "node esbuild.js --production",
+    "compile:tsc": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "vsix": "npx @vscode/vsce package --no-dependencies --allow-missing-repository",
+    "install": "npm run vsix && \"C:\\Program Files\\Microsoft VS Code\\bin\\code.cmd\" --install-extension yyds-auto-dev-plugin-1.0.0.vsix --force"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "@types/ws": "^8.5.0",
+    "esbuild": "^0.27.3",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "archiver": "^6.0.0",
+    "ws": "^8.16.0"
+  }
+}

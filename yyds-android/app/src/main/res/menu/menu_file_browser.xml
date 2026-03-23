@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/file_browser_search"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_new_file"
+        android:icon="@drawable/ic_add_file"
+        android:title="@string/file_browser_new_file"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_new_folder"
+        android:icon="@drawable/ic_create_new_folder"
+        android:title="@string/file_browser_new_folder"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/file_browser_sort"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/sort_name" android:title="@string/file_browser_sort_name" />
+            <item android:id="@+id/sort_size" android:title="@string/file_browser_sort_size" />
+            <item android:id="@+id/sort_date" android:title="@string/file_browser_sort_date" />
+            <item android:id="@+id/sort_type" android:title="@string/file_browser_sort_type" />
+        </menu>
+    </item>
+</menu>

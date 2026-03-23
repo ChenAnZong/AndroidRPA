@@ -1,0 +1,41 @@
+#!/sbin/sh
+
+#################
+# 初始化
+#################
+
+TMPDIR=/dev/tmp
+rm -rf $TMPDIR
+mkdir -p $TMPDIR
+
+# 安装日志输出（stdout/stderr → recovery UI 或 Magisk Manager）
+OUTFD=$2
+ZIPFILE=$3
+
+ui_print() {
+  echo -e "ui_print $1\nui_print" >> /proc/self/fd/$OUTFD
+}
+
+# 解压模块
+ui_print "- 解压模块文件"
+unzip -o "$ZIPFILE" -d $TMPDIR >/dev/null 2>&1
+
+#################
+# 安装
+#################
+
+MODPATH=/data/adb/modules/yyds_autostart
+
+ui_print "- 安装 Yyds.Auto 开机自启模块"
+mkdir -p $MODPATH
+
+# 复制模块文件
+cp -af $TMPDIR/module.prop $MODPATH/
+cp -af $TMPDIR/service.sh $MODPATH/
+chmod 0755 $MODPATH/service.sh
+
+# 清理临时文件
+rm -rf $TMPDIR
+
+ui_print "- 安装完成"
+ui_print "- 重启后生效"

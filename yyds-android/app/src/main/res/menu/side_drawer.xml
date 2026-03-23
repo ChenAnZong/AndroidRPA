@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <group android:checkableBehavior="single"-->
+<!--        android:id="@+id/group_reg">-->
+<!--        <item android:title="用户">-->
+<!--            <menu>-->
+<!--                <item-->
+<!--                    android:id="@+id/nav_register"-->
+<!--                    android:title="注册软件" />-->
+<!--            </menu>-->
+<!--        </item>-->
+<!--    </group>-->
+
+    <group android:checkableBehavior="single"
+     >
+        <item android:title="@string/drawer_quick_actions">
+            <menu>
+                <item
+                    android:id="@+id/nav_floating_window"
+                    android:icon="@drawable/ic_floating_window"
+                    android:title="@string/drawer_floating_window" />
+
+                <item
+                    android:id="@+id/nav_pip_manager"
+                    android:icon="@drawable/ic_pip"
+                    android:title="@string/drawer_pip_manager" />
+
+                <item
+                    android:id="@+id/nav_input_method"
+                    android:icon="@drawable/ic_keyboard"
+                    android:title="@string/drawer_input_method" />
+
+                <item
+                    android:id="@+id/nav_position_tool"
+                    android:icon="@drawable/ic_crosshair"
+                    android:title="@string/drawer_position_tool" />
+
+                <item
+                    android:id="@+id/nav_touch_tool"
+                    android:icon="@drawable/ic_touch"
+                    android:title="@string/drawer_touch_tool" />
+
+                <item
+                    android:id="@+id/nav_debug_mode"
+                    android:icon="@drawable/ic_developer_mode"
+                    android:title="@string/drawer_debug_mode_on" />
+
+                <item
+                    android:id="@+id/nav_close_debug_mode"
+                    android:icon="@drawable/ic_developer_off"
+                    android:title="@string/drawer_debug_mode_off" />
+
+                <item
+                    android:id="@+id/nav_clear_cache"
+                    android:icon="@drawable/ic_cleaning"
+                    android:title="@string/drawer_clear_cache" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/sfot">
+        <item android:title="@string/drawer_software">
+            <menu>
+                <item
+                    android:id="@+id/nav_log"
+                    android:icon="@drawable/ic_log"
+                    android:title="@string/drawer_run_log" />
+
+                <item
+                    android:id="@+id/nav_update1"
+                    android:icon="@drawable/ic_update"
+                    android:title="@string/drawer_update_lanzou" />
+
+                <item
+                    android:id="@+id/nav_update2"
+                    android:icon="@drawable/ic_download"
+                    android:title="@string/drawer_update_123pan" />
+
+<!--                <item-->
+<!--                    android:id="@+id/nav_official"-->
+<!--                    android:title="在线教程" />-->
+
+                <item
+                    android:id="@+id/upload_log"
+                    android:icon="@drawable/ic_upload_log"
+                    android:title="@string/drawer_upload_log" />
+
+                <item
+                    android:id="@+id/nav_user_agreement"
+                    android:icon="@drawable/ic_agreement"
+                    android:title="@string/drawer_user_agreement" />
+
+                <item
+                    android:id="@+id/nav_privacy_agreement"
+                    android:icon="@drawable/ic_shield"
+                    android:title="@string/drawer_privacy_policy" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

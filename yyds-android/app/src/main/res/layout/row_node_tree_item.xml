@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="5dp"
+    android:paddingEnd="10dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:minHeight="36dp">
+
+    <!-- Indent spacer (width set programmatically based on depth) -->
+    <View
+        android:id="@+id/viewIndent"
+        android:layout_width="0dp"
+        android:layout_height="1dp" />
+
+    <!-- Expand/collapse arrow (visible only if node has children) -->
+    <ImageView
+        android:id="@+id/ivExpand"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:padding="3dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next"
+        android:visibility="gone"
+        android:contentDescription="@string/node_tree_expand" />
+
+    <!-- Clickable indicator (green dot for clickable nodes) -->
+    <View
+        android:id="@+id/viewClickable"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="6dp"
+        android:visibility="gone" />
+
+    <!-- Node info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvClassName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#EEEEEE"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text="FrameLayout" />
+
+        <TextView
+            android:id="@+id/tvNodeInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#888888"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:visibility="gone"
+            tools:text="&quot;Hello&quot; icon_btn"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <!-- Bounds badge -->
+    <TextView
+        android:id="@+id/tvBounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#555555"
+        android:textSize="9sp"
+        android:singleLine="true"
+        android:layout_marginStart="4dp"
+        tools:text="171x171"
+        tools:ignore="SmallSp" />
+</LinearLayout>
